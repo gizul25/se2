@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nkris\\Desktop\\SE2.Data\\SE2.Data.csproj",
+      "projectUniqueName": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\SE2.Data.csproj",
       "projectName": "SE2.Data",
-      "projectPath": "C:\\Users\\nkris\\Desktop\\SE2.Data\\SE2.Data.csproj",
+      "projectPath": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\SE2.Data.csproj",
       "packagesPath": "C:\\Users\\nkris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nkris\\Desktop\\SE2.Data\\obj\\",
+      "outputPath": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

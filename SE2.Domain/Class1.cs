@@ -1,4 +1,4 @@
-﻿namespace SE2.Logic;
+﻿namespace SE2.Domain;
 
 public class Class1
 {
