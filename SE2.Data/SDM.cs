@@ -8,39 +8,38 @@ public class SDM
 
     public void Load(string period)
     {
-        // try
-        // {
-        string filepath = GetFilepath(period);
-        StreamReader sr = new StreamReader(filepath);
-        // Skip the header
-        sr.ReadLine();
-
-        Sources.Clear();
-
-        while (true)
+        try
         {
-            Console.WriteLine("hello!");
-            string[] parts = sr.ReadLine()?.Split(",");
-            if (parts == null)
+            string filepath = GetFilepath(period);
+            StreamReader sr = new StreamReader(filepath);
+            // Skip the header
+            sr.ReadLine();
+
+            Sources.Clear();
+
+            while (true)
             {
-                break;
+                Console.WriteLine("hello!");
+                string[] parts = sr.ReadLine()?.Split(",");
+                if (parts == null)
+                {
+                    break;
+                }
+                SourceData sourceData = new();
+                sourceData.StartTime = DateTime.Parse(parts[1]);
+                sourceData.HeatDemand = float.Parse(parts[2]);
+                sourceData.ElectricityPrice = decimal.Parse(parts[3]);
+
+                Sources.Add(sourceData);
             }
-            SourceData sourceData = new();
-            sourceData.StartTime = DateTime.Parse(parts[1]);
-            sourceData.HeatDemand = float.Parse(parts[2]);
-            sourceData.ElectricityPrice = decimal.Parse(parts[3]);
 
-            Sources.Add(sourceData);
+            Console.WriteLine($"Length: {Sources.Count}");
+            Sources.ForEach(x => Console.WriteLine($"x {x}"));
         }
-
-        Console.WriteLine($"Length: {Sources.Count}");
-        Sources.ForEach(x => Console.WriteLine($"x {x}"));
-        // }
-        // catch (Exception e)
-        // {
-        //     Console.WriteLine("Exception: " + e.Message);
-        // }
-
+        catch (Exception e)
+        {
+            Console.WriteLine("Exception: " + e.Message);
+        }
     }
 
     string GetFilepath(string period)
