@@ -8,32 +8,24 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\nkris\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\lolle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\SE2.Data.csproj",
+      "projectUniqueName": "C:\\Users\\lolle\\Documents\\Project\\se2\\SE2.Data\\SE2.Data.csproj",
       "projectName": "SE2.Data",
-      "projectPath": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\SE2.Data.csproj",
-      "packagesPath": "C:\\Users\\nkris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nkris\\Desktop\\SE2\\SE2.Data\\obj\\",
+      "projectPath": "C:\\Users\\lolle\\Documents\\Project\\se2\\SE2.Data\\SE2.Data.csproj",
+      "packagesPath": "C:\\Users\\lolle\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lolle\\Documents\\Project\\se2\\SE2.Data\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\nkris\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\lolle\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
