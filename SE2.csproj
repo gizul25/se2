@@ -18,8 +18,4 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SE2.Logic\SE2.Logic.csproj" />
-  </ItemGroup>
 </Project>

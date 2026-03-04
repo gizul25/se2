@@ -1,0 +1,12 @@
+C:\Users\lolle\Documents\Project\se2\SE2.Data\bin\Debug\net10.0\SE2.Data.deps.json
+C:\Users\lolle\Documents\Project\se2\SE2.Data\bin\Debug\net10.0\SE2.Data.dll
+C:\Users\lolle\Documents\Project\se2\SE2.Data\bin\Debug\net10.0\SE2.Data.pdb
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.AssemblyInfoInputs.cache
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.AssemblyInfo.cs
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.csproj.CoreCompileInputs.cache
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.sourcelink.json
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.dll
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\refint\SE2.Data.dll
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\SE2.Data.pdb
+C:\Users\lolle\Documents\Project\se2\SE2.Data\obj\Debug\net10.0\ref\SE2.Data.dll
