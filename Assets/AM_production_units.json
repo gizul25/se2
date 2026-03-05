@@ -1,0 +1,46 @@
+{
+    "production units": [
+        {
+            "name": "GB1",
+            "maxHeat": 3.0,
+            "productionCosts": 510,
+            "Co2Emissions": 132,
+            "gasConsumption": 1.05
+        },
+        {
+            "name": "GB2",
+            "maxHeat": 2.0,
+            "productionCosts": 540,
+            "Co2Emissions": 134,
+            "gasConsumption": 1.08
+        },
+        {
+            "name": "GB3",
+            "maxHeat": 4.0,
+            "productionCosts": 580,
+            "Co2Emissions": 136,
+            "gasConsumption": 1.09
+        },
+        {
+            "name": "OB1",
+            "maxHeat": 6.0,
+            "productionCosts": 690,
+            "Co2Emissions": 147,
+            "oilConsumption": 1.18
+        },
+        {
+            "name": "GM1",
+            "maxHeat": 5.3,
+            "maxElectricity": 3.9,
+            "productionCosts": 975,
+            "Co2Emissions": 227,
+            "gasConsumption": 1.82
+        },
+        {
+            "name": "EB1",
+            "maxHeat": 6.0,
+            "maxElectricity": -6.0,
+            "productionCosts": 15
+        }
+    ]
+}
