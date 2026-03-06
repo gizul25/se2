@@ -45,9 +45,9 @@ public class SDM
     string GetFilepath(string period)
     {
         return period switch
-        { 
-            "winter" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","Assets","SDM_winter_period.csv"),
-            "summer" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","Assets","SDM_summer_period.csv"),
+        {
+            "winter" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "SDM_winter_period.csv"),
+            "summer" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "SDM_summer_period.csv"),
         };
     }
 }
