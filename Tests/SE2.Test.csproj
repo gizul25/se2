@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SE2.Data\SE2.Data.csproj" />
+    <ProjectReference Include="..\Optimizer\SE2.Data\SE2.Data.csproj" />
   </ItemGroup>
 
 </Project>
