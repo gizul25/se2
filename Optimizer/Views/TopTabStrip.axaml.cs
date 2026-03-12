@@ -39,7 +39,7 @@ public partial class TopTabStrip : UserControl
         TabNode.Items.Add(tabItem);
     }
 
-    public void TabNode_SelectionChanged(object sender, RoutedEventArgs e)
+    public void TabNode_SelectionChanged(object? sender, RoutedEventArgs e)
     {
         SelectIndex(TabNode.SelectedIndex);
     }
