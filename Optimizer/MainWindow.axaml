@@ -2,8 +2,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:c= "using:SE2.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SE2.MainWindow"
         Title="SE2">
-    Welcome to Avalonia!
+    <Window.Styles>
+        <Style Selector="TextBlock.title">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Styles>
+    <DockPanel LastChildFill="true">
+        <StackPanel Margin= "10" Spacing= "10"  DockPanel.Dock="Left">
+            <TextBlock HorizontalAlignment="Center" Classes= "title" Text= "HeatItOn"  />
+            <c:SideTabStrip Name= "SideTabStripNode"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Name= "InjectorNode"/>
+    </DockPanel>
 </Window>
