@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using SE2.Data;
 
 namespace SE2.Test
 {
@@ -19,6 +20,8 @@ namespace SE2.Test
             Assert.Throws<Exception>(() => sdm.Load("not existing"));
             Assert.Pass();
         }
+
+ 		
     }
 }
 
