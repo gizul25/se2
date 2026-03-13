@@ -8,8 +8,8 @@ public class SDM
 
     public void Load(string period)
     {
-        string filepath = GetFilepath(period);   
-        
+        string filepath = GetFilepath(period);
+
         StreamReader sr = new StreamReader(filepath);
 
         // Skip the header
@@ -29,7 +29,7 @@ public class SDM
             sourceData.StartTime = DateTime.Parse(parts[1]);
             sourceData.HeatDemand = float.Parse(parts[2]);
             sourceData.ElectricityPrice = decimal.Parse(parts[3]);
-            
+
             Sources.Add(sourceData);
         }
 
@@ -38,11 +38,6 @@ public class SDM
 
     string GetFilepath(string period)
     {
-        return period switch
-        {
-            "winter" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "SDM_winter_period.csv"),
-            "summer" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "SDM_summer_period.csv"),
-            _ => throw new Exception("invalid period")
-        };
+        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"SDM_{period}_period.csv");
     }
 }
