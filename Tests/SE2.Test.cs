@@ -21,7 +21,21 @@ namespace SE2.Test
             Assert.Pass();
         }
 
- 		
+        [Test]
+        public void SaveWinterRDM()
+        {
+            RDM rdm = new();
+            rdm.Save("winter");
+            Assert.Pass();
+        }
+
+        [Test]
+        public void LoadNotExistingRDM()
+        {
+            RDM rdm = new();
+            Assert.Throws<Exception>(() => rdm.Save("not existing"));
+            Assert.Pass();
+        }
     }
 }
 
