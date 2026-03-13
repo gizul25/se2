@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using SE2.Data;
 
 namespace SE2.Test
 {
@@ -25,6 +26,22 @@ namespace SE2.Test
         {
             SDM sdm = new();
             Assert.Throws<FileNotFoundException>(() => sdm.Load("not existing"));
+            Assert.Pass();
+        }
+
+        [Test]
+        public void SaveWinterRDM()
+        {
+            RDM rdm = new();
+            rdm.Save("winter");
+            Assert.Pass();
+        }
+
+        [Test]
+        public void LoadNotExistingRDM()
+        {
+            RDM rdm = new();
+            Assert.Throws<Exception>(() => rdm.Save("not existing"));
             Assert.Pass();
         }
     }
