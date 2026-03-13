@@ -13,10 +13,18 @@ namespace SE2.Test
         }
 
         [Test]
+        public void LoadWinterSDMEmptyStart()
+        {
+            SDM sdm = new();
+            Assert.Throws<IndexOutOfRangeException>(() => sdm.Load("winter_empty"));
+            Assert.Pass();
+        }
+
+        [Test]
         public void LoadNotExistingSDM()
         {
             SDM sdm = new();
-            Assert.Throws<Exception>(() => sdm.Load("not existing"));
+            Assert.Throws<FileNotFoundException>(() => sdm.Load("not existing"));
             Assert.Pass();
         }
     }
