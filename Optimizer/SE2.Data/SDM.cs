@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
+namespace SE2.Data;
 
 public class SDM
 {
@@ -10,7 +8,7 @@ public class SDM
     {
         string filepath = GetFilepath(period);
 
-        StreamReader sr = new StreamReader(filepath);
+        StreamReader sr = new(filepath);
 
         // Skip the header
         sr.ReadLine();
@@ -24,11 +22,12 @@ public class SDM
             {
                 break;
             }
-            SourceData sourceData = new();
-
-            sourceData.StartTime = DateTime.Parse(parts[1]);
-            sourceData.HeatDemand = float.Parse(parts[2]);
-            sourceData.ElectricityPrice = decimal.Parse(parts[3]);
+            SourceData sourceData = new()
+            {
+                StartTime = DateTime.Parse(parts[1]),
+                HeatDemand = float.Parse(parts[2]),
+                ElectricityPrice = decimal.Parse(parts[3])
+            };
 
             Sources.Add(sourceData);
         }

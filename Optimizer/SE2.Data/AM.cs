@@ -1,25 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text.Json;
 
-
+namespace SE2.Data;
 public class AM
 {
-    public List<Asset> Assets = new List<Asset>();
-    public Grid HeatingGrid = new Grid();
+    public List<Asset> Assets { get; set; } = [];
+    public Grid? HeatingGrid { get; set; }
 
     public void Load(string path)
     {
-        StreamReader r = new StreamReader(Path.Combine(path, "Assets", "AM_production_units.json"));
+        StreamReader r = new(Path.Combine(path, "Assets", "AM_production_units.json"));
         string assets = r.ReadToEnd();
-        Assets = JsonSerializer.Deserialize<List<Asset>>(assets);
+        Assets = JsonSerializer.Deserialize<List<Asset>>(assets) ?? [];
         r = new StreamReader(Path.Combine(path, "Assets", "AM_heating_grid.json"));
         string grid = r.ReadToEnd();
         HeatingGrid = JsonSerializer.Deserialize<Grid>(grid);
     }
-
 }
 
 
@@ -32,7 +27,7 @@ public class Asset
     public float? GasConsumption { get; set; }
     public float? MaxElectricity { get; set; }
     public float? OilConsumption { get; set; }
-    public string Image { get; set; }
+    public required string Image { get; set; }
 
     public override string? ToString()
     {
@@ -42,10 +37,10 @@ public class Asset
 
 public class Grid
 {
-    public string Image { get; set; }
-    public string City { get; set; }
+    public required string Image { get; set; }
+    public required string City { get; set; }
     public int Size { get; set; }
-    public string Architecture { get; set; }
+    public required string Architecture { get; set; }
 
     public override string? ToString()
     {
