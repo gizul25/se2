@@ -4,7 +4,7 @@ public class SDM
 {
     public List<SourceData> Sources = [];
 
-    public void Load(string period)
+    public void Load(IPeriod period)
     {
         string filepath = GetFilepath(period);
 
@@ -35,8 +35,8 @@ public class SDM
         Sources.ForEach(x => Console.WriteLine($"x {x}"));
     }
 
-    string GetFilepath(string period)
+    string GetFilepath(IPeriod period)
     {
-        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"SDM_{period}_period.csv");
+        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"SDM_{period.Period}_period.csv");
     }
 }

@@ -4,7 +4,7 @@ public class RDM
 {
     public List<ResultData> ResultingData = [];
 
-    public void Save(string period)
+    public void Save(IPeriod period)
     {
         string filepath = GetFilepath(period);
 
@@ -22,13 +22,8 @@ public class RDM
         sw.Close();
     }
 
-    string GetFilepath(string period)
+    string GetFilepath(IPeriod period)
     {
-        return period switch
-        {
-            "winter" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "RDM_winter_period.csv"),
-            "summer" => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", "RDM_summer_period.csv"),
-            _ => throw new Exception("invalid period")
-        };
+        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"RDM_{period.Period()}_period.csv");
     }
 }

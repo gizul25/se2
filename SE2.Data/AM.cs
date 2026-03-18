@@ -6,14 +6,27 @@ public class AM
     public List<Asset> Assets { get; set; } = [];
     public Grid? HeatingGrid { get; set; }
 
-    public void Load(string path)
+    public void Load()
     {
+        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..");
         StreamReader r = new(Path.Combine(path, "Assets", "AM_production_units.json"));
         string assets = r.ReadToEnd();
         Assets = JsonSerializer.Deserialize<List<Asset>>(assets) ?? [];
         r = new StreamReader(Path.Combine(path, "Assets", "AM_heating_grid.json"));
         string grid = r.ReadToEnd();
         HeatingGrid = JsonSerializer.Deserialize<Grid>(grid);
+    }
+
+    public Asset? GetAssetByName(string name)
+    {
+        foreach(Asset asset in Assets)
+        {
+            if (asset.Name == name) 
+            {
+                return asset;
+            }
+        }
+        return null;
     }
 }
 
