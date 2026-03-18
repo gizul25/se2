@@ -4,5 +4,88 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SE2.Views.OptimizerView">
-    This is optimizer view
+    <UserControl.Styles>
+        <Style Selector="Button.Button">
+            <Setter Property="Padding" Value="14,8,14,8"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Background" Value="#0F62FE"/>
+
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="RecognizesAccessKey" Value="True" />
+            </Style>
+
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter Property="Background" Value="#1155d5"/>
+            </Style>
+
+            <Style Selector="^:pressed">
+                <Setter Property="RenderTransform" Value="scale(0.98)" />
+            </Style>
+
+            <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter Property="Background" Value="#093c9a"/>
+            </Style>
+        </Style>
+        <Style Selector="TextBlock.Subheading">
+            <Setter Property="Foreground" Value="#697077"/>
+        </Style>
+        <Style Selector="TextBlock.Heading">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#21272A"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+    </UserControl.Styles>
+    <StackPanel Spacing= "12">
+        <Button  Classes= "Button" Content= "Run optimization"/>
+        <TextBlock Classes= "Heading" Text= "Optimization results"  />
+        <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
+            <Border Grid.Column="0" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Classes= "Subheading"  Text= " Total Profit"/>
+                    <TextBlock Classes= "Heading" Text= " DKK"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " Total Cost"/>
+                    <TextBlock Classes= "Heading" Text= " DKK"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="2" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " Heat Produced"/>
+                    <TextBlock Classes= "Heading" Text= " MWh"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="3" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " Electricity Consumed"/>
+                    <TextBlock Classes= "Heading" Text= " MWh"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="4" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " Electricity Produced"/>
+                    <TextBlock Classes= "Heading" Text= " MWh"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="5" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " Primary Energy"/>
+                    <TextBlock Classes= "Heading" Text= " -"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="6" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+                <StackPanel Spacing= "4">
+                    <TextBlock Text= " CO2 Emissions"/>
+                    <TextBlock Classes= "Heading" Text= " -"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <ComboBox SelectedIndex="0" MaxDropDownHeight="100">
+            <ComboBoxItem>All production units</ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
 </UserControl>
