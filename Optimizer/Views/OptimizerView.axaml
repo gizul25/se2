@@ -38,7 +38,7 @@
         </Style>
     </UserControl.Styles>
     <StackPanel Spacing= "12">
-        <Button  Classes= "Button" Content= "Run optimization"/>
+        <Button Name="OptimizerBtn" Classes= "Button" Content= "Run optimization"/>
         <TextBlock Classes= "Heading" Text= "Optimization results"  />
         <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
             <Border Grid.Column="0" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
@@ -84,7 +84,7 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <ComboBox SelectedIndex="0" MaxDropDownHeight="100">
+        <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100">
             <ComboBoxItem>All production units</ComboBoxItem>
         </ComboBox>
     </StackPanel>

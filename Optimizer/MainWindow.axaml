@@ -13,7 +13,7 @@
         </Style>
     </Window.Styles>
     <DockPanel LastChildFill="true">
-        <StackPanel Margin= "10" Spacing= "10"  DockPanel.Dock="Left">
+        <StackPanel Name= "MainSidePanel" Margin= "10" Spacing= "10"  DockPanel.Dock="Left">
             <TextBlock HorizontalAlignment="Center" Classes= "title" Text= "HeatItOn"  />
             <c:SideTabStrip Name= "SideTabStripNode"/>
         </StackPanel>
