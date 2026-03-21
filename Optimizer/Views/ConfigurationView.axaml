@@ -3,6 +3,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SE2.Views.ConfigurationView">
-    This is configuration view
+             x:Class="SE2.Views.ConfigurationView">     
+    <UserControl.Styles>
+        <Style Selector="TextBlock.Heading">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#21272A"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style Selector="TextBlock.Subheading">
+            <Setter Property="Foreground" Value="#697077"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Orientation="Vertical" Spacing="24">
+        <TextBlock Classes= "Heading" Text= "Allowed maintenance production units"/>
+        <WrapPanel  Orientation="Horizontal" 
+                    ItemSpacing="12"
+                    ItemWidth="210">
+            <ComboBox 
+                PlaceholderText="Select production unit... " MaxDropDownHeight="100">
+                <ComboBoxItem Content="Unit 1"/>
+                <ComboBoxItem Content="Unit 2"/>
+                <ComboBoxItem Content="Unit 3"/>
+            </ComboBox>
+        </WrapPanel>    
+        
+        <TextBlock Classes= "Heading" Text= "Maintenance period"/>
+        <StackPanel Orientation="Horizontal"
+                    Spacing="12">
+            <TextBlock Classes= "Heading" Text= "From"/>
+            <TextBox Width="210" Watermark="From"/>  
+            <TextBlock Classes= "Heading" Text= "to"/>
+            <TextBox Width="210" Watermark="To"/>
+            <TextBlock Classes= "Heading" Text= "hours"/>
+        </StackPanel>
+        <TextBlock Classes= "Heading" Text= "Priority"/>
+        <ComboBox 
+            PlaceholderText="Select priority..."
+            Width="210">
+            <ComboBoxItem Content="Boiler first"/>
+            <ComboBoxItem Content="None"/>
+        </ComboBox>
+    </StackPanel>
 </UserControl>
