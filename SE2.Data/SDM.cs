@@ -31,12 +31,10 @@ public class SDM
 
             Sources.Add(sourceData);
         }
-
-        Sources.ForEach(x => Console.WriteLine($"x {x}"));
     }
 
     string GetFilepath(IPeriod period)
     {
-        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"SDM_{period.Period}_period.csv");
+        return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Assets", $"SDM_{period.Period()}_period.csv");
     }
 }

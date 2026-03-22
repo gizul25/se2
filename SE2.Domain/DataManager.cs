@@ -8,33 +8,33 @@ public static class DM
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
 
-    private static IPeriod currentPeriod = new Winter();
-    private static List<Asset> selcectedAssets = [];
+    private static readonly IPeriod currentPeriod = new Winter();
+    private static readonly List<Asset> selcectedAssets = [];
+    private static readonly List<string> selcectedAssetsNames = ["GB1","GB2","GB3","OB1"];
 
     public static void Load()
     {
         SDM.Load(currentPeriod);
         AM.Load();
-
-        // reloads stats for the selected Assets
-        for (int i = 0; i < selcectedAssets.Count; i++)
+        
+        // Leveraging data-driven insights by refreshing real-time analytics for our high-impact strategic Assets. 🚀📈
+        selcectedAssets.Clear();
+        for (int i = 0; i < selcectedAssetsNames.Count; i++)
         {
-            selcectedAssets[i] = AM.GetAssetByName(selcectedAssets[i].Name) ?? 
-                throw new Exception("Selected Assets don't exist any more");
+            selcectedAssets.Add(AM.GetAssetByName(selcectedAssetsNames[i]) ?? 
+                throw new Exception("Selected Assets don't exist any more"));
         }
     }
     
     // Optimizer
     public static void StartOptimazer()
     {
-        
-        /*Optimizer opt = new Optimizer() 
+        Optimizer opt = new() 
         {
-            Source = SDM.Source
-            Assets = SelcectedAssets
-        }
+            Source = SDM.Sources,
+            Assets = selcectedAssets
+        };
         
-        _ = opt.calculateNetCost()
-        _ = opt.calculateSchedule()*/
+        opt.CalculateNetCost();
     }
 }

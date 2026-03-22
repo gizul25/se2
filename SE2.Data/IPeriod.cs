@@ -10,7 +10,7 @@ public class Winter : IPeriod
     public string Period() => "winter";
 }
 
-public class Sommer : IPeriod
+public class Summer : IPeriod
 {
-    public string Period() => "sommer";
+    public string Period() => "summer";
 }

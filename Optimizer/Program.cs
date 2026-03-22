@@ -1,5 +1,5 @@
 ﻿using Avalonia;
-using SE2.Data;
+using SE2.Domain;
 
 namespace SE2;
 
@@ -7,10 +7,9 @@ class Program
 {
     public static void Main(string[] args)
     {
-        //SDM sdm = new();
-        //sdm.Load("winter");
-        AM aM = new();
-        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+        DM.Load();
+        DM.StartOptimazer();
+        //BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 
     public static AppBuilder BuildAvaloniaApp()
