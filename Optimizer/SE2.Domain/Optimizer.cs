@@ -9,12 +9,12 @@ namespace SE2.Domain;
 
 public class Optimizer
 {
-    public List<SourceData> Sources;
-    public List<Asset> Assets;
+    public List<SourceData> Sources = new();
+    public List<Asset> Assets = new();
     
-    public List<ResultData> ResultBuffer;
-    public List<NetCostData> NetCostCache;
-    public List<ResultData> ScheduleCache;
+    public List<ResultData> ResultBuffer = new();
+    public List<NetCostData> NetCostCache = new();
+    public List<ResultData> ScheduleCache = new();
 
     public void OptimizerInit()
     {
@@ -32,7 +32,9 @@ public class Optimizer
         NetCostCache = new List<NetCostData>();
         ScheduleCache = new List<ResultData>();
 
-        Sources = Sources.OrderBy(x => x.StartTime).ToList();
+        Sources = Sources
+            .OrderBy(x => x.StartTime)
+            .ToList();
 
         foreach (var s in Sources)
         {
@@ -78,7 +80,7 @@ public class Optimizer
     public void writeResult(string period)
     {
         if (string.IsNullOrWhiteSpace(period))
-            throw new Exception("Period is null or empty", nameof(period));
+            throw new ArgumentException("Period is null or empty", nameof(period));
 
         if (ResultBuffer == null || ResultBuffer.Count == 0)
             throw new Exception("Result buffer is empty. Run optimization first.");
@@ -103,9 +105,11 @@ public class Optimizer
             throw new Exception("No assets initialized");
         }
 
-        Sources = Sources.OrderBy(x => x.StartTime).ToList();
+        Sources = Sources
+            .OrderBy(x => x.StartTime)
+            .ToList();
         
-        List<NetCostData> netCostSeries = [];
+        List<NetCostData> netCostSeries = new();
 
         foreach (var a in Assets)
         {
@@ -174,7 +178,10 @@ public class Optimizer
             throw new Exception("No assets initialized");
         }
         
-        Sources = Sources.OrderBy(x => x.StartTime).ToList();
+        Sources = Sources
+            .OrderBy(x => x.StartTime)
+            .ToList();
+        List<NetCostData> netCosts;
         
         if(NetCostCache == null || NetCostCache.Count == 0)
         {
@@ -185,15 +192,60 @@ public class Optimizer
             netCosts = NetCostCache;
         }
 
-        List<ResultData> results = [];
+        List<ResultData> results = new();
 
         foreach (var hour in Sources)
         {
-            demand = hour.HeatDemand;
-            remaining = demand;
+            decimal demand = (decimal)hour.HeatDemand;
+            decimal remaining = demand;
             
+            var hourlyCosts = netCosts
+                .Where(nc => nc.Time == hour.StartTime) 
+                .OrderBy(nc => nc.NetCost)
+                .ToList();
+
+            decimal totalHeatProduced = 0m;
+            decimal totalCost = 0m;
+            //decimal totalConsumption = 0m; // Optional
+            //decimal totalEmissions = 0m; // Optional
+
+            foreach (var nc in hourlyCosts)
+            {
+                if (remaining <= 0m)
+                {
+                    break;
+                }
+                
+                var asset = Assets.FirstOrDefault(a => a.Name == nc.AssetName);
+                if (asset == null)
+                {
+                    throw new Exception($"Asset {nc.AssetName} not found");
+                }
+                
+                decimal maxHeat = (decimal)asset.MaxHeat;
+                decimal heatProduced = Math.Min(maxHeat, remaining);
+                
+                totalHeatProduced += heatProduced;
+                totalCost += heatProduced * nc.NetCost;
+
+                remaining -= heatProduced;
+            }
+
+            if (remaining > 0)
+            {
+                throw new Exception("Not enough heat demands at this time");
+            }
             
+            results.Add(new ResultData{
+                Time = hour.StartTime,
+                HeatProduction = (float)totalHeatProduced,
+                Costs = totalCost
+                //Consumption = 0, // Optional
+                //Emissions = 0 // Optional
+            });
         }
+        ScheduleCache = results;
+        return results;
     }
         
 }

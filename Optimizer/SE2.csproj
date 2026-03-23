@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SE2.Domain\**\*.cs" />
+    <Compile Remove="SE2.Data\**\*.cs" />
+    <Compile Remove="SE2.Domain\obj\**\*.cs" />
+    <Compile Remove="SE2.Data\obj\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="SE2.Domain\SE2.Domain.csproj" />
+    <ProjectReference Include="SE2.Data\SE2.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.3.12" />
     <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12" />

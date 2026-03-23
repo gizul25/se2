@@ -4,6 +4,11 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+  
+  <ItemGroup>
+     <ProjectReference Include="..\SE2.Data\SE2.Data.csproj" />
+  </ItemGroup>
 
 </Project>
