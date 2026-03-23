@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.IO;
+using System;
+
 namespace SE2.Data;
 
 public class RDM
@@ -15,10 +19,10 @@ public class RDM
         foreach (var r in ResultingData)
         {
             sw.WriteLine($"{r.Time},{r.HeatProduction},{r.Costs},{r.Consumption},{r.Emissions}");
-            
+
             Console.WriteLine($"r {r}");
-        }   
-        
+        }
+
         sw.Close();
     }
 
