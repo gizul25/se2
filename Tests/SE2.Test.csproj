@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Optimizer\SE2.Data\SE2.Data.csproj" />
+    <ProjectReference Include="..\Optimizer\SE2.Domain\SE2.Domain.csproj" />
   </ItemGroup>
 
 </Project>
