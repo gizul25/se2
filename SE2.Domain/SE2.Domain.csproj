@@ -6,4 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SE2.Data\SE2.Data.csproj" />
+  </ItemGroup>
 </Project>

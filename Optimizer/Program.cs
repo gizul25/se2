@@ -4,7 +4,6 @@ namespace SE2;
 
 class Program
 {
-    [STAThread]
     public static void Main(string[] args)
     {
         //SDM sdm = new();
