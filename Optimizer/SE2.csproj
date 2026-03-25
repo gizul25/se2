@@ -23,11 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="TestGUI" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SE2.Domain\SE2.Domain.csproj" />
     <ProjectReference Include="..\SE2.Data\SE2.Data.csproj" />
+    <ProjectReference Include="..\SE2.Domain\SE2.Domain.csproj" />
   </ItemGroup>
 </Project>
