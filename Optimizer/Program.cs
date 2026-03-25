@@ -9,7 +9,7 @@ class Program
     {
         DM.Load();
         DM.StartOptimazer();
-        //BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 
     public static AppBuilder BuildAvaloniaApp()

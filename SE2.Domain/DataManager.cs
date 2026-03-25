@@ -2,6 +2,13 @@
 
 namespace SE2.Domain;
 
+/// <summary>
+/// This is the DataManage. 
+/// Here is the place where data get selected and transfered to the places where its needed.
+/// 
+/// Add Methods if its needed to get specific stuff from AM RDM SDM or more.
+/// </summary>
+
 public static class DM
 {
     public static AM AM { get; } = new();
@@ -26,7 +33,7 @@ public static class DM
         }
     }
     
-    // Optimizer
+    // Optimizer placeholder
     public static void StartOptimazer()
     {
         Optimizer opt = new() 
