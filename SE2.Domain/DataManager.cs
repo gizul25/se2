@@ -1,4 +1,5 @@
-﻿using SE2.Data;
+﻿using System.Dynamic;
+using SE2.Data;
 
 namespace SE2.Domain;
 
@@ -14,10 +15,13 @@ public static class DM
     public static AM AM { get; } = new();
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
+    public static List<ResultData> Schedule { get; set; } = new();
 
     private static readonly IPeriod currentPeriod = new Winter();
     private static readonly List<Asset> selcectedAssets = [];
     private static readonly List<string> selcectedAssetsNames = ["GB1","GB2","GB3","OB1"];
+
+    private static readonly Optimizer optimizer = new();
 
     public static void Load()
     {
@@ -33,15 +37,26 @@ public static class DM
         }
     }
     
-    // Optimizer placeholder
     public static void StartOptimazer()
     {
-        Optimizer opt = new() 
-        {
-            Source = SDM.Sources,
-            Assets = selcectedAssets
-        };
+        Load();
+
+        optimizer.Sources = SDM.Sources;
+        optimizer.Assets = selcectedAssets;
+        optimizer.OptimizerInit();
         
-        opt.CalculateNetCost();
+        // Writing the results of Optimizer
+        decimal totalNetCost = 0;
+        foreach (NetCostData netCostData in optimizer.CalculateNetCost())
+        {
+            totalNetCost += netCostData.NetCost;
+        }
+
+        Console.WriteLine(totalNetCost); 
+
+        // Writing the results of the experimental Optimizer
+        new Optimizerv1() { Source = SDM.Sources, Assets = selcectedAssets}.CalculateNetCost();
+        
+        Schedule = optimizer.CalculateSchedule();
     }
 }

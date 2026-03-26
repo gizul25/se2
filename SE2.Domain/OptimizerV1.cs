@@ -7,7 +7,7 @@ namespace SE2.Domain;
 /// Also it surves as a place holder for DM (DataManager)
 /// </summary>
 
-public class Optimizer
+public class Optimizerv1
 {
     public required List<SourceData> Source { get; set; }
     public required List<Asset> Assets { get; set; }
