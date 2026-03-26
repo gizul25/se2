@@ -17,6 +17,6 @@
             <TextBlock HorizontalAlignment="Center" Classes= "title" Text= "HeatItOn"  />
             <c:SideTabStrip Name= "SideTabStripNode"/>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Right" Name= "InjectorNode"/>
+        <Panel DockPanel.Dock="Right" Name= "InjectorNode"/>
     </DockPanel>
 </Window>
