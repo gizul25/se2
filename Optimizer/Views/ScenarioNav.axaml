@@ -19,16 +19,18 @@
             <Setter Property="Margin" Value="0,0,20,0" />
         </Style>
     </UserControl.Styles>
-    <StackPanel Margin="10" Spacing="10">
-        <TextBlock Name= "Title" Classes="h1" />
-        <DockPanel LastChildFill="true">
+    <DockPanel Margin="10" VerticalSpacing= "10" LastChildFill= "true">
+        <TextBlock DockPanel.Dock= "Top" Name= "Title" Classes="h1" />
+        <DockPanel DockPanel.Dock= "Top" LastChildFill="true">
             <c:TopTabStrip Name= "TopTabStripNode"/>
             <ComboBox DockPanel.Dock="Right" HorizontalAlignment= "Right" VerticalAlignment= "Center" SelectedIndex="0" MaxDropDownHeight="100">
                 <ComboBoxItem>Winter period</ComboBoxItem>
                 <ComboBoxItem>Spring period</ComboBoxItem>
             </ComboBox>
         </DockPanel>
-        <Panel Name= "InjectorNode">
-        </Panel>
-    </StackPanel>
+        <ScrollViewer>
+            <Panel Name= "InjectorNode">
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
 </UserControl>
