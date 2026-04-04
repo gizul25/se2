@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace SE2.Data;
 
 public class SDM
@@ -25,8 +27,8 @@ public class SDM
             SourceData sourceData = new()
             {
                 StartTime = DateTime.Parse(parts[1]),
-                HeatDemand = float.Parse(parts[2]),
-                ElectricityPrice = decimal.Parse(parts[3])
+                HeatDemand = float.Parse(parts[2], CultureInfo.InvariantCulture),
+                ElectricityPrice = decimal.Parse(parts[3], CultureInfo.InvariantCulture)
             };
 
             Sources.Add(sourceData);
