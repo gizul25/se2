@@ -21,7 +21,8 @@ public partial class OptimizerView : UserControl
         viewModel = new OptimizerViewModel();
         DataContext = viewModel;
         viewModel.Charts.CollectionChanged += OnChartsChanged;
-        viewModel.Load((string)ProductionUnitsComboBox?.SelectedItem!);
+        viewModel.SelectedProductionUnit = (string)ProductionUnitsComboBox?.SelectedItem!;
+        viewModel.Load();
     }
 
     private void OnChartsChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -52,6 +53,8 @@ public partial class OptimizerView : UserControl
         {
             return;
         }
-        viewModel.Load((string)selectedItem);
+
+        viewModel.SelectedProductionUnit = (string)selectedItem;
+        viewModel.Load();
     }
 }

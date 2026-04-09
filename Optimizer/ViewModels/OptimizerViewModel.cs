@@ -1,5 +1,6 @@
 using System;
 using LiveChartsCore;
+using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
@@ -7,6 +8,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using SE2.Domain;
+using SE2.Data;
 
 namespace SE2.ViewModels;
 
@@ -37,57 +41,85 @@ public partial class OptimizerViewModel : ViewModelBase
     private bool _runEnabled = true;
 
     [ObservableProperty]
+    private bool _exportEnabled = false;
+
+    [ObservableProperty]
     private List<string> _productionUnits = ["Unit 1", "Unit 2", "Unit 3", "All production units"];
 
     [ObservableProperty]
+    private string _selectedProductionUnit = "All production units";
+
+    [ObservableProperty]
+    private bool _loadInProgress = false;
+
+    [ObservableProperty]
     private ObservableCollection<ChartControlViewModel> _charts = [];
+
+    
 
     [RelayCommand]
     private void RunOptimization()
     {
         RunEnabled = false;
+        DM.StartOptimizer();
+        ExportEnabled = true;
+        RunEnabled = true;
+        Load();
     }
 
-    // Selection name is anything contained in _productionUnits, that is unit name or "All production units"
-    public void Load(string selectionName)
+    [RelayCommand]
+    private void Export()
     {
+        DM.Export();
+    }
+
+    public void Load()
+    {
+        if (LoadInProgress)
+        {
+            return;
+        }
+
         Charts.Clear();
+        if (DM.RDM.ResultingData == null)
+        {
+            return;
+        }
+
+        LoadInProgress = true;
 
         var r = new Random();
 
         Axis[] xAxes =
         [
-            new Axis
-            {
-                Labeler = value =>
-                {
-                    var months = new[]
-                    {
-                        "Jan","Feb","Mar","Apr","May","Jun",
-                        "Jul","Aug","Sep","Oct","Nov","Dec"
-                    };
-
-                    int index = (int)(value / 10); // 120 points / 12 months
-
-                    if (value % 10 == 0 && index >= 0 && index < 12)
-                        return months[index];
-
-                    return "";
-                },
-
-                MinLimit = 0,
-                MaxLimit = 119,
-
-                MinStep = 10,
-                ForceStepToMin = true,
-
-                LabelsPaint = new SolidColorPaint(SKColors.Black),
-                SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
-                TextSize = 12
-            }
+            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
         ];
 
-        var heatProductionData = Make(r, 120, 400, 900);
+        List<string> prodUnits = [];
+        foreach (string productionUnit in DM.SelectedAssetNames)
+        {
+            prodUnits.Add(productionUnit);
+        }
+        prodUnits.Add("All production units");
+        ProductionUnits = prodUnits;
+
+        List<ResultRow> resultRows = [];
+        if (SelectedProductionUnit == "All production units")
+        {
+            resultRows = DM.RDM.ResultingData.ResultRows;
+        }
+        else
+        {
+            resultRows = DM.RDM.ResultingData.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow {
+                Time = r.Time,
+                HeatProduction = r.HeatProduction,
+                Costs = r.Costs,
+                Consumption = r.Consumption,
+                Emissions = r.Emissions,
+            }).ToList();
+        }
+
+        List<DateTimePoint> heatProductionData = resultRows.Select(r => new DateTimePoint(r.Time, r.HeatProduction)).ToList();
         ISeries[] heatProductionSeries =
         [
             Series("Optimized Heat Production Schedule", heatProductionData, new SKColor(70,70,70)),
@@ -100,36 +132,37 @@ public partial class OptimizerViewModel : ViewModelBase
         };
         Charts.Add(chartControlViewModel);
 
-        var netProductionData = Make(r, 120, 100, 200);
-        ISeries[] netProductionSeries =
-        [
-            Series("Net Production Cost", netProductionData, new SKColor(70,70,70)),
-        ];
-        ChartControlViewModel chartControlViewModel2 = new()
-        {
-            Title = "Net Production Cost",
-            Series = netProductionSeries,
-            XAxes = xAxes,
-        };
-        Charts.Add(chartControlViewModel2);
+        // var netProductionData = Make(r, 120, 100, 200);
+        // ISeries[] netProductionSeries =
+        // [
+        //     Series("Net Production Cost", netProductionData, new SKColor(70,70,70)),
+        // ];
+        // ChartControlViewModel chartControlViewModel2 = new()
+        // {
+        //     Title = "Net Production Cost",
+        //     Series = netProductionSeries,
+        //     XAxes = xAxes,
+        // };
+        // Charts.Add(chartControlViewModel2);
 
-        var additionalData = Make(r, 120, 100, 200);
-        ISeries[] additionalSeries =
-        [
-            Series("Additional Data", additionalData, new SKColor(70,70,70)),
-        ];
-        ChartControlViewModel chartControlViewModel3 = new()
-        {
-            Title = "Additional Data",
-            Series = additionalSeries,
-            XAxes = xAxes,
-        };
-        Charts.Add(chartControlViewModel3);
+        // var additionalData = Make(r, 120, 100, 200);
+        // ISeries[] additionalSeries =
+        // [
+        //     Series("Additional Data", additionalData, new SKColor(70,70,70)),
+        // ];
+        // ChartControlViewModel chartControlViewModel3 = new()
+        // {
+        //     Title = "Additional Data",
+        //     Series = additionalSeries,
+        //     XAxes = xAxes,
+        // };
+        // Charts.Add(chartControlViewModel3);
+        LoadInProgress = false;
     }
 
-    private static ISeries Series(string name, List<double> values, SKColor color)
+    private static ISeries Series(string name, List<DateTimePoint> values, SKColor color)
     {
-        return new LineSeries<double>
+        return new LineSeries<DateTimePoint>
         {
             Name = name,
             Values = values,

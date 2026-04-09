@@ -42,7 +42,10 @@
         </Style>
     </UserControl.Styles>
     <StackPanel Spacing= "12">
-        <Button Name="OptimizerBtn" Classes= "Button" Content= "Run optimization" IsEnabled="{Binding RunEnabled}" Command="{Binding RunOptimizationCommand}"/>
+        <StackPanel Orientation= "Horizontal" Spacing= "12">
+            <Button Name="OptimizerBtn" Classes= "Button" Content= "Run optimization" IsEnabled="{Binding RunEnabled}" Command="{Binding RunOptimizationCommand}"/>
+            <Button Name="ExportBtn" Classes= "Button" Content= "Export" IsEnabled="{Binding ExportEnabled}" Command="{Binding ExportCommand}"/>
+        </StackPanel>
         <TextBlock Classes= "Heading" Text= "Optimization results"  />
         <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
             <Border Grid.Column="0" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
@@ -109,7 +112,7 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding ProductionUnits}" SelectionChanged="SelectionChanged" />
+        <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding ProductionUnits}" SelectionChanged="SelectionChanged" SelectedItem="{Binding SelectedProductionUnit}" />
         <Grid  Name="ChartGrid"
                ColumnSpacing="20"
                RowSpacing="20"

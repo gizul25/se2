@@ -24,14 +24,13 @@ public class Optimizerv1
         Dictionary<DateTime, List<Asset>> result = [];
         foreach (SourceData data in Source)
         {
-            result.Add(data.StartTime, methods.AssetAssetSelector(data));
+            result.Add(data.StartTime, methods.AssetSelector(data));
         }
 
         // For Testing
         int sum = 0;
         foreach (List<Asset> assets in result.Values)
         {
-
             foreach (Asset asset in assets)
             {
                 sum += asset.ProductionCosts;
@@ -43,12 +42,12 @@ public class Optimizerv1
 
 public interface IMethods
 {
-    public List<Asset> AssetAssetSelector(SourceData data);
+    public List<Asset> AssetSelector(SourceData data);
 }
 
 public class MethodsCost(List<Asset> Assets) : IMethods
 {
-    public List<Asset> AssetAssetSelector(SourceData data)
+    public List<Asset> AssetSelector(SourceData data)
     {
         List<KeyValuePair<int, Asset>> UnsortedAssets = [];
 
@@ -76,7 +75,7 @@ public class MethodsCost(List<Asset> Assets) : IMethods
 
 public class MethodsHeat(List<Asset> Assets) : IMethods
 {
-    public List<Asset> AssetAssetSelector(SourceData data)
+    public List<Asset> AssetSelector(SourceData data)
     {
         List<KeyValuePair<float, Asset>> UnsortedAssets = [];
 
@@ -104,7 +103,7 @@ public class MethodsHeat(List<Asset> Assets) : IMethods
 
 public class MethodsEmission(List<Asset> Assets) : IMethods
 {
-    public List<Asset> AssetAssetSelector(SourceData data)
+    public List<Asset> AssetSelector(SourceData data)
     {
         List<KeyValuePair<int?, Asset>> UnsortedAssets = [];
 
