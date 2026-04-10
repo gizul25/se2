@@ -11,6 +11,11 @@
 
     <UserControl.Resources>
 
+        <ControlTheme x:Key="Heading" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="Foreground" Value="#21272A"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </ControlTheme>
 
         <ControlTheme x:Key="ConfirmButton" TargetType="Button">
             <Setter Property="Background" Value="#0f62fe"/>
@@ -43,79 +48,75 @@
         </ControlTheme>
 
 
-        <ControlTheme x:Key="Heading" TargetType="TextBlock">
-        </ControlTheme>
 
 
 
-        <Border x:Key="EditProductionUnitView" CornerRadius="8" Margin="0,0,0,0"
-                Background="#ffffff"
-                BorderBrush="#ffffff" BorderThickness="2"
-                Padding="5">
-            <StackPanel Height="480" Width="480" VerticalAlignment="Center">
-                <Panel>
-                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center">Edit production unit</TextBlock>
-                    <Button HorizontalAlignment="Right" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}">
-                        <TextBlock Text="&#xf00d;" FontFamily="{StaticResource FontAwesome}" FontSize="20" />
-                    </Button>
-                </Panel>
-                <ContentControl Content="{Binding SelectedProductionUnit}">
-                    <ContentControl.ContentTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Border Background="#f2f4f8" CornerRadius="0" Margin="0,10,0,0"
-                                        BorderBrush="#dde1e6" BorderThickness="2"
-                                        Padding="5" >
-                                    <UniformGrid Columns="1" Rows="8" RowSpacing="10">
-                                        <TextBlock Margin="5"
-                                                   Text="Production Unit" />
-                                        <TextBlock Margin="5"
-                                                   Text="Unit Type" />
-                                        <TextBlock Margin="5"
-                                                   Text="Production Costs" />
-                                        <TextBlock Margin="5"
-                                                   Text="Gas Consumption" />
-                                        <TextBlock Margin="5"
-                                                   Text="Electricity Consumption" />
-                                        <TextBlock Margin="5"
-                                                   Text="Electricity Production" />
-                                        <TextBlock Margin="5"
-                                                   Text="Max operation point" />
-                                        <TextBlock Margin="5"
-                                                   Text="CO2 Emissions" />
-                                    </UniformGrid>
-                                </Border>
-                                <Border CornerRadius="0" Margin="-2,10,0,0"
-                                        BorderBrush="#dde1e6" BorderThickness="2"
-                                        Padding="5" >
-                                    <UniformGrid Columns="1" Rows="8" RowSpacing="10">
-                                        <TextBlock Margin="5"
-                                                   Text="Production Unit" />
-                                        <ComboBox Margin="0" BorderThickness="0" HorizontalAlignment="Stretch"/>
-                                        <TextBlock Margin="5"
-                                                   Text="Production Costs" />
-                                        <TextBlock Margin="5"
-                                                   Text="Gas Consumption" />
-                                        <TextBlock Margin="5"
-                                                   Text="Electricity Consumption" />
-                                        <TextBlock Margin="5"
-                                                   Text="Electricity Production" />
-                                        <TextBlock Margin="5"
-                                                   Text="Max operation point" />
-                                        <TextBlock Margin="5"
-                                                   Text="CO2 Emissions" />
-                                    </UniformGrid>
-                                </Border>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ContentControl.ContentTemplate>
-                </ContentControl>
-                <UniformGrid Rows="1" Columns="2">
-                    <Button x:Name ="DeleteButton" Theme="{StaticResource CancelButton}" Content="Delete production unit" HorizontalAlignment="Left"/>
-                    <Button x:Name ="SaveButton" Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right"/>
-                </UniformGrid>
-            </StackPanel>
-        </Border>
+
+
+        <StackPanel x:Key="EditProductionUnitView" Height="480" Width="560" VerticalAlignment="Center">
+            <Panel Margin="0,10,0,0">
+                <TextBlock Theme="{StaticResource Heading}" HorizontalAlignment="Center" TextAlignment="Center">Edit production unit</TextBlock>
+                <Button HorizontalAlignment="Right" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}">
+                    <TextBlock Text="&#xf00d;" FontFamily="{StaticResource FontAwesome}" FontSize="20" />
+                </Button>
+            </Panel>
+            <ContentControl Content="{Binding SelectedProductionUnit}">
+                <ContentControl.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Border Background="#f2f4f8" CornerRadius="0" Margin="0,10,0,0"
+                                    BorderBrush="#dde1e6" BorderThickness="2"
+                                    Padding="5" >
+                                <UniformGrid Columns="1" Rows="8" RowSpacing="10">
+                                    <TextBlock Margin="5"
+                                               Text="Production Unit" />
+                                    <TextBlock Margin="5"
+                                               Text="Unit Type" />
+                                    <TextBlock Margin="5"
+                                               Text="Production Costs" />
+                                    <TextBlock Margin="5"
+                                               Text="Gas Consumption" />
+                                    <TextBlock Margin="5"
+                                               Text="Electricity Consumption" />
+                                    <TextBlock Margin="5"
+                                               Text="Electricity Production" />
+                                    <TextBlock Margin="5"
+                                               Text="Max operation point" />
+                                    <TextBlock Margin="5"
+                                               Text="CO2 Emissions" />
+                                </UniformGrid>
+                            </Border>
+                            <Border CornerRadius="0" Margin="-2,10,0,0"
+                                    BorderBrush="#dde1e6" BorderThickness="2"
+                                    Padding="5" >
+                                <UniformGrid Columns="1" Rows="8" RowSpacing="10">
+                                    <TextBlock Margin="5"
+                                               Text="Production Unit" />
+                                    <ComboBox Margin="0" BorderThickness="0" HorizontalAlignment="Stretch"/>
+                                    <TextBlock Margin="5"
+                                               Text="Production Costs" />
+                                    <TextBlock Margin="5"
+                                               Text="Gas Consumption" />
+                                    <TextBlock Margin="5"
+                                               Text="Electricity Consumption" />
+                                    <TextBlock Margin="5"
+                                               Text="Electricity Production" />
+                                    <TextBlock Margin="5"
+                                               Text="Max operation point" />
+                                    <TextBlock Margin="5"
+                                               Text="CO2 Emissions" />
+                                </UniformGrid>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ContentControl.ContentTemplate>
+            </ContentControl>
+            <UniformGrid Rows="1" Columns="2">
+                <Button x:Name ="DeleteButton" Theme="{StaticResource CancelButton}" Content="Delete production unit" HorizontalAlignment="Left" Margin="20 20"/>
+                <Button x:Name ="SaveButton" Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right" Margin="20 20"/>
+            </UniformGrid>
+        </StackPanel>
+
 
 
     </UserControl.Resources>
