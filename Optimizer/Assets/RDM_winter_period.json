@@ -2352,5 +2352,8718 @@
       "consumption": 0,
       "emissions": 0
     }
-  ]
+  ],
+  "scheduler_rows": [
+    {
+      "time": "2026-01-05T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T01:00:00",
+      "asset": "GB3",
+      "heat_production": 3.27,
+      "costs": 1896.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T02:00:00",
+      "asset": "GB3",
+      "heat_production": 3.56,
+      "costs": 2064.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T03:00:00",
+      "asset": "GB3",
+      "heat_production": 3.72,
+      "costs": 2157.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.8,
+      "costs": 2204.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T05:00:00",
+      "asset": "OB1",
+      "heat_production": 0.65,
+      "costs": 448.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.81,
+      "costs": 558.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.18,
+      "costs": 814.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.52,
+      "costs": 358.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.43,
+      "costs": 296.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.5,
+      "costs": 345.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.69,
+      "costs": 476.10,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.82,
+      "costs": 2215.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.35,
+      "costs": 1943.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.42,
+      "costs": 1983.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.55,
+      "costs": 2059.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T16:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T16:00:00",
+      "asset": "OB1",
+      "heat_production": 0.12,
+      "costs": 82.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T17:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T17:00:00",
+      "asset": "OB1",
+      "heat_production": 0.24,
+      "costs": 165.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T18:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T18:00:00",
+      "asset": "OB1",
+      "heat_production": 0.6,
+      "costs": 414.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T19:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T19:00:00",
+      "asset": "OB1",
+      "heat_production": 0.22,
+      "costs": 151.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T20:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T20:00:00",
+      "asset": "OB1",
+      "heat_production": 0.25,
+      "costs": 172.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T21:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T21:00:00",
+      "asset": "OB1",
+      "heat_production": 0.45,
+      "costs": 310.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T22:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T22:00:00",
+      "asset": "OB1",
+      "heat_production": 0.61,
+      "costs": 420.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T23:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-05T23:00:00",
+      "asset": "OB1",
+      "heat_production": 0.57,
+      "costs": 393.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T00:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T00:00:00",
+      "asset": "OB1",
+      "heat_production": 0.42,
+      "costs": 289.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T01:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T01:00:00",
+      "asset": "OB1",
+      "heat_production": 0.48,
+      "costs": 331.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T02:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T02:00:00",
+      "asset": "OB1",
+      "heat_production": 0.6,
+      "costs": 414.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T03:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T03:00:00",
+      "asset": "OB1",
+      "heat_production": 0.64,
+      "costs": 441.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T04:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T04:00:00",
+      "asset": "OB1",
+      "heat_production": 0.63,
+      "costs": 434.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T05:00:00",
+      "asset": "OB1",
+      "heat_production": 1.19,
+      "costs": 821.10,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T06:00:00",
+      "asset": "OB1",
+      "heat_production": 1.56,
+      "costs": 1076.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.63,
+      "costs": 1124.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.74,
+      "costs": 510.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.54,
+      "costs": 372.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.63,
+      "costs": 434.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.55,
+      "costs": 379.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.74,
+      "costs": 2169.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.78,
+      "costs": 1612.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T15:00:00",
+      "asset": "GB3",
+      "heat_production": 2.85,
+      "costs": 1653.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.76,
+      "costs": 2180.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.97,
+      "costs": 2302.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.32,
+      "costs": 1925.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T20:00:00",
+      "asset": "GB3",
+      "heat_production": 3.4,
+      "costs": 1972.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.58,
+      "costs": 2076.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T22:00:00",
+      "asset": "GB3",
+      "heat_production": 3.54,
+      "costs": 2053.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-06T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.57,
+      "costs": 2070.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T00:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T01:00:00",
+      "asset": "GB3",
+      "heat_production": 3.5,
+      "costs": 2030.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T02:00:00",
+      "asset": "GB3",
+      "heat_production": 3.5,
+      "costs": 2030.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T03:00:00",
+      "asset": "GB3",
+      "heat_production": 3.53,
+      "costs": 2047.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.69,
+      "costs": 2140.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T05:00:00",
+      "asset": "OB1",
+      "heat_production": 0.66,
+      "costs": 455.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.87,
+      "costs": 600.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.13,
+      "costs": 779.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.52,
+      "costs": 358.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.55,
+      "costs": 379.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.3,
+      "costs": 207.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.08,
+      "costs": 55.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.78,
+      "costs": 2192.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.46,
+      "costs": 2006.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.4,
+      "costs": 1972.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.63,
+      "costs": 2105.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T16:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T16:00:00",
+      "asset": "OB1",
+      "heat_production": 0.18,
+      "costs": 124.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T17:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T17:00:00",
+      "asset": "OB1",
+      "heat_production": 0.36,
+      "costs": 248.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T18:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T18:00:00",
+      "asset": "OB1",
+      "heat_production": 0.31,
+      "costs": 213.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.65,
+      "costs": 2117.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T20:00:00",
+      "asset": "GB3",
+      "heat_production": 3.52,
+      "costs": 2041.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T22:00:00",
+      "asset": "GB3",
+      "heat_production": 3.35,
+      "costs": 1943.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-07T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.21,
+      "costs": 1861.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T00:00:00",
+      "asset": "GB3",
+      "heat_production": 3.07,
+      "costs": 1780.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.94,
+      "costs": 1705.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.89,
+      "costs": 1676.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.97,
+      "costs": 1722.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.04,
+      "costs": 1763.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.8,
+      "costs": 2204.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T07:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.26,
+      "costs": 1890.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.53,
+      "costs": 2047.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.61,
+      "costs": 2093.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.36,
+      "costs": 1948.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.28,
+      "costs": 1902.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.12,
+      "costs": 1809.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.22,
+      "costs": 1867.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T16:00:00",
+      "asset": "GB3",
+      "heat_production": 2.75,
+      "costs": 1595.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T17:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T18:00:00",
+      "asset": "GB3",
+      "heat_production": 2.59,
+      "costs": 1502.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T19:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.81,
+      "costs": 1629.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.7,
+      "costs": 1566.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-08T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.79,
+      "costs": 1618.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.61,
+      "costs": 1513.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.56,
+      "costs": 1484.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.56,
+      "costs": 1484.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.58,
+      "costs": 1496.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.8,
+      "costs": 1624.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.43,
+      "costs": 1989.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.43,
+      "costs": 1989.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T07:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T08:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.14,
+      "costs": 1821.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.24,
+      "costs": 1879.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.02,
+      "costs": 1751.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.85,
+      "costs": 1653.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.16,
+      "costs": 1832.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.1,
+      "costs": 1798.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.06,
+      "costs": 1774.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T18:00:00",
+      "asset": "GB3",
+      "heat_production": 2.68,
+      "costs": 1554.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T19:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.72,
+      "costs": 1577.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.62,
+      "costs": 1519.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.62,
+      "costs": 1519.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-09T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.61,
+      "costs": 1513.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.54,
+      "costs": 1473.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.6,
+      "costs": 1508.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.72,
+      "costs": 1577.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.86,
+      "costs": 2238.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T07:00:00",
+      "asset": "OB1",
+      "heat_production": 0.17,
+      "costs": 117.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.55,
+      "costs": 2059.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.68,
+      "costs": 2134.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.57,
+      "costs": 2070.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.42,
+      "costs": 1983.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.07,
+      "costs": 1780.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.76,
+      "costs": 1600.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T15:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.32,
+      "costs": 1925.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.52,
+      "costs": 2041.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.09,
+      "costs": 1792.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.75,
+      "costs": 1595.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.77,
+      "costs": 1606.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-10T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.68,
+      "costs": 1554.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.74,
+      "costs": 1589.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.69,
+      "costs": 1560.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.92,
+      "costs": 1693.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.89,
+      "costs": 1676.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.98,
+      "costs": 1728.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.78,
+      "costs": 2192.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.02,
+      "costs": 13.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T07:00:00",
+      "asset": "OB1",
+      "heat_production": 0.25,
+      "costs": 172.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.65,
+      "costs": 2117.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.82,
+      "costs": 2215.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.77,
+      "costs": 2186.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.9,
+      "costs": 2262.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.85,
+      "costs": 2233.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.85,
+      "costs": 2233.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.75,
+      "costs": 2175.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.3,
+      "costs": 1914.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.86,
+      "costs": 2238.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.84,
+      "costs": 2227.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.79,
+      "costs": 2198.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.16,
+      "costs": 1832.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.98,
+      "costs": 1728.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.14,
+      "costs": 1821.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-11T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.01,
+      "costs": 1745.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T01:00:00",
+      "asset": "GB3",
+      "heat_production": 3.27,
+      "costs": 1896.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T02:00:00",
+      "asset": "GB3",
+      "heat_production": 3.56,
+      "costs": 2064.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T03:00:00",
+      "asset": "GB3",
+      "heat_production": 3.72,
+      "costs": 2157.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.8,
+      "costs": 2204.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T05:00:00",
+      "asset": "OB1",
+      "heat_production": 0.65,
+      "costs": 448.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.81,
+      "costs": 558.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.18,
+      "costs": 814.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.52,
+      "costs": 358.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.43,
+      "costs": 296.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.5,
+      "costs": 345.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.69,
+      "costs": 476.10,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.82,
+      "costs": 2215.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.35,
+      "costs": 1943.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.42,
+      "costs": 1983.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.55,
+      "costs": 2059.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T16:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T16:00:00",
+      "asset": "OB1",
+      "heat_production": 0.12,
+      "costs": 82.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T17:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T17:00:00",
+      "asset": "OB1",
+      "heat_production": 0.24,
+      "costs": 165.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T18:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T18:00:00",
+      "asset": "OB1",
+      "heat_production": 0.6,
+      "costs": 414.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T19:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T19:00:00",
+      "asset": "OB1",
+      "heat_production": 0.22,
+      "costs": 151.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T20:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T20:00:00",
+      "asset": "OB1",
+      "heat_production": 0.25,
+      "costs": 172.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T21:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T21:00:00",
+      "asset": "OB1",
+      "heat_production": 0.45,
+      "costs": 310.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T22:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T22:00:00",
+      "asset": "OB1",
+      "heat_production": 0.61,
+      "costs": 420.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T23:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-12T23:00:00",
+      "asset": "OB1",
+      "heat_production": 0.57,
+      "costs": 393.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T00:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T00:00:00",
+      "asset": "OB1",
+      "heat_production": 0.42,
+      "costs": 289.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T01:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T01:00:00",
+      "asset": "OB1",
+      "heat_production": 0.48,
+      "costs": 331.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T02:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T02:00:00",
+      "asset": "OB1",
+      "heat_production": 0.6,
+      "costs": 414.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T03:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T03:00:00",
+      "asset": "OB1",
+      "heat_production": 0.64,
+      "costs": 441.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T04:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T04:00:00",
+      "asset": "OB1",
+      "heat_production": 0.63,
+      "costs": 434.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T05:00:00",
+      "asset": "OB1",
+      "heat_production": 1.19,
+      "costs": 821.10,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T06:00:00",
+      "asset": "OB1",
+      "heat_production": 1.56,
+      "costs": 1076.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.63,
+      "costs": 1124.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.74,
+      "costs": 510.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.54,
+      "costs": 372.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.63,
+      "costs": 434.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.55,
+      "costs": 379.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.74,
+      "costs": 2169.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.78,
+      "costs": 1612.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T15:00:00",
+      "asset": "GB3",
+      "heat_production": 2.85,
+      "costs": 1653.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.76,
+      "costs": 2180.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.97,
+      "costs": 2302.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.32,
+      "costs": 1925.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T20:00:00",
+      "asset": "GB3",
+      "heat_production": 3.4,
+      "costs": 1972.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.58,
+      "costs": 2076.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T22:00:00",
+      "asset": "GB3",
+      "heat_production": 3.54,
+      "costs": 2053.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-13T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.57,
+      "costs": 2070.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T00:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T01:00:00",
+      "asset": "GB3",
+      "heat_production": 3.5,
+      "costs": 2030.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T02:00:00",
+      "asset": "GB3",
+      "heat_production": 3.5,
+      "costs": 2030.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T03:00:00",
+      "asset": "GB3",
+      "heat_production": 3.53,
+      "costs": 2047.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.69,
+      "costs": 2140.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T05:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T05:00:00",
+      "asset": "OB1",
+      "heat_production": 0.66,
+      "costs": 455.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.87,
+      "costs": 600.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T07:00:00",
+      "asset": "OB1",
+      "heat_production": 1.13,
+      "costs": 779.70,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T08:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T08:00:00",
+      "asset": "OB1",
+      "heat_production": 0.52,
+      "costs": 358.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T09:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T09:00:00",
+      "asset": "OB1",
+      "heat_production": 0.55,
+      "costs": 379.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T10:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T10:00:00",
+      "asset": "OB1",
+      "heat_production": 0.3,
+      "costs": 207.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T11:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T11:00:00",
+      "asset": "OB1",
+      "heat_production": 0.08,
+      "costs": 55.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.78,
+      "costs": 2192.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.46,
+      "costs": 2006.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.4,
+      "costs": 1972.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.63,
+      "costs": 2105.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T16:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T16:00:00",
+      "asset": "OB1",
+      "heat_production": 0.18,
+      "costs": 124.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T17:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T17:00:00",
+      "asset": "OB1",
+      "heat_production": 0.36,
+      "costs": 248.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T18:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T18:00:00",
+      "asset": "OB1",
+      "heat_production": 0.31,
+      "costs": 213.90,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.65,
+      "costs": 2117.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T20:00:00",
+      "asset": "GB3",
+      "heat_production": 3.52,
+      "costs": 2041.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.47,
+      "costs": 2012.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T22:00:00",
+      "asset": "GB3",
+      "heat_production": 3.35,
+      "costs": 1943.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-14T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.21,
+      "costs": 1861.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T00:00:00",
+      "asset": "GB3",
+      "heat_production": 3.07,
+      "costs": 1780.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.94,
+      "costs": 1705.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.89,
+      "costs": 1676.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.97,
+      "costs": 1722.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T04:00:00",
+      "asset": "GB3",
+      "heat_production": 3.04,
+      "costs": 1763.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.8,
+      "costs": 2204.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T07:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.26,
+      "costs": 1890.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.53,
+      "costs": 2047.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.61,
+      "costs": 2093.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.36,
+      "costs": 1948.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.28,
+      "costs": 1902.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.12,
+      "costs": 1809.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.22,
+      "costs": 1867.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T16:00:00",
+      "asset": "GB3",
+      "heat_production": 2.75,
+      "costs": 1595.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T17:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T18:00:00",
+      "asset": "GB3",
+      "heat_production": 2.59,
+      "costs": 1502.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T19:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.81,
+      "costs": 1629.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.7,
+      "costs": 1566.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-15T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.79,
+      "costs": 1618.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.61,
+      "costs": 1513.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.56,
+      "costs": 1484.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.56,
+      "costs": 1484.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.58,
+      "costs": 1496.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.8,
+      "costs": 1624.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.43,
+      "costs": 1989.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.43,
+      "costs": 1989.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T07:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T08:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.14,
+      "costs": 1821.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.24,
+      "costs": 1879.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.02,
+      "costs": 1751.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.85,
+      "costs": 1653.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.16,
+      "costs": 1832.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.1,
+      "costs": 1798.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.06,
+      "costs": 1774.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T18:00:00",
+      "asset": "GB3",
+      "heat_production": 2.68,
+      "costs": 1554.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T19:00:00",
+      "asset": "GB3",
+      "heat_production": 2.87,
+      "costs": 1664.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.72,
+      "costs": 1577.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.62,
+      "costs": 1519.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.62,
+      "costs": 1519.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-16T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.61,
+      "costs": 1513.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.54,
+      "costs": 1473.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.6,
+      "costs": 1508.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.72,
+      "costs": 1577.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.99,
+      "costs": 1734.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.7,
+      "costs": 2146.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T06:00:00",
+      "asset": "GB3",
+      "heat_production": 3.86,
+      "costs": 2238.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T07:00:00",
+      "asset": "OB1",
+      "heat_production": 0.17,
+      "costs": 117.30,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.55,
+      "costs": 2059.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.68,
+      "costs": 2134.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.57,
+      "costs": 2070.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.42,
+      "costs": 1983.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.07,
+      "costs": 1780.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T13:00:00",
+      "asset": "GB3",
+      "heat_production": 2.76,
+      "costs": 1600.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T14:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T15:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.32,
+      "costs": 1925.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.39,
+      "costs": 1966.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.52,
+      "costs": 2041.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.09,
+      "costs": 1792.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.83,
+      "costs": 1641.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T21:00:00",
+      "asset": "GB3",
+      "heat_production": 2.75,
+      "costs": 1595.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.77,
+      "costs": 1606.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-17T23:00:00",
+      "asset": "GB3",
+      "heat_production": 2.68,
+      "costs": 1554.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.74,
+      "costs": 1589.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T01:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T01:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T01:00:00",
+      "asset": "GB3",
+      "heat_production": 2.69,
+      "costs": 1560.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T02:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T02:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T02:00:00",
+      "asset": "GB3",
+      "heat_production": 2.92,
+      "costs": 1693.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T03:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T03:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T03:00:00",
+      "asset": "GB3",
+      "heat_production": 2.89,
+      "costs": 1676.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T04:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T04:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T04:00:00",
+      "asset": "GB3",
+      "heat_production": 2.98,
+      "costs": 1728.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T05:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T05:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T05:00:00",
+      "asset": "GB3",
+      "heat_production": 3.78,
+      "costs": 2192.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T06:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T06:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T06:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T06:00:00",
+      "asset": "OB1",
+      "heat_production": 0.02,
+      "costs": 13.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T07:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T07:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T07:00:00",
+      "asset": "GB3",
+      "heat_production": 4,
+      "costs": 2320,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T07:00:00",
+      "asset": "OB1",
+      "heat_production": 0.25,
+      "costs": 172.50,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T08:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T08:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T08:00:00",
+      "asset": "GB3",
+      "heat_production": 3.65,
+      "costs": 2117.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T09:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T09:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T09:00:00",
+      "asset": "GB3",
+      "heat_production": 3.82,
+      "costs": 2215.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T10:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T10:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T10:00:00",
+      "asset": "GB3",
+      "heat_production": 3.77,
+      "costs": 2186.60,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T11:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T11:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T11:00:00",
+      "asset": "GB3",
+      "heat_production": 3.9,
+      "costs": 2262.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T12:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T12:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T12:00:00",
+      "asset": "GB3",
+      "heat_production": 3.85,
+      "costs": 2233.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T13:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T13:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T13:00:00",
+      "asset": "GB3",
+      "heat_production": 3.85,
+      "costs": 2233.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T14:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T14:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T14:00:00",
+      "asset": "GB3",
+      "heat_production": 3.75,
+      "costs": 2175.00,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T15:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T15:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T15:00:00",
+      "asset": "GB3",
+      "heat_production": 3.3,
+      "costs": 1914.0,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T16:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T16:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T16:00:00",
+      "asset": "GB3",
+      "heat_production": 3.86,
+      "costs": 2238.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T17:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T17:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T17:00:00",
+      "asset": "GB3",
+      "heat_production": 3.84,
+      "costs": 2227.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T18:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T18:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T18:00:00",
+      "asset": "GB3",
+      "heat_production": 3.79,
+      "costs": 2198.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T19:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T19:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T19:00:00",
+      "asset": "GB3",
+      "heat_production": 3.16,
+      "costs": 1832.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T20:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T20:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T20:00:00",
+      "asset": "GB3",
+      "heat_production": 2.98,
+      "costs": 1728.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T21:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T21:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T21:00:00",
+      "asset": "GB3",
+      "heat_production": 3.14,
+      "costs": 1821.20,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T22:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T22:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T22:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T23:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T23:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-18T23:00:00",
+      "asset": "GB3",
+      "heat_production": 3.01,
+      "costs": 1745.80,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-19T00:00:00",
+      "asset": "GB1",
+      "heat_production": 3,
+      "costs": 1530,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-19T00:00:00",
+      "asset": "GB2",
+      "heat_production": 2,
+      "costs": 1080,
+      "consumption": 0,
+      "emissions": 0
+    },
+    {
+      "time": "2026-01-19T00:00:00",
+      "asset": "GB3",
+      "heat_production": 2.93,
+      "costs": 1699.40,
+      "consumption": 0,
+      "emissions": 0
+    }
+  ],
+  "total_profit": -1572407.4,
+  "total_cost": 1572407.4,
+  "heat_produced": 2870.3799999999974,
+  "electricity_consumed": 0,
+  "electricity_produced": 0,
+  "primary_energy": 0,
+  "co2_emissions": 0
 }

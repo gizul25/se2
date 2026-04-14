@@ -43,6 +43,7 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private bool _exportEnabled = false;
 
+    // bug if selected not all production units and then run optimization
     [ObservableProperty]
     private List<string> _productionUnits = ["Unit 1", "Unit 2", "Unit 3", "All production units"];
 
@@ -54,8 +55,6 @@ public partial class OptimizerViewModel : ViewModelBase
 
     [ObservableProperty]
     private ObservableCollection<ChartControlViewModel> _charts = [];
-
-    
 
     [RelayCommand]
     private void RunOptimization()
@@ -86,9 +85,17 @@ public partial class OptimizerViewModel : ViewModelBase
             return;
         }
 
+        var results = DM.RDM.ResultingData;
+
         LoadInProgress = true;
 
-        var r = new Random();
+        TotalProfit = results.TotalProfit;
+        TotalCost = results.TotalCost;
+        HeatProduced = results.HeatProduced;
+        ElectricityConsumed = results.ElectricityConsumed;
+        ElectricityProduced = results.ElectricityProduced;
+        PrimaryEnergy = results.PrimaryEnergy;
+        Co2Emissions = results.Co2Emissions;
 
         Axis[] xAxes =
         [
@@ -106,11 +113,11 @@ public partial class OptimizerViewModel : ViewModelBase
         List<ResultRow> resultRows = [];
         if (SelectedProductionUnit == "All production units")
         {
-            resultRows = DM.RDM.ResultingData.ResultRows;
+            resultRows = results.ResultRows;
         }
         else
         {
-            resultRows = DM.RDM.ResultingData.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow {
+            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow {
                 Time = r.Time,
                 HeatProduction = r.HeatProduction,
                 Costs = r.Costs,
@@ -124,39 +131,53 @@ public partial class OptimizerViewModel : ViewModelBase
         [
             Series("Optimized Heat Production Schedule", heatProductionData, new SKColor(70,70,70)),
         ];
-        ChartControlViewModel chartControlViewModel = new()
+        ChartControlViewModel heatProductionChart = new()
         {
             Title = "Optimized Heat Production Schedule",
             Series = heatProductionSeries,
             XAxes = xAxes,
         };
-        Charts.Add(chartControlViewModel);
+        Charts.Add(heatProductionChart);
 
-        // var netProductionData = Make(r, 120, 100, 200);
-        // ISeries[] netProductionSeries =
-        // [
-        //     Series("Net Production Cost", netProductionData, new SKColor(70,70,70)),
-        // ];
-        // ChartControlViewModel chartControlViewModel2 = new()
-        // {
-        //     Title = "Net Production Cost",
-        //     Series = netProductionSeries,
-        //     XAxes = xAxes,
-        // };
-        // Charts.Add(chartControlViewModel2);
+        List<DateTimePoint> costsData = resultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToList();
+        ISeries[] costsSeries =
+        [
+            Series("Costs Data", costsData, new SKColor(70,70,70)),
+        ];
+        ChartControlViewModel costsChart = new()
+        {
+            Title = "Costs Data",
+            Series = costsSeries,
+            XAxes = xAxes,
+        };
+        Charts.Add(costsChart);
 
-        // var additionalData = Make(r, 120, 100, 200);
-        // ISeries[] additionalSeries =
-        // [
-        //     Series("Additional Data", additionalData, new SKColor(70,70,70)),
-        // ];
-        // ChartControlViewModel chartControlViewModel3 = new()
-        // {
-        //     Title = "Additional Data",
-        //     Series = additionalSeries,
-        //     XAxes = xAxes,
-        // };
-        // Charts.Add(chartControlViewModel3);
+        List<DateTimePoint> consumptionData = resultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToList();
+        ISeries[] consumptionSeries =
+        [
+            Series("Consumption Data", consumptionData, new SKColor(70,70,70)),
+        ];
+        ChartControlViewModel consumptionChart = new()
+        {
+            Title = "Consumption Data",
+            Series = consumptionSeries,
+            XAxes = xAxes,
+        };
+        Charts.Add(consumptionChart);
+
+        List<DateTimePoint> emissionsData = resultRows.Select(r => new DateTimePoint(r.Time, r.Emissions)).ToList();
+        ISeries[] emissionsSeries =
+        [
+            Series("Emissions Data", emissionsData, new SKColor(70,70,70)),
+        ];
+        ChartControlViewModel emissionsChart = new()
+        {
+            Title = "Emissions Data",
+            Series = emissionsSeries,
+            XAxes = xAxes,
+        };
+        Charts.Add(emissionsChart);
+
         LoadInProgress = false;
     }
 

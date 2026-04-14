@@ -52,7 +52,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Classes= "Subheading"  Text= "Total Profit"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding TotalProfit}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding TotalProfit, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " DKK"/>
                     </StackPanel>
                 </StackPanel>
@@ -61,7 +61,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Total Cost"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding TotalCost}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding TotalCost, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " DKK"/>
                     </StackPanel>
                 </StackPanel>
@@ -70,7 +70,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Heat Produced"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding HeatProduced}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding HeatProduced, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -79,7 +79,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Consumed"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityConsumed}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityConsumed, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -88,7 +88,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Produced"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityProduced}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityProduced, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -97,7 +97,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Primary Energy"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding PrimaryEnergy}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding PrimaryEnergy, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -106,7 +106,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "CO2 Emissions"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding Co2Emissions}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding Co2Emissions, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= ""/>
                     </StackPanel>
                 </StackPanel>
