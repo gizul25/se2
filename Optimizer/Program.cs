@@ -8,7 +8,7 @@ class Program
     public static void Main(string[] args)
     {
         DM.Load();
-        DM.StartOptimazer();
+
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 
