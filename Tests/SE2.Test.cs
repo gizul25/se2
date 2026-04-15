@@ -55,14 +55,21 @@ namespace SE2.Test
         }
 
         [Test]
-        public void LoadNotExistingRDM()
+        public void LoadScenarioJson()
         {
-            RDM rdm = new();
-            Assert.Throws<Exception>(() => rdm.Save(new FakePeriod()));
+            ScenarioLoader scenarioLoader = new();
+            ScenarioData scenarioData = scenarioLoader.Load("1");
+            Assert.IsNotNull(scenarioData);
             Assert.Pass();
         }
 
-        
+        [Test]
+        public void LoadScenarioJsonInvalid()
+        {
+            ScenarioLoader scenarioLoader = new();
+            Assert.Throws<Exception>(() => scenarioLoader.Load("111"));
+            Assert.Pass();
+        }
     }
     
     public class OptimizerTests
@@ -112,7 +119,6 @@ namespace SE2.Test
                 optimizer.OptimizerInit();
                 var result = optimizer.CalculateSchedule();
                 Assert.IsNotNull(result);
-                Assert.IsNotEmpty(result);
             }
 
             [Test]

@@ -17,7 +17,7 @@ public static class DM
     public static SDM SDM { get; } = new();
 
     public static List<string> SelectedAssetNames { get; } = ["GB1","GB2","GB3","OB1"];
-    private static readonly IPeriod currentPeriod = new Winter();
+    private static IPeriod currentPeriod = new Winter();
     private static readonly List<Asset> selectedAssets = [];
 
     private static readonly Optimizer optimizer = new();
@@ -57,6 +57,11 @@ public static class DM
         // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
         
         RDM.ResultingData = optimizer.CalculateSchedule();
+    }
+
+    public static void UpdatePeriod(IPeriod period)
+    {
+        currentPeriod = period;
     }
 
     public static void Export()

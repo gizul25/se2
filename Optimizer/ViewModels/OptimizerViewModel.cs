@@ -72,6 +72,14 @@ public partial class OptimizerViewModel : ViewModelBase
         DM.Export();
     }
 
+    public void OnSelectedPeriodChange()
+    {
+        RunEnabled = true;
+        ExportEnabled = false;
+        DM.RDM.ResultingData = null;
+        Load();
+    }
+
     public void Load()
     {
         if (LoadInProgress)
@@ -82,6 +90,13 @@ public partial class OptimizerViewModel : ViewModelBase
         Charts.Clear();
         if (DM.RDM.ResultingData == null)
         {
+            TotalProfit = 0;
+            TotalCost = 0;
+            HeatProduced = 0;
+            ElectricityConsumed = 0;
+            ElectricityProduced = 0;
+            PrimaryEnergy = 0;
+            Co2Emissions = 0;
             return;
         }
 
@@ -117,7 +132,8 @@ public partial class OptimizerViewModel : ViewModelBase
         }
         else
         {
-            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow {
+            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow
+            {
                 Time = r.Time,
                 HeatProduction = r.HeatProduction,
                 Costs = r.Costs,
