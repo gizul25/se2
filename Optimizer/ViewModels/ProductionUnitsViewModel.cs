@@ -9,6 +9,8 @@ namespace SE2.ViewModels;
 
 public partial class ProductionUnitsViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private bool? _selectAll = false;
     public ObservableCollection<ProductionUnitsModel> ProductionUnits { get; set; }
     public ProductionUnitsViewModel()
     {
@@ -24,6 +26,15 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     [ObservableProperty]
     private ProductionUnitsModel? _selectedProductionUnit = new ProductionUnitsModel("Production Unit");
+
+    partial void OnSelectAllChanged(bool? value)
+    {
+        if (value.HasValue)
+        {
+            foreach (var productionUnit in ProductionUnits)
+                productionUnit.IsSelected = value.Value;
+        }
+    }
 
 
 }

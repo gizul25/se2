@@ -49,7 +49,7 @@
 
 
 
-        <StackPanel x:Key="EditProductionUnitView" Height="480" Width="560" VerticalAlignment="Center">
+        <StackPanel x:Key="EditProductionUnitView" Height="500" Width="560" VerticalAlignment="Center">
             <Panel Margin="0,10,0,10">
                 <TextBlock x:Name="Heading" Theme="{StaticResource Heading}" HorizontalAlignment="Center" TextAlignment="Center" Text="Edit production unit"/>
                 <Button HorizontalAlignment="Right" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}">
@@ -60,44 +60,30 @@
                 <ContentControl.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Border Background="#f2f4f8" CornerRadius="0" Margin="0,10,0,0"
+                            <Border Background="#f2f4f8" CornerRadius="0" Margin="-2,10,0,0"
                                     BorderBrush="#dde1e6" BorderThickness="2">
-                                <UniformGrid Width="230" Columns="1" Rows="8" RowSpacing="10">
-                                    <TextBlock Margin="5"
-                                               Text="Production Unit" />
-                                    <TextBlock Margin="5"
-                                               Text="Unit Type" />
-                                    <TextBlock Margin="5"
-                                               Text="Production Costs" />
-                                    <TextBlock Margin="5"
-                                               Text="Gas Consumption" />
-                                    <TextBlock Margin="5"
-                                               Text="Electricity Consumption" />
-                                    <TextBlock Margin="5"
-                                               Text="Electricity Production" />
-                                    <TextBlock Margin="5"
-                                               Text="Max operation point" />
-                                    <TextBlock Margin="5"
-                                               Text="CO2 Emissions" />
+                                <UniformGrid Width="230" Columns="1" Rows="8" RowSpacing="0">
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Production Unit" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Unit Type" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Production Costs" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Gas Consumption" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Electricity Consumption" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Electricity Production" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Max operation point" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="CO2 Emissions" /> </Border>
                                 </UniformGrid>
                             </Border>
                             <Border CornerRadius="0" Margin="-2,10,0,0"
                                     BorderBrush="#dde1e6" BorderThickness="2">
                                 <UniformGrid Width="230" Columns="1" Rows="8" RowSpacing="0">
-                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" Text="Production Unit"/> </Border>
-                                    <ComboBox Margin="0" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                    <TextBlock Margin="5"
-                                               Text="Production Costs" />
-                                    <TextBlock Margin="5"
-                                               Text="Gas Consumption" />
-                                    <TextBlock Margin="5"
-                                               Text="Electricity Consumption" />
-                                    <TextBlock Margin="5"
-                                               Text="Electricity Production" />
-                                    <TextBlock Margin="5"
-                                               Text="Max operation point" />
-                                    <TextBlock Margin="5"
-                                               Text="CO2 Emissions" />
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Margin="5" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <ComboBox Margin="0" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+                                    <Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBox Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
                                 </UniformGrid>
                             </Border>
                         </StackPanel>
@@ -105,8 +91,8 @@
                 </ContentControl.ContentTemplate>
             </ContentControl>
             <UniformGrid Rows="1" Columns="2">
-                <Button x:Name ="DeleteButton" Theme="{StaticResource CancelButton}" Content="Delete production unit" HorizontalAlignment="Left" Margin="35 20"/>
-                <Button x:Name ="SaveButton" Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right" Margin="35 20"/>
+                <Button x:Name ="DeleteButton" Theme="{StaticResource CancelButton}" Content="Delete production unit" HorizontalAlignment="Left" Margin="43 20"/>
+                <Button x:Name ="SaveButton" Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right" Margin="47 20"/>
             </UniformGrid>
         </StackPanel>
 
@@ -145,13 +131,13 @@
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
                             <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
                                 <TextBlock Margin="5"
-                                           Text="{Binding NetCost}" VerticalAlignment="Center">kr</TextBlock>
+                                           Text="{Binding NetCost, StringFormat='{}{0} kr'}" VerticalAlignment="Center"/>
                                 <TextBlock Margin="5"
-                                           Text="{Binding HeatCost}" VerticalAlignment="Center"/>
+                                           Text="{Binding HeatCost, StringFormat='{}{0} kr'}" VerticalAlignment="Center"/>
                                 <TextBlock Margin="5"
-                                           Text="{Binding ElectricityCost}" VerticalAlignment="Center"/>
+                                           Text="{Binding ElectricityCost, StringFormat='{}{0} kr'}" VerticalAlignment="Center"/>
                                 <TextBlock Margin="5"
-                                           Text="{Binding ElectricitySales}" VerticalAlignment="Center"/>
+                                           Text="{Binding ElectricitySales, StringFormat='{}{0} kr'}" VerticalAlignment="Center"/>
                             </UniformGrid>
                             <Button Grid.Row="0" Grid.Column="3" Background="Transparent" HorizontalAlignment="Right" Click="OpenEditUnitMenu">
                                 <TextBlock Text="&#xf304;" FontFamily="{StaticResource FontAwesome}" FontSize="20"/>
