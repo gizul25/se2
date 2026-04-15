@@ -32,7 +32,9 @@ public partial class ProductionUnitsViewModel : ViewModelBase
         if (value.HasValue)
         {
             foreach (var productionUnit in ProductionUnits)
+            {
                 productionUnit.IsSelected = value.Value;
+            }
         }
     }
 
