@@ -230,6 +230,11 @@ public class Optimizer
                 //Emissions = 0 // Optional
             });
         }
+
+        results.TotalCost = (double)results.ResultRows.Sum(r => r.Costs);
+        results.TotalProfit = -results.TotalCost;
+        results.HeatProduced = results.ResultRows.Sum(r => r.HeatProduction);
+
         return results;
     }
 }

@@ -9,6 +9,27 @@ public class ResultData
 
     [JsonPropertyName("scheduler_rows")]
     public List<SchedulerRow> SchedulerRows { get; set; } = [];
+
+    [JsonPropertyName("total_profit")]
+    public double TotalProfit { get; set; } = 0;
+
+    [JsonPropertyName("total_cost")]
+    public double TotalCost { get; set; } = 0;
+
+    [JsonPropertyName("heat_produced")]
+    public double HeatProduced { get; set; } = 0;
+    
+    [JsonPropertyName("electricity_consumed")]
+    public double ElectricityConsumed { get; set; } = 0;
+
+    [JsonPropertyName("electricity_produced")]
+    public double ElectricityProduced { get; set; } = 0;
+
+    [JsonPropertyName("primary_energy")]
+    public double PrimaryEnergy { get; set; } = 0;
+
+    [JsonPropertyName("co2_emissions")]
+    public double Co2Emissions { get; set; } = 0;
 }
 
 public class ResultRow

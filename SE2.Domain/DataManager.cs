@@ -54,7 +54,7 @@ public static class DM
         Console.WriteLine(totalNetCost); 
 
         // Writing the results of the experimental Optimizer
-        new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
+        // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
         
         RDM.ResultingData = optimizer.CalculateSchedule();
     }
