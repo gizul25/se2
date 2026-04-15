@@ -20,4 +20,17 @@ public partial class ProductionUnitsView : UserControl
         InitializeComponent();
         DataContext = new ProductionUnitsViewModel();
     }
+
+    private async void OpenEditUnitMenu(object? sender, RoutedEventArgs e)
+    {
+        Heading.Text = "Edit production unit";
+        DeleteButton.Content = "Delete production unit";
+        await DialogHost.Show(Resources["EditProductionUnitView"]!, "MainDialogHost");
+    }
+    private async void OpenAddUnitMenu(object? sender, RoutedEventArgs e)
+    {
+        Heading.Text = "Add production unit";
+        DeleteButton.Content = "Cancel";
+        await DialogHost.Show(Resources["EditProductionUnitView"]!, "MainDialogHost");
+    }
 }
