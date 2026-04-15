@@ -1,44 +1,47 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using SE2.Data;
+using SE2.Domain;
+using SE2.ViewModels;
+using SE2.Views;
 
 namespace SE2.Models;
 
-public class ProductionUnitsModel : INotifyPropertyChanged
+public partial class ProductionUnitsModel : Asset
 {
     private bool _isSelected;
+
+    public int UnitIndex { get; set; } = -1;
+
+    public event EventHandler? OpenEditUnit;
+    
     public bool IsSelected
     {
         get { return _isSelected; }
         set
         {
             _isSelected = value;
-            OnPropertyChanged(nameof(IsSelected));
+            if (value && !DM.SelectedAssetNames.Contains(Name))
+            {
+                DM.SelectedAssetNames.Add(Name);
+            }
+            else
+            {
+                DM.SelectedAssetNames.Remove(Name);
+            }
         }
     }
 
-    public string Name { get; set; }
-    public Tuple<int, int> NetCost { get; set; }
-    public Tuple<int, int> HeatCost { get; set; }
-    public Tuple<int, int> ElectricityCost { get; set; }
-    public Tuple<int, int> ElectricitySales { get; set; }
-    public int Emissions { get; set; }
-
-
-    public ProductionUnitsModel(string name, int netCost = 0, int heatCost = 0, int eCost = 0, int eSales = 0)
+    public ProductionUnitsModel()
     {
-        Name = name;
-        NetCost = Tuple.Create(netCost, 0); //Item1 - Normal Value, Item2 - Optimized Value
-        HeatCost = Tuple.Create(heatCost, 0);
-        ElectricityCost = Tuple.Create(eCost, 0);
-        ElectricitySales = Tuple.Create(eSales, 0);
         IsSelected = false;
     }
 
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    protected virtual void OnPropertyChanged(string propertyName)
+    [RelayCommand]
+    public void OpenEditUnitMenu()
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        OpenEditUnit?.Invoke(this, new());
     }
 }
