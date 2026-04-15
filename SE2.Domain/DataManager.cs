@@ -15,7 +15,6 @@ public static class DM
     public static AM AM { get; } = new();
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
-    public static List<ResultData> Schedule { get; set; } = new();
 
     public static List<string> SelectedAssetNames { get; } = ["GB1","GB2","GB3","OB1"];
     private static readonly IPeriod currentPeriod = new Winter();

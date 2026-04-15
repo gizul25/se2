@@ -42,14 +42,17 @@
         </Style>
     </UserControl.Styles>
     <StackPanel Spacing= "12">
-        <Button Name="OptimizerBtn" Classes= "Button" Content= "Run optimization" IsEnabled="{Binding RunEnabled}" Command="{Binding RunOptimizationCommand}"/>
+        <StackPanel Orientation= "Horizontal" Spacing= "12">
+            <Button Name="OptimizerBtn" Classes= "Button" Content= "Run optimization" IsEnabled="{Binding RunEnabled}" Command="{Binding RunOptimizationCommand}"/>
+            <Button Name="ExportBtn" Classes= "Button" Content= "Export" IsEnabled="{Binding ExportEnabled}" Command="{Binding ExportCommand}"/>
+        </StackPanel>
         <TextBlock Classes= "Heading" Text= "Optimization results"  />
         <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
             <Border Grid.Column="0" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Classes= "Subheading"  Text= "Total Profit"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding TotalProfit}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding TotalProfit, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " DKK"/>
                     </StackPanel>
                 </StackPanel>
@@ -58,7 +61,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Total Cost"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding TotalCost}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding TotalCost, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " DKK"/>
                     </StackPanel>
                 </StackPanel>
@@ -67,7 +70,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Heat Produced"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding HeatProduced}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding HeatProduced, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -76,7 +79,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Consumed"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityConsumed}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityConsumed, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -85,7 +88,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Produced"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityProduced}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding ElectricityProduced, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -94,7 +97,7 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Primary Energy"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding PrimaryEnergy}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding PrimaryEnergy, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= " MWh"/>
                     </StackPanel>
                 </StackPanel>
@@ -103,13 +106,13 @@
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "CO2 Emissions"/>
                     <StackPanel Orientation= "Horizontal">
-                        <TextBlock Classes= "Heading" Text= "{Binding Co2Emissions}"/>
+                        <TextBlock Classes= "Heading" Text= "{Binding Co2Emissions, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes= "Heading" Text= ""/>
                     </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>
-        <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding ProductionUnits}" SelectionChanged="SelectionChanged" />
+        <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding ProductionUnits}" SelectionChanged="SelectionChanged" SelectedItem="{Binding SelectedProductionUnit}" />
         <Grid  Name="ChartGrid"
                ColumnSpacing="20"
                RowSpacing="20"

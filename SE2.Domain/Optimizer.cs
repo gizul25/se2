@@ -1,16 +1,13 @@
 using SE2.Data;
 
-
 namespace SE2.Domain;
 
 public class Optimizer
 {
-    public List<SourceData>  Sources { get; set; } = new();
+    public List<SourceData> Sources { get; set; } = new();
     public List<Asset> Assets { get; set; } = new();
     
-    private List<ResultData> resultBuffer = new();
     private List<NetCostData> netCostCache = new();
-    private List<ResultData> scheduleCache = new();
 
     public void OptimizerInit()
     {
@@ -24,9 +21,7 @@ public class Optimizer
             throw new Exception("No assets defined");
         }
 
-        resultBuffer = new List<ResultData>();
         netCostCache = new List<NetCostData>();
-        scheduleCache = new List<ResultData>();
 
         Sources = Sources
             .OrderBy(x => x.StartTime)
@@ -38,10 +33,9 @@ public class Optimizer
             {
                 throw new Exception("Source is null");
             }
-            if(s.StartTime == default)
+            if (s.StartTime == default)
             {
                 throw new Exception("Source has no start time");
-                
             }
             if (s.HeatDemand < 0)
             {
@@ -49,7 +43,7 @@ public class Optimizer
             }
         }
 
-        foreach (var a in  Assets)
+        foreach (var a in Assets)
         {
             if (a == null)
             {
@@ -69,24 +63,6 @@ public class Optimizer
     public void OptimizerExit()
     {
         netCostCache?.Clear();
-        scheduleCache?.Clear();
-        resultBuffer?.Clear();
-    }
-
-    public void WriteResult(IPeriod period)
-    {
-        if (string.IsNullOrWhiteSpace(period.Period()))
-            throw new ArgumentException("Period is null or empty", nameof(period));
-
-        if (resultBuffer == null || resultBuffer.Count == 0)
-            throw new Exception("Result buffer is empty. Run optimization first.");
-
-        var rdm = new RDM
-        {
-            ResultingData = resultBuffer
-        };
-
-        rdm.Save(period);
     }
 
     public List<NetCostData> CalculateNetCost()
@@ -119,7 +95,7 @@ public class Optimizer
                 throw new Exception("Asset name is missing");
             }
             
-            if(a.MaxHeat <= 0)
+            if (a.MaxHeat <= 0)
             {
                 throw new Exception("Asset has no heat demand");
             }
@@ -133,7 +109,7 @@ public class Optimizer
                     throw new Exception("Source is null");
                 }
                 
-                if(hour.StartTime == default)
+                if (hour.StartTime == default)
                 {
                     throw new Exception("Source has no start time");
                 }
@@ -152,17 +128,20 @@ public class Optimizer
                     {
                         netCost = baseCost + (Math.Abs(elecPerHeat) *  price);
                     }
-                    
                 }
                 
-                netCostSeries.Add(new NetCostData{Time = hour.StartTime, AssetName = a.Name, NetCost = netCost});
+                netCostSeries.Add(new NetCostData {
+                    Time = hour.StartTime,
+                    AssetName = a.Name,
+                    NetCost = netCost
+                });
             }
         }
         netCostCache = netCostSeries;
         return netCostSeries;
     }
 
-    public List<ResultData> CalculateSchedule()
+    public ResultData CalculateSchedule()
     {
         if (Sources == null || Sources.Count == 0)
         {
@@ -180,7 +159,7 @@ public class Optimizer
         
         List<NetCostData> netCosts;
         
-        if(netCostCache == null || netCostCache.Count == 0)
+        if (netCostCache == null || netCostCache.Count == 0)
         {
             netCosts = CalculateNetCost();
         }
@@ -189,7 +168,7 @@ public class Optimizer
             netCosts = netCostCache;
         }
 
-        List<ResultData> results = new();
+        ResultData results = new();
 
         foreach (var hour in Sources)
         {
@@ -221,9 +200,19 @@ public class Optimizer
                 
                 decimal maxHeat = (decimal)asset.MaxHeat;
                 decimal heatProduced = Math.Min(maxHeat, remaining);
+                decimal cost = heatProduced * nc.NetCost;
+
+                results.SchedulerRows.Add(new SchedulerRow {
+                    Time = hour.StartTime,
+                    AssetName = asset.Name,
+                    HeatProduction = (double)heatProduced,
+                    Costs = cost,
+                    //Consumption = 0, // Optional
+                    //Emissions = 0 // Optional
+                });
                 
                 totalHeatProduced += heatProduced;
-                totalCost += heatProduced * nc.NetCost;
+                totalCost += cost;
 
                 remaining -= heatProduced;
             }
@@ -233,16 +222,19 @@ public class Optimizer
                 throw new Exception("Not enough heat demands at this time");
             }
             
-            results.Add(new ResultData{
+            results.ResultRows.Add(new ResultRow {
                 Time = hour.StartTime,
-                HeatProduction = (float)totalHeatProduced,
+                HeatProduction = (double)totalHeatProduced,
                 Costs = totalCost
                 //Consumption = 0, // Optional
                 //Emissions = 0 // Optional
             });
         }
-        scheduleCache = results;
+
+        results.TotalCost = (double)results.ResultRows.Sum(r => r.Costs);
+        results.TotalProfit = -results.TotalCost;
+        results.HeatProduced = results.ResultRows.Sum(r => r.HeatProduction);
+
         return results;
     }
-        
 }
