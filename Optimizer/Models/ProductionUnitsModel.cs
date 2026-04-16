@@ -4,9 +4,15 @@ using System.ComponentModel;
 
 namespace SE2.Models;
 
-public class ProductionUnitsModel : INotifyPropertyChanged
+public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
 {
     private bool _isSelected;
+
+    public int UnitIndex { get; set; } = -1;
+
+    public event EventHandler? OpenEditUnit;
+    public event PropertyChangedEventHandler? PropertyChanged;
+
     public bool IsSelected
     {
         get { return _isSelected; }
@@ -14,18 +20,25 @@ public class ProductionUnitsModel : INotifyPropertyChanged
         {
             _isSelected = value;
             OnPropertyChanged(nameof(IsSelected));
+            if (value && !DM.SelectedAssetNames.Contains(Name))
+            {
+                DM.SelectedAssetNames.Add(Name);
+                DM.Load();
+            }
+            else if(value == false)
+            {
+                DM.SelectedAssetNames.Remove(Name);
+                DM.Load();
+            }
         }
     }
 
-    public string Name { get; set; }
-    public Tuple<int, int> NetCost { get; set; }
-    public Tuple<int, int> HeatCost { get; set; }
-    public Tuple<int, int> ElectricityCost { get; set; }
-    public Tuple<int, int> ElectricitySales { get; set; }
-    public int Emissions { get; set; }
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 
-
-    public ProductionUnitsModel(string name, int netCost = 0, int heatCost = 0, int eCost = 0, int eSales = 0)
+    public ProductionUnitsModel()
     {
         Name = name;
         NetCost = Tuple.Create(netCost, 0); //Item1 - Normal Value, Item2 - Optimized Value

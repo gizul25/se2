@@ -22,11 +22,15 @@ public static class DM
 
     private static readonly Optimizer optimizer = new();
 
-    public static void Load()
+    public static void Init()
     {
         SDM.Load(currentPeriod);
         AM.Load();
-        
+        Load();
+    }
+
+    public static void Load()
+    {
         // Leveraging data-driven insights by refreshing real-time analytics for our high-impact strategic Assets. 🚀📈
         selectedAssets.Clear();
         for (int i = 0; i < SelectedAssetNames.Count; i++)
@@ -55,7 +59,7 @@ public static class DM
 
         // Writing the results of the experimental Optimizer
         // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
-        
+
         RDM.ResultingData = optimizer.CalculateSchedule();
     }
 
