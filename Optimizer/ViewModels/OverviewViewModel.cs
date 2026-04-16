@@ -3,6 +3,8 @@ using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
+using SE2.Domain;
+using System.Linq;
 
 namespace SE2.ViewModels;
 
@@ -18,26 +20,28 @@ public class OverviewViewModel
 
     public OverviewViewModel()
     {
-        var r = new Random();
+        /*var r = new Random();
 
         double[] Make(int min, int max)
         {
             var arr = new double[120];
             for (int i = 0; i < arr.Length; i++) arr[i] = r.Next(min, max);
             return arr;
-        }
+        }*/
 
-        var heatDemand = Make(400, 900);
-        var heatProduction = Make(350, 950);
+		var sources = DM.SDM.Sources;
 
-        var elecCons = Make(250, 750);
-        var elecProd = Make(250, 800);
+        var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var heatProduction = sources.Select(s => (double)s.HeatDemand).ToArray();
 
-        var gas = Make(200, 1000);
-        var elec = Make(250, 900);
+        var elecCons = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var elecProd = sources.Select(s => (double)s.HeatDemand).ToArray();
 
-        var expenses = Make(300, 900);
-        var profits = Make(450, 1000);
+        var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+
+        var expenses = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var profits = sources.Select(s => (double)s.ElectricityPrice).ToArray();
 
         HeatSeries =
         [
@@ -95,12 +99,23 @@ public class OverviewViewModel
             }
         ];
 
+		var allValues = heatDemand
+    		.Concat(heatProduction)
+    		.Concat(elecCons)
+    		.Concat(elecProd)
+    		.Concat(gas)
+    		.Concat(elec)
+    		.Concat(expenses)
+    		.Concat(profits);
+
+		var yMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
+
         YAxes =
         [
             new Axis
             {
                 MinLimit = 0,
-                MaxLimit = 1200,
+                MaxLimit = yMax,
                 LabelsPaint = new SolidColorPaint(SKColors.Black),
                 SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
                 TextSize = 12

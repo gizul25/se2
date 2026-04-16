@@ -144,33 +144,33 @@
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} kr    {1} kr'>
                                             <!-- Normal Value -->
-                                            <Binding Path="NetCost.Item1" />
+                                            <Binding Path="NetCostNormal" />
                                             <!-- Optimized Value -->
-                                            <Binding Path="NetCost.Item2" />
+                                            <Binding Path="NetCostOptimized" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
                                 <TextBlock Margin="5" VerticalAlignment="Center">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} kr    {1} kr'>
-                                            <Binding Path="HeatCost.Item1" />
-                                            <Binding Path="HeatCost.Item2" />
+                                            <Binding Path="HeatCostNormal" />
+                                            <Binding Path="HeatCostOptimized" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
                                 <TextBlock Margin="5" VerticalAlignment="Center">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} kr    {1} kr'>
-                                            <Binding Path="ElectricityCost.Item1" />
-                                            <Binding Path="ElectricityCost.Item2" />
+                                            <Binding Path="ElectricityCostNormal" />
+                                            <Binding Path="ElectricityCostOptimized" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
                                 <TextBlock Margin="5" VerticalAlignment="Center">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} kr    {1} kr'>
-                                            <Binding Path="ElectricitySales.Item1" />
-                                            <Binding Path="ElectricitySales.Item2" />
+                                            <Binding Path="ElectricitySalesNormal" />
+                                            <Binding Path="ElectricitySalesOptimized" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
