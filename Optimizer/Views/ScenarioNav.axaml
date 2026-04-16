@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c= "using:SE2.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SE2.Views.ScenarioNav">
+    <UserControl.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="Rectangle">
+            <Setter Property="Stroke" Value="black" />
+            <Setter Property="StrokeThickness" Value="1" />
+        </Style>
+        <Style Selector="TabStripItem">
+            <Setter Property="Padding" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="0,0,20,0" />
+        </Style>
+    </UserControl.Styles>
+    <DockPanel Margin="10" VerticalSpacing= "10" LastChildFill= "true">
+        <TextBlock DockPanel.Dock= "Top" Name= "Title" Classes="h1" />
+        <DockPanel DockPanel.Dock= "Top" LastChildFill="true">
+            <c:TopTabStrip Name= "TopTabStripNode"/>
+            <ComboBox DockPanel.Dock="Right" HorizontalAlignment= "Right" VerticalAlignment= "Center" SelectedIndex="0" MaxDropDownHeight="100">
+                <ComboBoxItem>Winter period</ComboBoxItem>
+                <ComboBoxItem>Spring period</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+        <ScrollViewer>
+            <Panel Name= "InjectorNode">
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

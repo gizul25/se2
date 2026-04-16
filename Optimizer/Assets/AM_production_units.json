@@ -1,0 +1,51 @@
+[
+    {
+        "Name": "GB1",
+        "MaxHeat": 3.0,
+        "ProductionCosts": 510,
+        "Co2Emissions": 132,
+        "GasConsumption": 1.05,
+        "Image": "Assets/images/GB.jpg"
+    },
+    {
+        "Name": "GB2",
+        "MaxHeat": 2.0,
+        "ProductionCosts": 540,
+        "Co2Emissions": 134,
+        "GasConsumption": 1.08,
+        "Image": "Assets/images/GB.jpg"
+
+    },
+    {
+        "Name": "GB3",
+        "MaxHeat": 4.0,
+        "ProductionCosts": 580,
+        "Co2Emissions": 136,
+        "GasConsumption": 1.09,
+        "Image": "Assets/images/GB.jpg"
+    },
+    {
+        "Name": "OB1",
+        "MaxHeat": 6.0,
+        "ProductionCosts": 690,
+        "Co2Emissions": 147,
+        "OilConsumption": 1.18,
+        "Image": "Assets/images/OB.jpg"
+    },
+    {
+        "Name": "GM1",
+        "MaxHeat": 5.3,
+        "MaxElectricity": 3.9,
+        "ProductionCosts": 975,
+        "Co2Emissions": 227,
+        "GasConsumption": 1.82,
+        "Image": "Assets/images/GM.jpg"
+    },
+    {
+        "Name": "EB1",
+        "MaxHeat": 6.0,
+        "MaxElectricity": -6.0,
+        "ProductionCosts": 15,
+        "Image": "Assets/images/EB.jpg"
+    }
+]

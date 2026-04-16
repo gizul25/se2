@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:SE2.ViewModels"
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SE2.Views.ChartControl"
+             x:DataType="vm:ChartControlViewModel">
+    <Border Height="400"
+            Background="White"
+            BorderBrush="#DDDDDD"
+            BorderThickness="1"
+            CornerRadius="6"
+            Padding="15">
+        <Grid RowDefinitions="Auto,*">
+            <TextBlock Text="{Binding Title}"
+                       FontWeight="Bold"
+                       Margin="0 0 0 10"/>
+            <lvc:CartesianChart Grid.Row="1"
+                                Series="{Binding Series}"
+                                XAxes="{Binding XAxes}"
+                                YAxes="{Binding YAxes}"
+                                LegendPosition="Hidden"
+                                Background="White"/>
+        </Grid>
+    </Border>
+</UserControl>
