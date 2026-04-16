@@ -39,7 +39,7 @@ public static class DM
                 throw new Exception("Selected Assets don't exist any more"));
         }
     }
-
+    
     public static void StartOptimizer()
     {
         Load();
@@ -47,7 +47,7 @@ public static class DM
         optimizer.Sources = SDM.Sources;
         optimizer.Assets = selectedAssets;
         optimizer.OptimizerInit();
-
+        
         // Writing the results of Optimizer
         decimal totalNetCost = 0;
         foreach (NetCostData netCostData in optimizer.CalculateNetCost())
