@@ -16,9 +16,10 @@ public static class DM
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
 
-    public static List<string> SelectedAssetNames { get; } = ["GB1","GB2","GB3","OB1"];
+    public static List<string> SelectedAssetNames { get; } = ["GB1", "GB2", "GB3", "OB1"];
     private static IPeriod currentPeriod = new Winter();
     private static readonly List<Asset> selectedAssets = [];
+    private static string scenarioName = "1";
 
     private static readonly Optimizer optimizer = new();
 
@@ -35,11 +36,13 @@ public static class DM
         selectedAssets.Clear();
         for (int i = 0; i < SelectedAssetNames.Count; i++)
         {
-            selectedAssets.Add(AM.GetAssetByName(SelectedAssetNames[i]) ?? 
+            selectedAssets.Add(AM.GetAssetByName(SelectedAssetNames[i]) ??
                 throw new Exception("Selected Assets don't exist any more"));
         }
+
+        AM.LoadScenario(scenarioName);
     }
-    
+
     public static void StartOptimizer()
     {
         Load();
@@ -47,7 +50,7 @@ public static class DM
         optimizer.Sources = SDM.Sources;
         optimizer.Assets = selectedAssets;
         optimizer.OptimizerInit();
-        
+
         // Writing the results of Optimizer
         decimal totalNetCost = 0;
         foreach (NetCostData netCostData in optimizer.CalculateNetCost())
@@ -55,7 +58,7 @@ public static class DM
             totalNetCost += netCostData.NetCost;
         }
 
-        Console.WriteLine(totalNetCost); 
+        Console.WriteLine(totalNetCost);
 
         // Writing the results of the experimental Optimizer
         // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
