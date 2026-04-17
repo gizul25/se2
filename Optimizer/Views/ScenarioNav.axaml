@@ -3,8 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:c= "using:SE2.Views"
+             xmlns:vm="using:SE2.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SE2.Views.ScenarioNav">
+             x:Class="SE2.Views.ScenarioNav"
+             x:DataType="vm:ScenarioNavViewModel">
     <UserControl.Styles>
         <Style Selector="TextBlock.h1">
             <Setter Property="FontSize" Value="28"/>
@@ -23,10 +25,7 @@
         <TextBlock DockPanel.Dock= "Top" Name= "Title" Classes="h1" />
         <DockPanel DockPanel.Dock= "Top" LastChildFill="true">
             <c:TopTabStrip Name= "TopTabStripNode"/>
-            <ComboBox DockPanel.Dock="Right" HorizontalAlignment= "Right" VerticalAlignment= "Center" SelectedIndex="0" MaxDropDownHeight="100">
-                <ComboBoxItem>Winter period</ComboBoxItem>
-                <ComboBoxItem>Spring period</ComboBoxItem>
-            </ComboBox>
+            <ComboBox Name= "PeriodComboBox" DockPanel.Dock="Right" HorizontalAlignment= "Right" VerticalAlignment= "Center" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding Periods}" SelectedItem="{Binding SelectedPeriod}"/>
         </DockPanel>
         <ScrollViewer>
             <Panel Name= "InjectorNode">

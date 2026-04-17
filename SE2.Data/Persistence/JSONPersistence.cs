@@ -15,16 +15,19 @@ public class JSONPersistence
         _jsonOptions = new JsonSerializerOptions { WriteIndented = true };
     }
 
-    public T? Load<T>()
+    public T Load<T>()
     {
         if (!File.Exists(_filePath))
         {
-            // Returns null but in a generic method
-            return default(T);
+            throw new Exception($"JSON file {_filePath} not found");
         }
 
         string json = File.ReadAllText(_filePath);
         T? data = JsonSerializer.Deserialize<T>(json);
+        if (data == null)
+        {
+            throw new Exception($"JSON file {_filePath} deserialization failed");
+        }
         return data;
     }
 
