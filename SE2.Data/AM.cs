@@ -43,7 +43,7 @@ public class Asset
     public float GasConsumption { get; set; }
     public float MaxElectricity { get; set; }
     public float OilConsumption { get; set; }
-    public required string Image { get; set; }
+    public string? Image { get; set; }
 
     public override string ToString()
     {
