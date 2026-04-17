@@ -4,39 +4,88 @@ using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SE2.Models;
+using SE2.Data;
+using SE2.Domain;
+using DialogHostAvalonia;
+using System.Threading.Tasks;
+using SE2.Views;
 
 namespace SE2.ViewModels;
 
 public partial class ProductionUnitsViewModel : ViewModelBase
 {
+
     [ObservableProperty]
     private bool? _selectAll = false;
-    public ObservableCollection<ProductionUnitsModel> ProductionUnits { get; set; }
+    
+    [ObservableProperty]
+    public ObservableCollection<ProductionUnitsModel> _productionUnits = [];
+
     public ProductionUnitsViewModel()
     {
-        ProductionUnits = new ObservableCollection<ProductionUnitsModel>(new List<ProductionUnitsModel>
-        {
-            new ProductionUnitsModel("Production unit 1"),
-            new ProductionUnitsModel("Production unit 2"),
-            new ProductionUnitsModel("Production unit 3"),
-            new ProductionUnitsModel("Production unit 4"),
-            new ProductionUnitsModel("Production unit 5")
-        });
+        Draw();
     }
 
     [ObservableProperty]
-    private ProductionUnitsModel? _selectedProductionUnit = new ProductionUnitsModel("Production Unit");
+    private ProductionUnitsModel? _selectedProductionUnit = null;
 
     partial void OnSelectAllChanged(bool? value)
     {
         if (value.HasValue)
         {
-            foreach (var productionUnit in ProductionUnits)
+            foreach (ProductionUnitsModel productionUnit in ProductionUnits)
             {
                 productionUnit.IsSelected = value.Value;
             }
         }
     }
 
+    [RelayCommand]
+    public void OpenAddUnitMenu()
+    {
+        _ = OpenEditMenu(new () { Name = "Unit"});
+    }
 
+    private void Draw()
+    {
+        ProductionUnits = [];
+
+        for (int index = 0; index < DM.AM.Assets.Count; index++)
+        {
+            Asset asset = DM.AM.Assets[index];
+            ProductionUnitsModel unitsModel = new () {
+                Name = asset.Name,
+                ProductionCosts = asset.ProductionCosts,
+                MaxHeat = asset.MaxHeat,
+                Co2Emissions = asset.Co2Emissions,
+                GasConsumption = asset.GasConsumption,
+                MaxElectricity = asset.MaxElectricity,
+                OilConsumption = asset.OilConsumption,
+                IsSelected = DM.SelectedAssetNames.Contains(asset.Name),
+                UnitIndex = index
+            };
+            unitsModel.OpenEditUnit += OpenEditMenu;
+            ProductionUnits.Add(unitsModel);
+        }
+    }
+
+    private void Redraw(object? sender, EventArgs args)
+    {
+        Draw();
+    }
+
+    private void OpenEditMenu(object? sender, EventArgs args)
+    {
+        if (sender is ProductionUnitsModel model)
+        {
+            _ = OpenEditMenu(model);
+        }
+    }
+
+    public async Task OpenEditMenu(ProductionUnitsModel productionUnits)
+    {
+        EditProductionUnitViewModel editViewModel = new(productionUnits);
+        editViewModel.Redraw += Redraw;
+        await DialogHost.Show(new EditProductionUnitView() {DataContext = editViewModel}, "MainDialogHost");
+    }
 }
