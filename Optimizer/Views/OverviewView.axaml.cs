@@ -5,11 +5,16 @@ namespace SE2.Views;
 
 public partial class OverviewView : UserControl
 {
+    private readonly OverviewViewModel viewModel;
+
     public OverviewView()
     {
         InitializeComponent();
-        var viewModel = new OverviewViewModel();
-        DataContext = new OverviewViewModel();
-        viewModel.Load();
+
+        viewModel = new OverviewViewModel();
+        DataContext = viewModel;
+
+        // ScenarioNav re-attaches this control when switching tabs; refresh with latest optimizer output.
+        AttachedToVisualTree += (_, _) => viewModel.Load();
     }
 }

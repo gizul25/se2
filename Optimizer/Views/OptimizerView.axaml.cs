@@ -46,6 +46,11 @@ public partial class OptimizerView : UserControl
         }
     }
 
+    public void OnUpdate(object? sender, EventArgs args)
+    {
+        viewModel.OnSelectedPeriodChange();
+    }
+
     private void SelectionChanged(object? sender, RoutedEventArgs e)
     {
         var selectedItem = ProductionUnitsComboBox?.SelectedItem;

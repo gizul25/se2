@@ -5,10 +5,12 @@ public class AM
 {
     public List<Asset> Assets { get; set; } = [];
     public Grid? HeatingGrid { get; set; }
+    public ScenarioData ScenarioData { get; set; }
+    private ScenarioLoader scenarioLoader = new();
 
     public void Load()
     {
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..");
+        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..");
         StreamReader r = new(Path.Combine(path, "Assets", "AM_production_units.json"));
         string assets = r.ReadToEnd();
         Assets = JsonSerializer.Deserialize<List<Asset>>(assets) ?? [];
@@ -18,19 +20,22 @@ public class AM
         HeatingGrid = JsonSerializer.Deserialize<Grid>(grid);
     }
 
+    public void LoadScenario(string scenarioName)
+    {
+        ScenarioData = scenarioLoader.Load(scenarioName);
+    }
+
     public Asset? GetAssetByName(string name)
     {
-        foreach(Asset asset in Assets)
+        foreach (Asset asset in Assets)
         {
-            if (asset.Name == name) 
+            if (asset.Name == name)
             {
                 return asset;
             }
         }
         return null;
     }
-
-
 }
 
 
@@ -43,7 +48,7 @@ public class Asset
     public float GasConsumption { get; set; }
     public float MaxElectricity { get; set; }
     public float OilConsumption { get; set; }
-    public required string Image { get; set; }
+    public string? Image { get; set; }
 
     public override string ToString()
     {

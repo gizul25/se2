@@ -1,22 +1,17 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
+using CommunityToolkit.Mvvm.Input;
+using SE2.Data;
 using SE2.Domain;
+using SE2.ViewModels;
+using SE2.Views;
 
 namespace SE2.Models;
 
-public partial class ProductionUnitsModel : SE2.Data.Asset, INotifyPropertyChanged
+public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
 {
     private bool _isSelected;
-
-    public decimal NetCostNormal { get; set; } = 0m;
-    public decimal NetCostOptimized { get; set; } = 0m;
-    public decimal HeatCostNormal { get; set; } = 0m;
-    public decimal HeatCostOptimized { get; set; } = 0m;
-    public decimal ElectricityCostNormal { get; set; } = 0m;
-    public decimal ElectricityCostOptimized { get; set; } = 0m;
-    public decimal ElectricitySalesNormal { get; set; } = 0m;
-    public decimal ElectricitySalesOptimized { get; set; } = 0m;
 
     public int UnitIndex { get; set; } = -1;
 
@@ -35,7 +30,7 @@ public partial class ProductionUnitsModel : SE2.Data.Asset, INotifyPropertyChang
                 DM.SelectedAssetNames.Add(Name);
                 DM.Load();
             }
-            else if (!value)
+            else if(value == false)
             {
                 DM.SelectedAssetNames.Remove(Name);
                 DM.Load();
@@ -48,11 +43,14 @@ public partial class ProductionUnitsModel : SE2.Data.Asset, INotifyPropertyChang
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    [SetsRequiredMembers]
-    public ProductionUnitsModel(string name)
+    public ProductionUnitsModel()
     {
-        Name = name;
-        Image = string.Empty;
         IsSelected = false;
+    }
+
+    [RelayCommand]
+    public void OpenEditUnitMenu()
+    {
+        OpenEditUnit?.Invoke(this, new());
     }
 }
