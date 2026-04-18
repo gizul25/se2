@@ -8,6 +8,8 @@ public partial class OverviewView : UserControl
     public OverviewView()
     {
         InitializeComponent();
+        var viewModel = new OverviewViewModel();
         DataContext = new OverviewViewModel();
+        viewModel.Load();
     }
 }

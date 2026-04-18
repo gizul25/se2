@@ -1,4 +1,6 @@
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -8,66 +10,80 @@ using System.Linq;
 
 namespace SE2.ViewModels;
 
-public class OverviewViewModel
+public partial class OverviewViewModel : ViewModelBase
 {
-    public ISeries[] HeatSeries { get; set; }
-    public ISeries[] ElectricitySeries { get; set; }
-    public ISeries[] PriceSeries { get; set; }
-    public ISeries[] ExpenseSeries { get; set; }
+    [ObservableProperty]
+ 	private ISeries[] heatSeries = [];
 
-    public Axis[] XAxes { get; set; }
-    public Axis[] YAxes { get; set; }
+	[ObservableProperty]
+    private ISeries[] electricitySeries = [];
 
-    public OverviewViewModel()
+	[ObservableProperty]
+    private ISeries[] priceSeries = [];
+
+	[ObservableProperty]
+    private ISeries[] expenseSeries = [];
+
+
+	[ObservableProperty]
+    private Axis[] xAxes = [];
+
+	[ObservableProperty]
+    private Axis[] yAxes = [];
+
+	public OverviewViewModel()
     {
-        /*var r = new Random();
+        Load();
+    }
 
-        double[] Make(int min, int max)
+	[RelayCommand]
+    public void Load()
+    {
+        if (DM.SDM.Sources == null || DM.SDM.Sources.Count == 0 || DM.RDM.ResultingData == null || DM.RDM.ResultingData.ResultRows.Count == 0)
         {
-            var arr = new double[120];
-            for (int i = 0; i < arr.Length; i++) arr[i] = r.Next(min, max);
-            return arr;
-        }*/
+            return;
+        }
 
 		var sources = DM.SDM.Sources;
+        var results = DM.RDM.ResultingData;
 
         var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
-        var heatProduction = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var heatProduction = results.ResultRows.Select(r => (double)r.HeatProduction).ToArray();
 
-        var elecCons = sources.Select(s => (double)s.HeatDemand).ToArray();
-        var elecProd = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var elecCons =  results.ResultRows.Select(r => r.Consumption).ToArray();
+        var elecProd = results.ResultRows.Select(r => 0d).ToArray();
 
         var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
         var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
 
-        var expenses = sources.Select(s => (double)s.ElectricityPrice).ToArray();
-        var profits = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var expenses = results.ResultRows.Select(r => (double)r.Costs).ToArray();
+        var profits = results.ResultRows.Select(r => (double)r.HeatProduction * 1000 - (double)r.Costs).ToArray();
 
-        HeatSeries =
+        heatSeries =
         [
             Series("Heat demand", heatDemand, new SKColor(70,70,70)),
             Series("Heat production", heatProduction, new SKColor(150,150,150))
         ];
 
-        ElectricitySeries =
+        electricitySeries =
         [
             Series("Electricity consumption", elecCons, new SKColor(70,70,70)),
             Series("Electricity production", elecProd, new SKColor(150,150,150))
         ];
 
-        PriceSeries =
+        priceSeries =
         [
             Series("Gas price", gas, new SKColor(70,70,70)),
             Series("Electricity price", elec, new SKColor(150,150,150))
         ];
 
-        ExpenseSeries =
+        expenseSeries =
         [
             Series("Expenses", expenses, new SKColor(70,70,70)),
             Series("Profits", profits, new SKColor(150,150,150))
         ];
 
-        XAxes =
+        xAxes =
         [
             new Axis
             {
@@ -108,9 +124,9 @@ public class OverviewViewModel
     		.Concat(expenses)
     		.Concat(profits);
 
-		var yMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
+		/*var yMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
 
-        YAxes =
+        yAxes =
         [
             new Axis
             {
@@ -120,7 +136,7 @@ public class OverviewViewModel
                 SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
                 TextSize = 12
             }
-        ];
+        ]; */
 
     }
 
