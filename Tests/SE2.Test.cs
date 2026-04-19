@@ -129,6 +129,34 @@ namespace SE2.Test
                 optimizer.Assets = new List<Asset>();
                 Assert.Throws<Exception>(() => optimizer.CalculateNetCost());
             }
+
+			[Test]
+			public void OptimizerInit_InvalidMaintanance()
+			{
+				var optimizer = CreateValidOptimizer();
+                optimizer.Assets.Add(new Asset 
+				{ 
+					Name = "TestAssetInvalid", 
+					MaxHeat = 10, 
+					MaintananceStart = DateTime.Today.AddHours(10), 
+					MaintananceEnd = DateTime.Today.AddHours(5)
+				});
+                Assert.Throws<Exception>(() => optimizer.OptimizerInit());
+			}
+
+			[Test]
+            public void OptimizerInit_ValidMaintanance()
+			{
+    			var optimizer = CreateValidOptimizer();
+    			optimizer.Assets.Add(new Asset 
+    			{ 
+        			Name = "TestAssetValid", 
+        			MaxHeat = 10, 
+        			MaintananceStart = DateTime.Today, 
+        			MaintananceEnd = DateTime.Today.AddHours(40) 
+    			});
+    			Assert.DoesNotThrow(() => optimizer.OptimizerInit());
+			}
         }
 
 		public class OverviewViewModelTests

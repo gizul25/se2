@@ -57,6 +57,19 @@ public class Optimizer
             {
                 throw new Exception("Asset has no heat demand");
             }
+			
+			if(a.MaintananceStart.HasValue && a.MaintananceEnd.HasValue)
+            {
+				if(a.MaintananceStart >= a.MaintananceEnd)
+				{
+					throw new Exception($"Maintanance is invalid {a.Name}");
+				}
+				var duration = (a.MaintananceEnd.Value - a.MaintananceStart.Value).TotalHours;
+				if(duration < 30 || duration > 60)
+				{
+					throw new Exception($"Asset {a.Name} maintainance must be 30-60 hours");
+				}
+			}
         }
     }
     
@@ -177,6 +190,7 @@ public class Optimizer
             
             var hourlyCosts = netCosts
                 .Where(nc => nc.Time == hour.StartTime) 
+				.Where(nc => IsAssetAvailable(nc.AssetName, hour.StartTime))
                 .OrderBy(nc => nc.NetCost)
                 .ToList();
 
@@ -236,5 +250,19 @@ public class Optimizer
         results.HeatProduced = results.ResultRows.Sum(r => r.HeatProduction);
 
         return results;
+    }
+
+	private bool IsAssetAvailable(string assetName, DateTime time)
+    {
+        var asset = Assets.FirstOrDefault(a => a.Name == assetName);
+		if (asset == null)
+		{ 
+			return false;
+        }
+		if(asset.MaintananceStart == null || asset.MaintananceEnd == null)
+		{ 
+			return true;
+		}
+        return time < asset.MaintananceStart || time >= asset.MaintananceEnd;
     }
 }
