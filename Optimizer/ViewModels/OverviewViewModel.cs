@@ -53,23 +53,23 @@ public partial class OverviewViewModel : ViewModelBase
             return;
         }
 
-            var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
-            var heatProduction = results.ResultRows.Select(r => (double)r.HeatProduction).ToArray();
+        var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var heatProduction = results.ResultRows.Select(r => (double)r.HeatProduction).ToArray();
 
-            var elecCons =  results.ResultRows.Select(r => r.Consumption).ToArray();
-            var elecProd = results.ResultRows.Select(r => 0d).ToArray();
+        var elecCons =  results.ResultRows.Select(r => r.Consumption).ToArray();
+        var elecProd = results.ResultRows.Select(r => 0d).ToArray();
 
-            var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
-            var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
 
-            var expenses = results.ResultRows.Select(r => (double)r.Costs).ToArray();
-            var profits = results.ResultRows.Select(r => (double)r.HeatProduction * 1000 - (double)r.Costs).ToArray();
-
-            HeatSeries =
-            [
-                Series("Heat demand", heatDemand, new SKColor(70,70,70)),
-                Series("Heat production", heatProduction, new SKColor(150,150,150))
-            ];
+        var expenses = results.ResultRows.Select(r => (double)r.Costs).ToArray();
+        var profits = results.ResultRows.Select(r => (double)r.HeatProduction * 1000 - (double)r.Costs).ToArray();
+        
+        HeatSeries =
+        [
+            Series("Heat demand", heatDemand, new SKColor(70,70,70)),
+            Series("Heat production", heatProduction, new SKColor(150,150,150))
+        ];
 
         ElectricitySeries =
         [
@@ -77,49 +77,49 @@ public partial class OverviewViewModel : ViewModelBase
             Series("Electricity production", elecProd, new SKColor(150,150,150))
         ];
 
-            PriceSeries =
-            [
-                Series("Gas price", gas, new SKColor(70,70,70)),
-                Series("Electricity price", elec, new SKColor(150,150,150))
-            ];
+        PriceSeries =
+        [
+            Series("Gas price", gas, new SKColor(70,70,70)),
+            Series("Electricity price", elec, new SKColor(150,150,150))
+        ];
 
-            ExpenseSeries =
-            [
-                Series("Expenses", expenses, new SKColor(70,70,70)),
-                Series("Profits", profits, new SKColor(150,150,150))
-            ];
+        ExpenseSeries =
+        [
+            Series("Expenses", expenses, new SKColor(70,70,70)),
+            Series("Profits", profits, new SKColor(150,150,150))
+        ];
 
-            XAxes =
-            [
-                new Axis
+        XAxes =
+        [
+            new Axis
+            {
+                Labeler = value =>
                 {
-                    Labeler = value =>
+                    var months = new[]
                     {
-                        var months = new[]
-                        {
-                            "Jan","Feb","Mar","Apr","May","Jun",
-                            "Jul","Aug","Sep","Oct","Nov","Dec"
-                        };
+                        "Jan","Feb","Mar","Apr","May","Jun",
+                        "Jul","Aug","Sep","Oct","Nov","Dec"
+                    };
 
-                        int index = (int)(value / 10); // 120 points / 12 months
+                    int index = (int)(value / 10); // 120 points / 12 months
 
-                        if (value % 10 == 0 && index >= 0 && index < 12)
-                            return months[index];
+                    if (value % 10 == 0 && index >= 0 && index < 12)
+                        return months[index];
 
-                        return "";
-                    },
+                    return "";
+                },
 
-                    MinLimit = 0,
-                    MaxLimit = 119,
+                MinLimit = 0,
+                MaxLimit = 119,
 
-                    MinStep = 10,
-                    ForceStepToMin = true,
+                MinStep = 10,
+                ForceStepToMin = true,
 
-                    LabelsPaint = new SolidColorPaint(SKColors.Black),
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
-                    TextSize = 12
-                }
-            ];
+                LabelsPaint = new SolidColorPaint(SKColors.Black),
+                SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
+                TextSize = 12
+            }
+        ];
 
         var allValues = heatDemand
             .Concat(heatProduction)
@@ -132,21 +132,21 @@ public partial class OverviewViewModel : ViewModelBase
             .DefaultIfEmpty(0)
             .ToArray();
 
-		    /*var YMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
+        /*var YMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
 
-            YAxes =
-            [
-                new Axis
-                {
-                    MinLimit = 0,
-                    MaxLimit = yMax,
-                    LabelsPaint = new SolidColorPaint(SKColors.Black),
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
-                    TextSize = 12
-                }
-            ]; */
+        YAxes =
+        [
+            new Axis
+            {
+                MinLimit = 0,
+                MaxLimit = yMax,
+                LabelsPaint = new SolidColorPaint(SKColors.Black),
+                SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
+                TextSize = 12
+            }
+        ]; */
 
-        }
+    }
 
     private static ISeries Series(string name, double[] values, SKColor color)
     {
