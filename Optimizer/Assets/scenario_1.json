@@ -1,5 +1,4 @@
 {
-  "priority": "Boiler first",
   "available_units": ["GB1", "GB2", "GB3", "OB1"],
   "available_maintenance_units": ["GB1", "GB2", "GB3"],
   "maintenance_hours_min": 30,
