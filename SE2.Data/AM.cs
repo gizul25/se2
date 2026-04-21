@@ -49,6 +49,8 @@ public class Asset
     public float MaxElectricity { get; set; }
     public float OilConsumption { get; set; }
     public string? Image { get; set; }
+    public DateTime? MaintananceStart { get; set; }
+    public DateTime? MaintananceEnd { get; set; }
 
     public override string ToString()
     {

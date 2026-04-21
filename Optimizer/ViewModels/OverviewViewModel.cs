@@ -1,44 +1,70 @@
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
+using SE2.Domain;
+using System.Linq;
 
 namespace SE2.ViewModels;
 
-public class OverviewViewModel
+public partial class OverviewViewModel : ViewModelBase
 {
-    public ISeries[] HeatSeries { get; set; }
-    public ISeries[] ElectricitySeries { get; set; }
-    public ISeries[] PriceSeries { get; set; }
-    public ISeries[] ExpenseSeries { get; set; }
+    [ObservableProperty]
+ 	private ISeries[] heatSeries = [];
 
-    public Axis[] XAxes { get; set; }
-    public Axis[] YAxes { get; set; }
+	[ObservableProperty]
+    private ISeries[] electricitySeries = [];
 
-    public OverviewViewModel()
+	[ObservableProperty]
+    private ISeries[] priceSeries = [];
+
+	[ObservableProperty]
+    private ISeries[] expenseSeries = [];
+
+
+	[ObservableProperty]
+    private Axis[] xAxes = [];
+
+	[ObservableProperty]
+    private Axis[] yAxes = [];
+
+	public OverviewViewModel()
     {
-        var r = new Random();
+        Load();
+    }
 
-        double[] Make(int min, int max)
+	[RelayCommand]
+    public void Load()
+    {
+        var sources = DM.SDM.Sources;
+        var results = DM.RDM.ResultingData;
+
+        if (sources == null || sources.Count == 0 || results == null || results.ResultRows.Count == 0)
         {
-            var arr = new double[120];
-            for (int i = 0; i < arr.Length; i++) arr[i] = r.Next(min, max);
-            return arr;
+            HeatSeries = [];
+            ElectricitySeries = [];
+            PriceSeries = [];
+            ExpenseSeries = [];
+            XAxes = [];
+            YAxes = [];
+            return;
         }
 
-        var heatDemand = Make(400, 900);
-        var heatProduction = Make(350, 950);
+        var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
+        var heatProduction = results.ResultRows.Select(r => (double)r.HeatProduction).ToArray();
 
-        var elecCons = Make(250, 750);
-        var elecProd = Make(250, 800);
+        var elecCons =  results.ResultRows.Select(r => r.Consumption).ToArray();
+        var elecProd = results.ResultRows.Select(r => 0d).ToArray();
 
-        var gas = Make(200, 1000);
-        var elec = Make(250, 900);
+        var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
 
-        var expenses = Make(300, 900);
-        var profits = Make(450, 1000);
-
+        var expenses = results.ResultRows.Select(r => (double)r.Costs).ToArray();
+        var profits = results.ResultRows.Select(r => (double)r.HeatProduction * 1000 - (double)r.Costs).ToArray();
+        
         HeatSeries =
         [
             Series("Heat demand", heatDemand, new SKColor(70,70,70)),
@@ -95,17 +121,30 @@ public class OverviewViewModel
             }
         ];
 
+        var allValues = heatDemand
+            .Concat(heatProduction)
+            .Concat(elecCons)
+            .Concat(elecProd)
+            .Concat(gas)
+            .Concat(elec)
+            .Concat(expenses)
+            .Concat(profits)
+            .DefaultIfEmpty(0)
+            .ToArray();
+
+        /*var YMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
+
         YAxes =
         [
             new Axis
             {
                 MinLimit = 0,
-                MaxLimit = 1200,
+                MaxLimit = yMax,
                 LabelsPaint = new SolidColorPaint(SKColors.Black),
                 SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
                 TextSize = 12
             }
-        ];
+        ]; */
 
     }
 

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using SE2.Data;
 using SE2.Domain;
+using SE2.ViewModels;
 
 namespace SE2.Test
 {
@@ -128,5 +129,70 @@ namespace SE2.Test
                 optimizer.Assets = new List<Asset>();
                 Assert.Throws<Exception>(() => optimizer.CalculateNetCost());
             }
+
+			[Test]
+			public void OptimizerInit_InvalidMaintanance()
+			{
+				var optimizer = CreateValidOptimizer();
+                optimizer.Assets.Add(new Asset 
+				{ 
+					Name = "TestAssetInvalid", 
+					MaxHeat = 10, 
+					MaintananceStart = DateTime.Today.AddHours(10), 
+					MaintananceEnd = DateTime.Today.AddHours(5)
+				});
+                Assert.Throws<Exception>(() => optimizer.OptimizerInit());
+			}
+
+			[Test]
+            public void OptimizerInit_ValidMaintanance()
+			{
+    			var optimizer = CreateValidOptimizer();
+    			optimizer.Assets.Add(new Asset 
+    			{ 
+        			Name = "TestAssetValid", 
+        			MaxHeat = 10, 
+        			MaintananceStart = DateTime.Today, 
+        			MaintananceEnd = DateTime.Today.AddHours(40) 
+    			});
+    			Assert.DoesNotThrow(() => optimizer.OptimizerInit());
+			}
+        }
+
+		public class OverviewViewModelTests
+        {
+            [Test]
+            public void OverviewViewModel_Initialization()
+            {
+                var viewModel = new OverviewViewModel();
+                Assert.IsNotNull(viewModel);
+                Assert.IsNotNull(viewModel.HeatSeries);
+        		Assert.IsNotNull(viewModel.ElectricitySeries);
+        		Assert.IsNotNull(viewModel.PriceSeries);
+        		Assert.IsNotNull(viewModel.ExpenseSeries);
+            }
+
+			[Test]
+			public void OverviewViewModel_LoadData()
+			{
+                var viewModel = new OverviewViewModel();	
+				Assert.IsEmpty(viewModel.HeatSeries);
+        		Assert.IsEmpty(viewModel.ElectricitySeries);
+        		Assert.IsEmpty(viewModel.PriceSeries);
+        		Assert.IsEmpty(viewModel.ExpenseSeries);
+			}
+
+			[Test]
+			public void OverviewViewModel_LoadDataWithData()
+			{
+				DM.Init();
+				DM.StartOptimizer();
+				var viewModel = new OverviewViewModel();
+				viewModel.LoadCommand.Execute(null);
+				Assert.AreEqual(2, viewModel.HeatSeries.Length);
+        		Assert.AreEqual(2, viewModel.ElectricitySeries.Length);
+        		Assert.AreEqual(2, viewModel.PriceSeries.Length);
+        		Assert.AreEqual(2, viewModel.ExpenseSeries.Length);
+			}	
         }
 }
