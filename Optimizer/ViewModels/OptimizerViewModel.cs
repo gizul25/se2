@@ -118,7 +118,7 @@ public partial class OptimizerViewModel : ViewModelBase
         ];
 
         List<string> prodUnits = [];
-        foreach (string productionUnit in DM.SelectedAssetNames)
+        foreach (string productionUnit in DM.AM.ScenarioData.AvailableUnits)
         {
             prodUnits.Add(productionUnit);
         }

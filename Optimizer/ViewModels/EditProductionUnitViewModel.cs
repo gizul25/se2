@@ -14,21 +14,23 @@ public partial class EditProductionUnitViewModel : ViewModelBase
     private ProductionUnitsModel _selectedProductionUnit;
 
     [ObservableProperty]
-    private bool? _canSave = true;
+    private bool? _canSave = false;
 
     [ObservableProperty]
     private string _cancelContent = "Delete unit";
 
-    private ProductionUnitsModel originalUnit;
+    private readonly string originalName;
+    private readonly int UnitIndex = -1;
     
     public event EventHandler? Redraw;
 
     public EditProductionUnitViewModel(ProductionUnitsModel productionUnits)
     {
         SelectedProductionUnit = productionUnits;
-        originalUnit = productionUnits;
+        originalName = productionUnits.Name;
+        UnitIndex = productionUnits.UnitIndex;
 
-        if (productionUnits.UnitIndex == -1)
+        if (UnitIndex == -1)
         {
             CancelContent = "Cancel";
         }
@@ -37,9 +39,9 @@ public partial class EditProductionUnitViewModel : ViewModelBase
     [RelayCommand]
     public void OnDelete()
     {
-        if (originalUnit.UnitIndex != -1)
+        if (UnitIndex != -1)
         {
-            DM.AM.Assets.RemoveAt(originalUnit.UnitIndex);
+            DM.AM.Assets.RemoveAt(UnitIndex);
         }
         Redraw?.Invoke(null,new());
         DialogHost.Close("MainDialogHost");
@@ -48,15 +50,31 @@ public partial class EditProductionUnitViewModel : ViewModelBase
     [RelayCommand]
     public void OnSave()
     {
-        if (originalUnit.UnitIndex != -1)
+        if (UnitIndex != -1)
         {
-            DM.AM.Assets[originalUnit.UnitIndex].Name = SelectedProductionUnit.Name;
-            DM.AM.Assets[originalUnit.UnitIndex].MaxHeat = SelectedProductionUnit.MaxHeat;
-            DM.AM.Assets[originalUnit.UnitIndex].GasConsumption = SelectedProductionUnit.GasConsumption;
-            DM.AM.Assets[originalUnit.UnitIndex].OilConsumption = SelectedProductionUnit.OilConsumption;
-            DM.AM.Assets[originalUnit.UnitIndex].MaxElectricity = SelectedProductionUnit.MaxElectricity;
-            DM.AM.Assets[originalUnit.UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
-            DM.AM.Assets[originalUnit.UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
+            int a = DM.AM.ScenarioData.AvailableUnits.IndexOf(originalName);
+            if (-1 != a) 
+                DM.AM.ScenarioData.AvailableUnits[a] = SelectedProductionUnit.Name;
+
+            int b = DM.AM.ScenarioData.AvailableMaintenanceUnits.IndexOf(originalName);
+            if (-1 != b)
+                DM.AM.ScenarioData.AvailableMaintenanceUnits[b] = SelectedProductionUnit.Name;
+
+            if (SelectedProductionUnit.ShallMaintained && -1 == b)
+                DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
+            else if (!SelectedProductionUnit.ShallMaintained && -1 != b)
+                DM.AM.ScenarioData.AvailableMaintenanceUnits.Remove(originalName);
+
+            DM.AM.Assets[UnitIndex].Name = SelectedProductionUnit.Name;
+            DM.AM.Assets[UnitIndex].MaxHeat = SelectedProductionUnit.MaxHeat;
+            DM.AM.Assets[UnitIndex].GasConsumption = SelectedProductionUnit.GasConsumption;
+            DM.AM.Assets[UnitIndex].OilConsumption = SelectedProductionUnit.OilConsumption;
+            DM.AM.Assets[UnitIndex].MaxElectricity = SelectedProductionUnit.MaxElectricity;
+            DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
+            DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
+            DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
+            DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
+            DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
         }
         else
         {
@@ -68,7 +86,10 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 OilConsumption = SelectedProductionUnit.OilConsumption,
                 MaxElectricity = SelectedProductionUnit.MaxElectricity,
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
-                ProductionCosts = SelectedProductionUnit.ProductionCosts
+                ProductionCosts = SelectedProductionUnit.ProductionCosts,
+                ShallMaintained = SelectedProductionUnit.ShallMaintained,
+                MinHour = SelectedProductionUnit.MinHour,
+                MaxHour = SelectedProductionUnit.MaxHour
             });
         }
         Redraw?.Invoke(null,new());
@@ -83,8 +104,9 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             return;
         }
 
-        if (originalUnit.Name == SelectedProductionUnit.Name)
+        if (originalName == SelectedProductionUnit.Name)
         {
+            Console.WriteLine(originalName);
             CanSave = true;
             return;
         }
@@ -93,6 +115,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
         {
             if (asset.Name == SelectedProductionUnit.Name)
             {
+                
                 CanSave = false;
                 return;
             }

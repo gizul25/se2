@@ -61,7 +61,10 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 GasConsumption = asset.GasConsumption,
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
-                IsSelected = DM.SelectedAssetNames.Contains(asset.Name),
+                MaxHour = asset.MaxHour,
+                MinHour = asset.MinHour,
+                ShallMaintained = asset.ShallMaintained,
+                IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
                 UnitIndex = index
             };
             unitsModel.OpenEditUnit += OpenEditMenu;
