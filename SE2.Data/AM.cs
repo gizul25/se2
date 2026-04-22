@@ -5,7 +5,7 @@ public class AM
 {
     public List<Asset> Assets { get; set; } = [];
     public Grid? HeatingGrid { get; set; }
-    public ScenarioData ScenarioData { get; set; }
+    public ScenarioData ScenarioData { get; set; } = new();
     private ScenarioLoader scenarioLoader = new();
 
     public void Load()

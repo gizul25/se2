@@ -20,7 +20,6 @@ public partial class ScenarioNav : UserControl
     private OverviewView overviewView = new();
     private OptimizerView optimizerView = new();
     private ProductionUnitsView productionUnitsView = new();
-    private ConfigurationView configurationView = new();
 
     public ScenarioNav() : this("Scenario 111") { }
 
@@ -37,18 +36,18 @@ public partial class ScenarioNav : UserControl
         TopTabStripNode.AddControl("Overview", overviewView);
         TopTabStripNode.AddControl("Optimizer", optimizerView);
         TopTabStripNode.AddControl("Production units", productionUnitsView);
-        TopTabStripNode.AddControl("Configuration", configurationView);
 
         PeriodComboBox.SelectionChanged += PeriodComboBox_SelectionChanged;
     }
 
     private void PeriodComboBox_SelectionChanged(object? sender, RoutedEventArgs e)
     {
-        string periodText = (string)PeriodComboBox.SelectedItem;
+        string periodText = (string)(PeriodComboBox.SelectedItem?? "");
         IPeriod period = periodText switch
         {
             "Winter period" => new Winter(),
             "Summer period" => new Summer(),
+            _ => new Winter()
         };
         DM.UpdatePeriod(period);
         Update?.Invoke(this, new());
