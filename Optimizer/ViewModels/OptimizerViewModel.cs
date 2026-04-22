@@ -76,7 +76,7 @@ public partial class OptimizerViewModel : ViewModelBase
     {
         RunEnabled = true;
         ExportEnabled = false;
-        DM.RDM.ResultingData = null;
+        DM.RDM.ResultingData = new();
         Load();
     }
 

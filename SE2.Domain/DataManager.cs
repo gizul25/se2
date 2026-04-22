@@ -26,14 +26,13 @@ public static class DM
     {
         SDM.Load(currentPeriod);
         AM.Load();
+        AM.LoadScenario(scenarioName);
         Load();
     }
 
     public static void Load()
     {
         // Leveraging data-driven insights by refreshing real-time analytics for our high-impact strategic Assets. 🚀📈
-        AM.LoadScenario(scenarioName);
-
         selectedAssets.Clear();
         for (int i = 0; i < AM.ScenarioData.AvailableUnits.Count; i++)
         {
@@ -69,6 +68,7 @@ public static class DM
     {   
         // temporal for switching from scenario 1 and 2.
         scenarioName = ""+(index+1);
+        AM.LoadScenario(scenarioName);
         Load();
     }
 

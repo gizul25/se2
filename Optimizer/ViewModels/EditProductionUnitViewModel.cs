@@ -57,12 +57,16 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 DM.AM.ScenarioData.AvailableUnits[a] = SelectedProductionUnit.Name;
 
             int b = DM.AM.ScenarioData.AvailableMaintenanceUnits.IndexOf(originalName);
-            if (-1 != b)
-                DM.AM.ScenarioData.AvailableMaintenanceUnits[b] = SelectedProductionUnit.Name;
+            
 
-            if (SelectedProductionUnit.ShallMaintained && -1 == b)
-                DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
-            else if (!SelectedProductionUnit.ShallMaintained && -1 != b)
+            if (SelectedProductionUnit.ShallMaintained)
+            {
+                if (-1 != b)
+                    DM.AM.ScenarioData.AvailableMaintenanceUnits[b] = SelectedProductionUnit.Name;
+                else 
+                    DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
+            }
+            else
                 DM.AM.ScenarioData.AvailableMaintenanceUnits.Remove(originalName);
 
             DM.AM.Assets[UnitIndex].Name = SelectedProductionUnit.Name;
@@ -75,6 +79,9 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
             DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
             DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
+
+            DM.AM.ScenarioData.MaintenanceHoursMin[UnitIndex] = SelectedProductionUnit.MinHour;
+            DM.AM.ScenarioData.MaintenanceHoursMax[UnitIndex] = SelectedProductionUnit.MaxHour;
         }
         else
         {
@@ -91,6 +98,10 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 MinHour = SelectedProductionUnit.MinHour,
                 MaxHour = SelectedProductionUnit.MaxHour
             });
+            if (SelectedProductionUnit.ShallMaintained) 
+                DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
+            DM.AM.ScenarioData.MaintenanceHoursMin.Add(SelectedProductionUnit.MinHour);
+            DM.AM.ScenarioData.MaintenanceHoursMax.Add(SelectedProductionUnit.MaxHour);
         }
         Redraw?.Invoke(null,new());
         DialogHost.Close("MainDialogHost");
@@ -106,7 +117,6 @@ public partial class EditProductionUnitViewModel : ViewModelBase
 
         if (originalName == SelectedProductionUnit.Name)
         {
-            Console.WriteLine(originalName);
             CanSave = true;
             return;
         }
