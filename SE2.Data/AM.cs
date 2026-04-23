@@ -51,6 +51,7 @@ public class Asset
     public string? Image { get; set; }
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
+    public int[]? Color { get; set; }
 
     public override string ToString()
     {
