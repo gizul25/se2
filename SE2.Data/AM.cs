@@ -5,7 +5,7 @@ public class AM
 {
     public List<Asset> Assets { get; set; } = [];
     public Grid? HeatingGrid { get; set; }
-    public ScenarioData ScenarioData { get; set; }
+    public ScenarioData ScenarioData { get; set; } = new();
     private ScenarioLoader scenarioLoader = new();
 
     public void Load()
@@ -51,6 +51,7 @@ public class Asset
     public string? Image { get; set; }
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
+    public bool ShallMaintained { get; set;}
 
     public override string ToString()
     {

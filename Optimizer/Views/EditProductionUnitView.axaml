@@ -48,6 +48,12 @@
         </ControlTheme>
 
 	</UserControl.Resources>
+
+	<UserControl.Styles>
+        <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
+            <Setter Property="Background" Value="#0f62fe"/>
+        </Style>
+    </UserControl.Styles>
 	
 	<StackPanel VerticalAlignment="Center">
 		<Panel Margin="0,10,0,10">
@@ -57,13 +63,15 @@
 			</Button>
 		</Panel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<Border Background="#f2f4f8" CornerRadius="0" Margin="-2,10,0,0"
+				<Border Background="#f2f4f8" CornerRadius="0" Margin="0,10,0,0"
 						BorderBrush="#dde1e6" BorderThickness="2">
-					<UniformGrid Width="230" Columns="1" Rows="7" RowSpacing="0">
-						<!-- Placeholder, should be binded to selected production unit data -->
+					<UniformGrid Width="230" Columns="1" Rows="8" RowSpacing="0">
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Production Unit" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Production Costs" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Max Heat Production" /> </Border>
+
+						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Maintenance" /> </Border>
+
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Gas Usages" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Oil Usages" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Text="Electricity Usages" /> </Border>
@@ -72,12 +80,15 @@
 				</Border>
 				<Border CornerRadius="0" Margin="-2,10,0,0"
 						BorderBrush="#dde1e6" BorderThickness="2">
-					<UniformGrid Width="230" Columns="1" Rows="7" RowSpacing="0">
-						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Name}" Watermark="Unit Name" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged"/> </Border>
+					<UniformGrid Width="230" Columns="1" Rows="8" RowSpacing="0">
+						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Name}" Watermark="Unit Name" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.ProductionCosts}" Minimum="0" FormatString="0 Dkk / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHeat}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
+
+						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <CheckBox IsChecked="{Binding Path=SelectedProductionUnit.ShallMaintained}" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
+
+						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.GasConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.OilConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.ProductionCosts}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxElectricity}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 						<Border BorderBrush="#dde1e6" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}" Minimum="0" FormatString="0 kg / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					</UniformGrid>

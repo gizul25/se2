@@ -55,6 +55,8 @@
                                Text="Oil Usages" VerticalAlignment="Center"/>
                     <TextBlock Margin="5" FontWeight="Bold"
                                Text="Emissions" VerticalAlignment="Center"/>
+                    <TextBlock Margin="5" FontWeight="Bold"
+                               Text="Maintained" VerticalAlignment="Center"/>
                 </UniformGrid>
             </Grid>
         </Border>
@@ -109,6 +111,13 @@
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} kg / MWh'>
                                             <Binding Path="Co2Emissions" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat= '{}{0}'>
+                                            <Binding Path="ShallMaintained" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>

@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SE2.Data;
 using SE2.Domain;
-using SE2.ViewModels;
-using SE2.Views;
 
 namespace SE2.Models;
 
@@ -14,7 +11,7 @@ public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
     private bool _isSelected;
 
     public int UnitIndex { get; set; } = -1;
-
+    
     public event EventHandler? OpenEditUnit;
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,14 +22,14 @@ public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
         {
             _isSelected = value;
             OnPropertyChanged(nameof(IsSelected));
-            if (value && !DM.SelectedAssetNames.Contains(Name))
+            if (value && !DM.AM.ScenarioData.AvailableUnits.Contains(Name))
             {
-                DM.SelectedAssetNames.Add(Name);
+                DM.AM.ScenarioData.AvailableUnits.Add(Name);
                 DM.Load();
             }
             else if(value == false)
             {
-                DM.SelectedAssetNames.Remove(Name);
+                DM.AM.ScenarioData.AvailableUnits.Remove(Name);
                 DM.Load();
             }
         }

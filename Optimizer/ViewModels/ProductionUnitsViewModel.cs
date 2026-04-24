@@ -49,7 +49,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
     private void Draw()
     {
         ProductionUnits = [];
-
+        Console.WriteLine(string.Join(", ", DM.AM.ScenarioData.AvailableMaintenanceUnits));
+        
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
             Asset asset = DM.AM.Assets[index];
@@ -61,7 +62,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 GasConsumption = asset.GasConsumption,
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
-                IsSelected = DM.SelectedAssetNames.Contains(asset.Name),
+                ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
+                IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
                 UnitIndex = index
             };
             unitsModel.OpenEditUnit += OpenEditMenu;

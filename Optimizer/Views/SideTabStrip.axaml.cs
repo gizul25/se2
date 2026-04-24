@@ -8,6 +8,7 @@ using Avalonia.Media;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using SE2.Domain;
 
 namespace SE2.Views;
 
@@ -51,6 +52,8 @@ public partial class SideTabStrip : UserControl
         {
             return;
         }
+
+        DM.SetScenario(index);
 
         injectorNode?.Children.Clear();
         injectorNode?.Children.Add(scenarios[index]);
