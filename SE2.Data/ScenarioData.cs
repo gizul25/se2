@@ -14,8 +14,8 @@ public class ScenarioData
     public List<string> AvailableMaintenanceUnits { get; set; } = [];
 
     [JsonPropertyName("maintenance_hours_min")]
-    public List<int> MaintenanceHoursMin { get; set; } = [];
+    public int MaintenanceHoursMin { get; set; }
 
     [JsonPropertyName("maintenance_hours_max")]
-    public List<int> MaintenanceHoursMax { get; set; } = [];
+    public int MaintenanceHoursMax { get; set; }
 }

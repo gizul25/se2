@@ -42,7 +42,7 @@ public partial class ScenarioNav : UserControl
 
     private void PeriodComboBox_SelectionChanged(object? sender, RoutedEventArgs e)
     {
-        string periodText = (string)(PeriodComboBox.SelectedItem?? "");
+        string periodText = (string)(PeriodComboBox.SelectedItem ?? "");
         IPeriod period = periodText switch
         {
             "Winter period" => new Winter(),

@@ -77,11 +77,6 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
             DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
-            DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
-            DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
-
-            DM.AM.ScenarioData.MaintenanceHoursMin[UnitIndex] = SelectedProductionUnit.MinHour;
-            DM.AM.ScenarioData.MaintenanceHoursMax[UnitIndex] = SelectedProductionUnit.MaxHour;
         }
         else
         {
@@ -94,14 +89,10 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 MaxElectricity = SelectedProductionUnit.MaxElectricity,
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
-                ShallMaintained = SelectedProductionUnit.ShallMaintained,
-                MinHour = SelectedProductionUnit.MinHour,
-                MaxHour = SelectedProductionUnit.MaxHour
+                ShallMaintained = SelectedProductionUnit.ShallMaintained
             });
             if (SelectedProductionUnit.ShallMaintained) 
                 DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
-            DM.AM.ScenarioData.MaintenanceHoursMin.Add(SelectedProductionUnit.MinHour);
-            DM.AM.ScenarioData.MaintenanceHoursMax.Add(SelectedProductionUnit.MaxHour);
         }
         Redraw?.Invoke(null,new());
         DialogHost.Close("MainDialogHost");
@@ -124,8 +115,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
         foreach (Asset asset in DM.AM.Assets)
         {
             if (asset.Name == SelectedProductionUnit.Name)
-            {
-                
+            {   
                 CanSave = false;
                 return;
             }

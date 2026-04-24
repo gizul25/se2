@@ -62,8 +62,6 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 GasConsumption = asset.GasConsumption,
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
-                MaxHour = asset.MaxHour,
-                MinHour = asset.MinHour,
                 ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
                 UnitIndex = index

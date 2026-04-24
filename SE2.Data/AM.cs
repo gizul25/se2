@@ -23,23 +23,6 @@ public class AM
     public void LoadScenario(string scenarioName)
     {
         ScenarioData = scenarioLoader.Load(scenarioName);
-        if (ScenarioData.MaintenanceHoursMin.Count != Assets.Count)
-        {
-            ScenarioData.MaintenanceHoursMin = [];
-            foreach(Asset asset in Assets)
-            {
-                ScenarioData.MaintenanceHoursMin.Add(asset.MinHour);
-            }
-        }
-
-        if (ScenarioData.MaintenanceHoursMax.Count != Assets.Count)
-        {
-            ScenarioData.MaintenanceHoursMax = [];
-            foreach(Asset asset in Assets)
-            {
-                ScenarioData.MaintenanceHoursMax.Add(asset.MaxHour);
-            }
-        }
     }
 
     public Asset? GetAssetByName(string name)
@@ -69,8 +52,6 @@ public class Asset
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
     public bool ShallMaintained { get; set;}
-    public int MinHour { get; set; } = 30;
-    public int MaxHour { get; set; } = 60;
 
     public override string ToString()
     {

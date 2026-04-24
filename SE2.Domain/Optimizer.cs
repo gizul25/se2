@@ -166,9 +166,7 @@ public class Optimizer
             throw new Exception("No assets initialized");
         }
         
-        Sources = Sources
-            .OrderBy(x => x.StartTime)
-            .ToList();
+        Sources = [.. Sources.OrderBy(x => x.StartTime)];
         
         List<NetCostData> netCosts;
         

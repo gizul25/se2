@@ -57,10 +57,6 @@
                                Text="Emissions" VerticalAlignment="Center"/>
                     <TextBlock Margin="5" FontWeight="Bold"
                                Text="Maintained" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
-                               Text="Min hours" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
-                               Text="Max hours" VerticalAlignment="Center"/>
                 </UniformGrid>
             </Grid>
         </Border>
@@ -122,20 +118,6 @@
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0}'>
                                             <Binding Path="ShallMaintained" />
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} h'>
-                                            <Binding Path="MinHour" />
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} h'>
-                                            <Binding Path="MaxHour" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
