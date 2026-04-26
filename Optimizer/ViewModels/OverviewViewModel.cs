@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Avalonia.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
@@ -31,6 +33,9 @@ public partial class OverviewViewModel : ViewModelBase
 	[ObservableProperty]
     private Axis[] yAxes = [];
 
+    [ObservableProperty]
+    private Bitmap? heatGrid = null;
+
 	public OverviewViewModel()
     {
         Load();
@@ -39,8 +44,12 @@ public partial class OverviewViewModel : ViewModelBase
 	[RelayCommand]
     public void Load()
     {
+        var grid = DM.AM.HeatingGrid;
+        heatGrid = new Bitmap(grid.Image);
+
         var sources = DM.SDM.Sources;
         var results = DM.RDM.ResultingData;
+
 
         if (sources == null || sources.Count == 0 || results == null || results.ResultRows.Count == 0)
         {
