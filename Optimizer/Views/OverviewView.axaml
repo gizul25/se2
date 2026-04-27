@@ -7,111 +7,120 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SE2.Views.OverviewView"
              x:DataType="vm:OverviewViewModel">
+        
+        <!-- MAIN -->
+        <Grid Margin="20 40 20 20"
+              RowSpacing="20"
+              ColumnSpacing="20"
+              RowDefinitions="*,*,*"
+              ColumnDefinitions="*,*">
 
-    <!-- MAIN -->
-    <Grid Margin="20 40 20 20"
-          RowSpacing="20"
-          ColumnSpacing="20"
-          RowDefinitions="*,*"
-          ColumnDefinitions="*,*">
+            <Panel><Image Source="{Binding HeatGrid}"/></Panel>
+            <!-- HEAT -->
+            <Border Height="360"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Background="White"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="15">
 
-        <!-- HEAT -->
-        <Border Background="White"
-                BorderBrush="#DDDDDD"
-                BorderThickness="1"
-                CornerRadius="6"
-                Padding="15">
+                <Grid RowDefinitions="Auto,*">
 
-            <Grid RowDefinitions="Auto,*">
+                    <TextBlock Text="Heat demand and production"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
 
-                <TextBlock Text="Heat demand and production"
-                           FontWeight="Bold"
-                           Margin="0 0 0 10"/>
+                    <lvc:CartesianChart Grid.Row="1"
+                                        Series="{Binding HeatSeries}"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        LegendPosition="Top"
+                                        Background="White"/>
 
-                <lvc:CartesianChart Grid.Row="1"
-                                    Series="{Binding HeatSeries}"
-                                    XAxes="{Binding XAxes}"
-                                    YAxes="{Binding YAxes}"
-                                    LegendPosition="Top"
-                                    Background="White"/>
-            </Grid>
+                </Grid>
 
-        </Border>
+            </Border>
 
-        <!-- ELECTRICITY -->
-        <Border Grid.Column="1"
-                Background="White"
-                BorderBrush="#DDDDDD"
-                BorderThickness="1"
-                CornerRadius="6"
-                Padding="15">
 
-            <Grid RowDefinitions="Auto,*">
+            <!-- PRICES -->
+            <Border Height="360"
+                    Grid.Row="1"
+                    Background="White"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="15">
 
-                <TextBlock Text="Electricity consumption and production"
-                           FontWeight="Bold"
-                           Margin="0 0 0 10"/>
+                <Grid RowDefinitions="Auto,*">
 
-                <lvc:CartesianChart Grid.Row="1"
-                                    Series="{Binding ElectricitySeries}"
-                                    XAxes="{Binding XAxes}"
-                                    YAxes="{Binding YAxes}"
-                                    LegendPosition="Top"
-                                    Background="White"/>
+                    <TextBlock Text="Gas and electricity prices"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
 
-            </Grid>
+                    <lvc:CartesianChart Grid.Row="1"
+                                        Series="{Binding PriceSeries}"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        LegendPosition="Top"
+                                        Background="White"/>
 
-        </Border>
+                </Grid>
 
-        <!-- PRICES -->
-        <Border Grid.Row="1"
-                Background="White"
-                BorderBrush="#DDDDDD"
-                BorderThickness="1"
-                CornerRadius="6"
-                Padding="15">
+            </Border>
 
-            <Grid RowDefinitions="Auto,*">
+            <!-- EXPENSES -->
+            <Border Height="360"
+                    Grid.Column="1"
+                    Background="White"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="15">
 
-                <TextBlock Text="Gas and electricity prices"
-                           FontWeight="Bold"
-                           Margin="0 0 0 10"/>
+                <Grid RowDefinitions="Auto,*">
 
-                <lvc:CartesianChart Grid.Row="1"
-                                    Series="{Binding PriceSeries}"
-                                    XAxes="{Binding XAxes}"
-                                    YAxes="{Binding YAxes}"
-                                    LegendPosition="Top"
-                                    Background="White"/>
+                    <TextBlock Text="Expenses and profits"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
 
-            </Grid>
+                    <lvc:CartesianChart Grid.Row="1"
+                                        Series="{Binding ExpenseSeries}"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        LegendPosition="Top"
+                                        Background="White"/>
 
-        </Border>
+                </Grid>
+            </Border>
 
-        <!-- EXPENSES -->
-        <Border Grid.Row="1"
-                Grid.Column="1"
-                Background="White"
-                BorderBrush="#DDDDDD"
-                BorderThickness="1"
-                CornerRadius="6"
-                Padding="15">
+             <!-- ELECTRICITY -->
+            <Border Height="360"
+                    Grid.Row="2"
+                    Background="White"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="15">
 
-            <Grid RowDefinitions="Auto,*">
+                <Grid RowDefinitions="Auto,*">
 
-                <TextBlock Text="Expenses and profits"
-                           FontWeight="Bold"
-                           Margin="0 0 0 10"/>
+                    <TextBlock Text="Electricity consumption and production"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
 
-                <lvc:CartesianChart Grid.Row="1"
-                                    Series="{Binding ExpenseSeries}"
-                                    XAxes="{Binding XAxes}"
-                                    YAxes="{Binding YAxes}"
-                                    LegendPosition="Top"
-                                    Background="White"/>
+                    <lvc:CartesianChart Grid.Row="1"
+                                        Series="{Binding ElectricitySeries}"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        LegendPosition="Top"
+                                        Background="White"/>
 
-            </Grid>
+                </Grid>
 
-        </Border>
-    </Grid>
+            </Border>
+            
+        </Grid>
+    
 </UserControl>
