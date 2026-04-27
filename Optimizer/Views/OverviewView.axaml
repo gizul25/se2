@@ -37,7 +37,6 @@
                                         XAxes="{Binding XAxes}"
                                         YAxes="{Binding YAxes}"
                                         LegendPosition="Top"
-                                        LegendTextPaint="#FFFFFF"
                                         Background="White"/>
 
                 </Grid>
@@ -65,7 +64,6 @@
                                         XAxes="{Binding XAxes}"
                                         YAxes="{Binding YAxes}"
                                         LegendPosition="Top"
-                                        LegendTextPaint="#FFFFFF"
                                         Background="White"/>
 
                 </Grid>
@@ -92,7 +90,6 @@
                                         XAxes="{Binding XAxes}"
                                         YAxes="{Binding YAxes}"
                                         LegendPosition="Top"
-                                        LegendTextPaint="#FFFFFF"
                                         Background="White"/>
 
                 </Grid>
@@ -118,7 +115,6 @@
                                         XAxes="{Binding XAxes}"
                                         YAxes="{Binding YAxes}"
                                         LegendPosition="Top"
-                                        LegendTextPaint="#FFFFFF"
                                         Background="White"/>
 
                 </Grid>
