@@ -7,6 +7,8 @@
         "Co2Emissions": 132,
         "GasConsumption": 1.05,
         "OilConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/GB.jpg"
     },
     {
@@ -17,6 +19,8 @@
         "Co2Emissions": 134,
         "GasConsumption": 1.08,
         "OilConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/GB.jpg"
 
     },
@@ -28,6 +32,8 @@
         "Co2Emissions": 136,
         "GasConsumption": 1.09,
         "OilConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/GB.jpg"
     },
     {
@@ -38,6 +44,8 @@
         "Co2Emissions": 147,
         "OilConsumption": 1.18,
         "GasConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/OB.jpg"
     },
     {
@@ -48,6 +56,8 @@
         "Co2Emissions": 227,
         "GasConsumption": 1.82,
         "OilConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/GM.jpg"
     },
     {
@@ -58,6 +68,8 @@
         "GasConsumption": 0,
         "Co2Emissions": 0,
         "OilConsumption": 0,
+        "MinHour": 30,
+        "MaxHour": 60,
         "Image": "Assets/images/EB.jpg"
     }
 ]

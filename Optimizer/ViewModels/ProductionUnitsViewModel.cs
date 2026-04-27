@@ -1,6 +1,5 @@
 using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SE2.Models;
@@ -63,6 +62,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
                 ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
+                MaxHour = asset.MaxHour,
+                MinHour = asset.MinHour,
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
                 UnitIndex = index
             };

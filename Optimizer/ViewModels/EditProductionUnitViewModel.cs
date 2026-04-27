@@ -62,12 +62,24 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             if (SelectedProductionUnit.ShallMaintained)
             {
                 if (-1 != b)
+                {
                     DM.AM.ScenarioData.AvailableMaintenanceUnits[b] = SelectedProductionUnit.Name;
-                else 
+                    DM.AM.ScenarioData.MaintenanceHoursMin[b] = SelectedProductionUnit.MinHour;
+                    DM.AM.ScenarioData.MaintenanceHoursMax[b] = SelectedProductionUnit.MaxHour;
+                }
+                else
+                {
                     DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
+                    DM.AM.ScenarioData.MaintenanceHoursMin.Add(SelectedProductionUnit.MinHour);
+                    DM.AM.ScenarioData.MaintenanceHoursMax.Add(SelectedProductionUnit.MaxHour);
+                }       
             }
             else
+            {
                 DM.AM.ScenarioData.AvailableMaintenanceUnits.Remove(originalName);
+                DM.AM.ScenarioData.MaintenanceHoursMin.RemoveAt(b);
+                DM.AM.ScenarioData.MaintenanceHoursMax.RemoveAt(b);
+            }
 
             DM.AM.Assets[UnitIndex].Name = SelectedProductionUnit.Name;
             DM.AM.Assets[UnitIndex].MaxHeat = SelectedProductionUnit.MaxHeat;
@@ -77,6 +89,8 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
             DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
+            DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
+            DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
         }
         else
         {
@@ -89,10 +103,17 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 MaxElectricity = SelectedProductionUnit.MaxElectricity,
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
-                ShallMaintained = SelectedProductionUnit.ShallMaintained
+                ShallMaintained = SelectedProductionUnit.ShallMaintained,
+                MinHour = SelectedProductionUnit.MinHour,
+                MaxHour = SelectedProductionUnit.MaxHour
             });
-            if (SelectedProductionUnit.ShallMaintained) 
+            if (SelectedProductionUnit.ShallMaintained)
+            {
                 DM.AM.ScenarioData.AvailableMaintenanceUnits.Add(SelectedProductionUnit.Name);
+                DM.AM.ScenarioData.MaintenanceHoursMin.Add(SelectedProductionUnit.MinHour);
+                DM.AM.ScenarioData.MaintenanceHoursMax.Add(SelectedProductionUnit.MaxHour);
+            }
+                
         }
         Redraw?.Invoke(null,new());
         DialogHost.Close("MainDialogHost");

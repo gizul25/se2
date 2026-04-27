@@ -52,6 +52,8 @@ public class Asset
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
     public bool ShallMaintained { get; set;}
+    public int MinHour { get; set; } = 30;
+    public int MaxHour { get; set; } = 60;
 
     public override string ToString()
     {

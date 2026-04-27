@@ -1,6 +1,6 @@
 {
   "available_units": ["GB1", "GB2", "GM1", "EB1"],
   "available_maintenance_units": ["GB1", "GM1"],
-  "maintenance_hours_min": 30, 
-  "maintenance_hours_max": 60
+  "maintenance_hours_min": [30,30], 
+  "maintenance_hours_max": [60,60]
 }
