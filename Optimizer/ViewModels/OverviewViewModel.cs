@@ -10,6 +10,7 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using SE2.Domain;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SE2.ViewModels;
 
