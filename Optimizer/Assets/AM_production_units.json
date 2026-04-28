@@ -8,6 +8,8 @@
     "GasConsumption": 1.05,
     "OilConsumption": 0,
     "Image": "Assets/images/GB.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [21, 97, 109]
   },
   {
@@ -19,6 +21,8 @@
     "GasConsumption": 1.08,
     "OilConsumption": 0,
     "Image": "Assets/images/GB.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [255, 236, 209]
   },
   {
@@ -30,6 +34,8 @@
     "GasConsumption": 1.09,
     "OilConsumption": 0,
     "Image": "Assets/images/GB.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [255, 125, 0]
   },
   {
@@ -41,6 +47,8 @@
     "OilConsumption": 1.18,
     "GasConsumption": 0,
     "Image": "Assets/images/OB.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [120, 41, 15]
   },
   {
@@ -52,6 +60,8 @@
     "GasConsumption": 1.82,
     "OilConsumption": 0,
     "Image": "Assets/images/GM.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [150, 10, 70]
   },
   {
@@ -63,6 +73,8 @@
     "Co2Emissions": 0,
     "OilConsumption": 0,
     "Image": "Assets/images/EB.jpg",
+    "MinHour": 30,
+    "MaxHour": 60,
     "Color": [70, 10, 150]
   }
 ]

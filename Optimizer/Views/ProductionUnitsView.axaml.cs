@@ -18,6 +18,11 @@ public partial class ProductionUnitsView : UserControl
     public ProductionUnitsView()
     {
         InitializeComponent();
+        Loaded += GetContext;
+    }
+
+    private void GetContext(object? sender, RoutedEventArgs e)
+    {
         DataContext = new ProductionUnitsViewModel();
     }
 }
