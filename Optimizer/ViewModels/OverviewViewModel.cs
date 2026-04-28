@@ -1,46 +1,57 @@
 using System;
+using System.IO;
+using Avalonia.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
+using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using SE2.Domain;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SE2.ViewModels;
 
 public partial class OverviewViewModel : ViewModelBase
 {
     [ObservableProperty]
- 	private ISeries[] heatSeries = [];
+    private ISeries[] heatSeries = [];
 
-	[ObservableProperty]
+    [ObservableProperty]
     private ISeries[] electricitySeries = [];
 
-	[ObservableProperty]
+    [ObservableProperty]
     private ISeries[] priceSeries = [];
 
-	[ObservableProperty]
+    [ObservableProperty]
     private ISeries[] expenseSeries = [];
 
 
-	[ObservableProperty]
+    [ObservableProperty]
     private Axis[] xAxes = [];
 
-	[ObservableProperty]
+    [ObservableProperty]
     private Axis[] yAxes = [];
 
-	public OverviewViewModel()
+    [ObservableProperty]
+    private Bitmap? heatGrid = null;
+
+	  public OverviewViewModel()
     {
         Load();
     }
 
-	[RelayCommand]
+    [RelayCommand]
     public void Load()
     {
+        var grid = DM.AM.HeatingGrid;
+        heatGrid = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", grid.Image));
+
         var sources = DM.SDM.Sources;
         var results = DM.RDM.ResultingData;
+
 
         if (sources == null || sources.Count == 0 || results == null || results.ResultRows.Count == 0)
         {
@@ -53,23 +64,29 @@ public partial class OverviewViewModel : ViewModelBase
             return;
         }
 
-        var heatDemand = sources.Select(s => (double)s.HeatDemand).ToArray();
-        var heatProduction = results.ResultRows.Select(r => (double)r.HeatProduction).ToArray();
+        var elecCons = results.ResultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToArray();
+        var elecProd = results.ResultRows.Select(r => new DateTimePoint(r.Time, 0d)).ToArray();
 
-        var elecCons =  results.ResultRows.Select(r => r.Consumption).ToArray();
-        var elecProd = results.ResultRows.Select(r => 0d).ToArray();
+        var gas = sources.Select(s => new DateTimePoint(s.StartTime, (double)s.ElectricityPrice)).ToArray();
+        var elec = sources.Select(s => new DateTimePoint(s.StartTime, (double)s.ElectricityPrice)).ToArray();
 
-        var gas = sources.Select(s => (double)s.ElectricityPrice).ToArray();
-        var elec = sources.Select(s => (double)s.ElectricityPrice).ToArray();
+        var expenses = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
+        var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.HeatProduction * 1000 - (double)r.Costs)).ToArray();
 
-        var expenses = results.ResultRows.Select(r => (double)r.Costs).ToArray();
-        var profits = results.ResultRows.Select(r => (double)r.HeatProduction * 1000 - (double)r.Costs).ToArray();
-        
-        HeatSeries =
-        [
-            Series("Heat demand", heatDemand, new SKColor(70,70,70)),
-            Series("Heat production", heatProduction, new SKColor(150,150,150))
-        ];
+        List<ISeries> heatSeries = [];
+        IDictionary<string, DateTimePoint[]> heatEntries = results.SchedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, c.HeatProduction)).ToArray());
+
+        foreach (KeyValuePair<string, DateTimePoint[]> kvp in heatEntries)
+        {
+            var colorArr = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = new SKColor((byte)colorArr[0], (byte)colorArr[1], (byte)colorArr[2]);
+            var series = StackedColumnSeries(kvp.Key, kvp.Value, color);
+            heatSeries.Add(series);
+        }
+
+        HeatSeries = heatSeries.ToArray();
 
         ElectricitySeries =
         [
@@ -91,66 +108,13 @@ public partial class OverviewViewModel : ViewModelBase
 
         XAxes =
         [
-            new Axis
-            {
-                Labeler = value =>
-                {
-                    var months = new[]
-                    {
-                        "Jan","Feb","Mar","Apr","May","Jun",
-                        "Jul","Aug","Sep","Oct","Nov","Dec"
-                    };
-
-                    int index = (int)(value / 10); // 120 points / 12 months
-
-                    if (value % 10 == 0 && index >= 0 && index < 12)
-                        return months[index];
-
-                    return "";
-                },
-
-                MinLimit = 0,
-                MaxLimit = 119,
-
-                MinStep = 10,
-                ForceStepToMin = true,
-
-                LabelsPaint = new SolidColorPaint(SKColors.Black),
-                SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
-                TextSize = 12
-            }
+            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
         ];
-
-        var allValues = heatDemand
-            .Concat(heatProduction)
-            .Concat(elecCons)
-            .Concat(elecProd)
-            .Concat(gas)
-            .Concat(elec)
-            .Concat(expenses)
-            .Concat(profits)
-            .DefaultIfEmpty(0)
-            .ToArray();
-
-        /*var YMax = Math.Max(1, Math.Ceiling(allValues.DefaultIfEmpty(0).Max() * 1.1));
-
-        YAxes =
-        [
-            new Axis
-            {
-                MinLimit = 0,
-                MaxLimit = yMax,
-                LabelsPaint = new SolidColorPaint(SKColors.Black),
-                SeparatorsPaint = new SolidColorPaint(new SKColor(230,230,230)),
-                TextSize = 12
-            }
-        ]; */
-
     }
 
-    private static ISeries Series(string name, double[] values, SKColor color)
+    private static ISeries Series(string name, IReadOnlyCollection<DateTimePoint>? values, SKColor color)
     {
-        return new LineSeries<double>
+        return new LineSeries<DateTimePoint>
         {
             Name = name,
             Values = values,
@@ -158,6 +122,17 @@ public partial class OverviewViewModel : ViewModelBase
             Stroke = new SolidColorPaint(color) { StrokeThickness = 2 },
             Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60)),
             LineSmoothness = 0.5
+        };
+    }
+
+    private static ISeries StackedColumnSeries(string name, IReadOnlyCollection<DateTimePoint>? values, SKColor color)
+    {
+        return new StackedColumnSeries<DateTimePoint>
+        {
+            Name = name,
+            Values = values,
+            Stroke = new SolidColorPaint(color) { StrokeThickness = 2 },
+            Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60))
         };
     }
 }

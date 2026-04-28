@@ -54,6 +54,7 @@ public class Asset
     public bool ShallMaintained { get; set;}
     public int MinHour { get; set; } = 30;
     public int MaxHour { get; set; } = 60;
+    public int[]? Color { get; set; }
 
     public override string ToString()
     {
