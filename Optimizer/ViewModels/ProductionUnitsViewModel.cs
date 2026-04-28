@@ -48,7 +48,6 @@ public partial class ProductionUnitsViewModel : ViewModelBase
     private void Draw()
     {
         ProductionUnits = [];
-        Console.WriteLine(string.Join(", ", DM.AM.ScenarioData.AvailableMaintenanceUnits));
         
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
