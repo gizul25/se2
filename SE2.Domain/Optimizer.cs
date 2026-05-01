@@ -10,7 +10,7 @@ public class Optimizer
     private List<NetCostData> netCostCache = new();
 
     public void OptimizerInit()
-    {
+    {	
         if (Sources == null || Sources.Count == 0)
         {
             throw new Exception("No sources defined");
@@ -183,6 +183,13 @@ public class Optimizer
 
         ResultData results = new();
 
+        decimal totalHeatProduced = 0m;
+        decimal totalCost = 0m;
+        decimal totalElectricityProduced = 0m;
+        decimal totalElectricityConsumed = 0m;
+        decimal totalEmissions = 0m;
+        decimal totalPrimaryEnergy = 0m;
+        
         foreach (var hour in Sources)
         {
             decimal demand = (decimal)hour.HeatDemand;
@@ -193,11 +200,13 @@ public class Optimizer
 				.Where(nc => IsAssetAvailable(nc.AssetName, hour.StartTime))
                 .OrderBy(nc => nc.NetCost)
                 .ToList();
-
-            decimal totalHeatProduced = 0m;
-            decimal totalCost = 0m;
-            //decimal totalConsumption = 0m; // Optional
-            //decimal totalEmissions = 0m; // Optional
+            
+            decimal hourHeatProduced = 0m;
+            decimal hourCost = 0m;
+            decimal hourElectricityProduced = 0m;
+            decimal hourElectricityConsumed = 0m;
+            decimal hourEmissions = 0m;
+            decimal hourPrimaryEnergy = 0m;
 
             foreach (var nc in hourlyCosts)
             {
@@ -215,18 +224,37 @@ public class Optimizer
                 decimal maxHeat = (decimal)asset.MaxHeat;
                 decimal heatProduced = Math.Min(maxHeat, remaining);
                 decimal cost = heatProduced * nc.NetCost;
+                decimal elecPerHeat = (decimal)(asset.MaxElectricity / asset.MaxHeat);
+                decimal electricity = heatProduced * elecPerHeat;
+
+                if (electricity > 0)
+                {
+                    hourElectricityProduced += electricity;
+                }
+                else
+                {
+                    hourElectricityConsumed += Math.Abs(electricity);
+                }
+                
+                decimal emissionPerHeat = (decimal)(asset.Co2Emissions / asset.MaxHeat);
+                decimal emissions = heatProduced * emissionPerHeat; 
+                
+                decimal energyPerHeat = (decimal)((asset.GasConsumption + asset.OilConsumption) / asset.MaxHeat);
+                decimal primaryEnergy = heatProduced * energyPerHeat;
 
                 results.SchedulerRows.Add(new SchedulerRow {
                     Time = hour.StartTime,
                     AssetName = asset.Name,
                     HeatProduction = (double)heatProduced,
                     Costs = cost,
-                    //Consumption = 0, // Optional
-                    //Emissions = 0 // Optional
+                    Consumption = (double)Math.Abs(electricity),
+                    Emissions = (double)emissions, 
                 });
                 
-                totalHeatProduced += heatProduced;
-                totalCost += cost;
+                hourHeatProduced += heatProduced;
+                hourCost += cost;
+                hourEmissions += emissions;
+                hourPrimaryEnergy += primaryEnergy;
 
                 remaining -= heatProduced;
             }
@@ -236,18 +264,27 @@ public class Optimizer
                 throw new Exception("Not enough heat demands at this time");
             }
             
+            totalElectricityProduced += hourElectricityProduced;
+            totalElectricityConsumed += hourElectricityConsumed;
+            totalEmissions += hourEmissions;
+            totalPrimaryEnergy += hourPrimaryEnergy;
+            
             results.ResultRows.Add(new ResultRow {
                 Time = hour.StartTime,
-                HeatProduction = (double)totalHeatProduced,
-                Costs = totalCost
-                //Consumption = 0, // Optional
-                //Emissions = 0 // Optional
+                HeatProduction = (double)hourHeatProduced,
+                Costs = hourCost,
+                Consumption = (double)hourElectricityConsumed,
+                Emissions = (double)hourEmissions
             });
         }
 
         results.TotalCost = (double)results.ResultRows.Sum(r => r.Costs);
         results.TotalProfit = -results.TotalCost;
         results.HeatProduced = results.ResultRows.Sum(r => r.HeatProduction);
+        results.ElectricityProduced = (double)totalElectricityProduced;
+        results.ElectricityConsumed = (double)totalElectricityConsumed;
+        results.Co2Emissions = (double)totalEmissions;
+        results.PrimaryEnergy = (double)totalPrimaryEnergy;
 
         return results;
     }
