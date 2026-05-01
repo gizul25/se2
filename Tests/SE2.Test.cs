@@ -157,6 +157,71 @@ namespace SE2.Test
     			});
     			Assert.DoesNotThrow(() => optimizer.OptimizerInit());
 			}
+
+			[Test]
+			public void CalculateSchedules_HeatOnly_CorrectTotals()
+			{
+				var optimizer = new Optimizer();
+        
+			    optimizer.Assets.Add(new Asset {
+					Name = "Boiler A",
+					MaxHeat = 100,
+					MaxElectricity = 0,
+					ProductionCosts = 50,
+					Co2Emissions = 1,
+					GasConsumption = 0.8f,
+					OilConsumption = 0f
+				});
+        
+				optimizer.Sources.Add(new SourceData {
+					StartTime = new DateTime(2026, 5, 1, 8, 0, 0),
+					HeatDemand = 100,
+					ElectricityPrice = 100
+				});
+        
+				optimizer.OptimizerInit();
+				
+				var result = optimizer.CalculateSchedule();
+			
+				Assert.AreEqual(100, result.HeatProduced);
+				Assert.AreEqual(0, result.ElectricityProduced);
+				Assert.AreEqual(0, result.ElectricityConsumed);
+				Assert.AreEqual(5000, result.TotalCost, 0.01);
+				Assert.AreEqual(1, result.Co2Emissions, 0.01);
+				Assert.AreEqual(0.8, result.PrimaryEnergy, 0.01);
+			}
+			
+			[Test]
+			public void CalculateSchedule_MixedWithNegativePrice_SelectsCheaperAsset()
+			{
+				// Arrange
+				var optimizer = new Optimizer();
+        
+				optimizer.Assets.Add(new Asset {
+					Name = "Gas Motor",
+					MaxHeat = 100,
+					MaxElectricity = 50,
+					ProductionCosts = 40,
+					Co2Emissions = 1,
+					GasConsumption = 0.7f,
+					OilConsumption = 0f
+				});
+        
+				optimizer.Sources.Add(new SourceData {
+					StartTime = new DateTime(2026, 5, 1, 12, 0, 0),
+					HeatDemand = 100,
+					ElectricityPrice = -50
+				});
+        
+				optimizer.OptimizerInit();
+				
+				var result = optimizer.CalculateSchedule();
+			
+				Assert.AreEqual(100, result.HeatProduced);
+				Assert.AreEqual(50, result.ElectricityProduced);
+				Assert.AreEqual(0, result.ElectricityConsumed);
+				Assert.AreEqual(6500, result.TotalCost, 0.01);
+			}
         }
 
 		public class OverviewViewModelTests
