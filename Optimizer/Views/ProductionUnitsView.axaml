@@ -12,16 +12,16 @@
     <UserControl.Resources>
 
         <ControlTheme x:Key="ConfirmButton" TargetType="Button">
-            <Setter Property="Background" Value="#0f62fe"/>
+            <Setter Property="Background" Value="#ED071B"/>
             <Setter Property="Foreground" Value="#ffffff"/>
             <Setter Property="Padding" Value="14,8,14,8"/>
             <Setter Property="CornerRadius" Value="4"/>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="#1155d5"/>
+                <Setter Property="Background" Value="#CF0416"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="#093c9a"/>
+                <Setter Property="Background" Value="#A3000E"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
             </Style>
         </ControlTheme>
@@ -30,36 +30,37 @@
 
     <UserControl.Styles>
         <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-            <Setter Property="Background" Value="#0f62fe"/>
+            <Setter Property="Background" Value="#ED071B"/>
+            <Setter Property="BorderBrush" Value="#000000"/>
         </Style>
     </UserControl.Styles>
 
     <StackPanel>
-        <Border Background="#f2f4f8" CornerRadius="0" Margin="0,10,0,0"
+        <Border Background="#ED071B" CornerRadius="0" Margin="0,10,0,0"
                 BorderBrush="#dde1e6" BorderThickness="2"
                 Padding="5" >
             <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
-                <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding SelectAll}"></CheckBox>
-                <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="1"
-                           Text="Production unit" VerticalAlignment="Center"/>
+                <CheckBox Grid.Row="0" Grid.Column="0" Foreground= "#ffffff" CornerRadius="0" BorderThickness="2" IsChecked="{Binding SelectAll}"></CheckBox>
+                <TextBlock Grid.Row="0" Grid.Column="1"
+                           Foreground= "#ffffff" FontWeight="SemiBold" Text="Production unit" VerticalAlignment="Center"/>
                 <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Net costs" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Heat production" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Electricity" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Gas Usages" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Oil Usages" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Emissions" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Maintained" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Min hours" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" FontWeight="Bold"
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Max hours" VerticalAlignment="Center"/>
                 </UniformGrid>
             </Grid>
@@ -148,7 +149,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button x:Name ="AddButton" Theme="{StaticResource ConfirmButton}" Content="Add production unit" HorizontalAlignment="Left" Command="{Binding OpenAddUnitMenu}" Margin="20 10"/>
+        <Button x:Name ="AddButton" Theme="{StaticResource ConfirmButton}" Content="Add production unit" HorizontalAlignment="Left" Command="{Binding OpenAddUnitMenu}" Margin="0 10"/>
     </StackPanel>
 
 </UserControl>

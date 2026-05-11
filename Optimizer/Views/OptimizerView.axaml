@@ -12,7 +12,7 @@
         <Style Selector="Button.Button">
             <Setter Property="Padding" Value="14,8,14,8"/>
             <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Setter Property="Background" Value="#0F62FE"/>
+            <Setter Property="Background" Value="#ED071B"/>
 
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="RecognizesAccessKey" Value="True" />
@@ -20,7 +20,7 @@
 
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="#FFFFFF"/>
-                <Setter Property="Background" Value="#1155d5"/>
+                <Setter Property="Background" Value="#CF0416"/>
             </Style>
 
             <Style Selector="^:pressed">
@@ -29,7 +29,7 @@
 
             <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="#FFFFFF"/>
-                <Setter Property="Background" Value="#093c9a"/>
+                <Setter Property="Background" Value="#A3000E"/>
             </Style>
         </Style>
         <Style Selector="TextBlock.Subheading">
@@ -48,7 +48,7 @@
         </StackPanel>
         <TextBlock Classes= "Heading" Text= "Optimization results"  />
         <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
-            <Border Grid.Column="0" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="0" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Classes= "Subheading"  Text= "Total Profit"/>
                     <StackPanel Orientation= "Horizontal">
@@ -57,7 +57,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="1" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="1" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Total Cost"/>
                     <StackPanel Orientation= "Horizontal">
@@ -66,7 +66,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="2" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="2" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Heat Produced"/>
                     <StackPanel Orientation= "Horizontal">
@@ -75,7 +75,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="3" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="3" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Consumed"/>
                     <StackPanel Orientation= "Horizontal">
@@ -84,7 +84,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="4" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="4" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Electricity Produced"/>
                     <StackPanel Orientation= "Horizontal">
@@ -93,7 +93,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="5" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="5" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "Primary Energy"/>
                     <StackPanel Orientation= "Horizontal">
@@ -102,7 +102,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Grid.Column="6" BorderThickness="2" Margin="2" BorderBrush="#DDE1E6" Padding="4">
+            <Border Grid.Column="6" BorderThickness="1" Margin="2" BorderBrush="#ED071B" Padding="4">
                 <StackPanel Margin= "4"  Spacing= "4">
                     <TextBlock Text= "CO2 Emissions"/>
                     <StackPanel Orientation= "Horizontal">

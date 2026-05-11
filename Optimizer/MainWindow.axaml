@@ -14,12 +14,14 @@
         </Style>
     </Window.Styles>
     <dialogHostAvalonia:DialogHost Identifier="MainDialogHost" dialogHostAvalonia:DialogHostStyle.CornerRadius="12">
-    <DockPanel LastChildFill="true">
-        <StackPanel Name= "MainSidePanel" Margin= "10" Spacing= "10"  DockPanel.Dock="Left">
-            <TextBlock HorizontalAlignment="Center" Classes= "title" Text= "HeatItOn"  />
-            <c:SideTabStrip Name= "SideTabStripNode"/>
-        </StackPanel>
-        <Panel DockPanel.Dock="Right" Name= "InjectorNode"/>
-    </DockPanel>
+        <DockPanel LastChildFill="true">
+            <Border Background="#ED071B" Padding="10" DockPanel.Dock="Left">
+                <StackPanel Classes= "MainSidePanel" Name= "MainSidePanel" Spacing= "20" >
+                    <Image DockPanel.Dock= "Top" Source="avares://SE2/Assets/images/Logo.png" Width= "200"/>
+                    <c:SideTabStrip Name= "SideTabStripNode"/>
+                </StackPanel>
+            </Border>
+            <Panel DockPanel.Dock="Right" Name= "InjectorNode"/>
+        </DockPanel>
     </dialogHostAvalonia:DialogHost>
 </Window>
