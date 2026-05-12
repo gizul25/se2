@@ -13,10 +13,9 @@ namespace SE2.ViewModels;
 
 public partial class ProductionUnitsViewModel : ViewModelBase
 {
-
     [ObservableProperty]
     private bool? _selectAll = false;
-    
+
     [ObservableProperty]
     public ObservableCollection<ProductionUnitsModel> _productionUnits = [];
 
@@ -53,6 +52,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
         {
             Asset asset = DM.AM.Assets[index];
             ProductionUnitsModel unitsModel = new () {
+                Image = asset.Image,
                 Name = asset.Name,
                 ProductionCosts = asset.ProductionCosts,
                 MaxHeat = asset.MaxHeat,
