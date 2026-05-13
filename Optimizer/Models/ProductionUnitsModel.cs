@@ -3,6 +3,7 @@ using System.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SE2.Data;
 using SE2.Domain;
+using Avalonia.Media.Imaging;
 
 namespace SE2.Models;
 
@@ -11,6 +12,8 @@ public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
     private bool _isSelected;
 
     public int UnitIndex { get; set; } = -1;
+
+    public Bitmap? ImageBitmap { get; set; }
     
     public event EventHandler? OpenEditUnit;
     public event PropertyChangedEventHandler? PropertyChanged;
