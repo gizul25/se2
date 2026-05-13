@@ -83,5 +83,5 @@
             </Style>
         </Style>
     </UserControl.Styles>
-    <TabStrip DockPanel.Dock="Left" Margin="0" Name= "TabNode"/>
+    <TabStrip DockPanel.Dock="Left" Margin="0" Name="TabNode"/>
 </UserControl>

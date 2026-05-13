@@ -15,6 +15,7 @@ public partial class ChartControlViewModel : ViewModelBase
     public string _title = "";
 
     public ISeries[] Series { get; set; } = [];
-    public Axis[] XAxes { get; set; } = [];
-    public Axis[] YAxes { get; set; } = [];
+    public Axis[] XAxes { get; set; } = [
+        new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
+    ];
 }

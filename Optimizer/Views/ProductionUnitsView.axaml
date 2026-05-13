@@ -8,14 +8,40 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SE2.Views.ProductionUnitsView"
              x:DataType="vm:ProductionUnitsViewModel">
-
     <UserControl.Resources>
 
-        <ControlTheme x:Key="ConfirmButton" TargetType="Button">
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
+            <Setter Property="Background" Value="#ED071B"/>
+            <Setter Property="BorderBrush" Value="#000000"/>
+        </Style>
+        <Style Selector="CheckBox.WhiteCheckBox">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Border.RedBorder">
+            <Setter Property="Background" Value="#ED071B"/>
+            <Setter Property="BorderBrush" Value="#DDE1E6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style Selector="Border.GrayBorder">
+            <Setter Property="BorderBrush" Value="#DDE1E6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Margin" Value="0,-2,0,0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style Selector="Button.ConfirmButton">
             <Setter Property="Background" Value="#ED071B"/>
             <Setter Property="Foreground" Value="#ffffff"/>
-            <Setter Property="Padding" Value="14,8,14,8"/>
             <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="Padding" Value="14,8,14,8"/>
+            <Setter Property="Margin" Value="0,10"/>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="#CF0416"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
@@ -24,44 +50,38 @@
                 <Setter Property="Background" Value="#A3000E"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
             </Style>
-        </ControlTheme>
-
-    </UserControl.Resources>
-
-    <UserControl.Styles>
-        <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-            <Setter Property="Background" Value="#ED071B"/>
-            <Setter Property="BorderBrush" Value="#000000"/>
+        </Style>
+        <Style Selector="TextBlock.MainText">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="TextBlock.Text">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style Selector="TextBlock.PropertyText">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </UserControl.Styles>
-
     <StackPanel>
-        <Border Background="#ED071B" CornerRadius="0" Margin="0,10,0,0"
-                BorderBrush="#dde1e6" BorderThickness="2"
-                Padding="5" >
+        <Border Classes="RedBorder">
             <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
-                <CheckBox Grid.Row="0" Grid.Column="0" Foreground= "#ffffff" CornerRadius="0" BorderThickness="2" IsChecked="{Binding SelectAll}"></CheckBox>
-                <TextBlock Grid.Row="0" Grid.Column="1"
-                           Foreground= "#ffffff" FontWeight="SemiBold" Text="Production unit" VerticalAlignment="Center"/>
+                <CheckBox Grid.Row="0" Grid.Column="0" Classes="WhiteCheckBox" IsChecked="{Binding SelectAll}"></CheckBox>
+                <TextBlock Grid.Row="0" Grid.Column="1" Classes= "MainText" Text="Production unit"/>
                 <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Net costs" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Heat production" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Electricity" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Gas Usages" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Oil Usages" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Emissions" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Maintained" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Min hours" VerticalAlignment="Center"/>
-                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
-                               Text="Max hours" VerticalAlignment="Center"/>
+                    <TextBlock Classes="Text" Text="Net costs"/>
+                    <TextBlock Classes="Text" Text="Heat production"/>
+                    <TextBlock Classes="Text" Text="Electricity"/>
+                    <TextBlock Classes="Text" Text="Gas Usages"/>
+                    <TextBlock Classes="Text" Text="Oil Usages"/>
+                    <TextBlock Classes="Text" Text="Emissions"/>
+                    <TextBlock Classes="Text" Text="Maintained"/>
+                    <TextBlock Classes="Text" Text="Min hours"/>
+                    <TextBlock Classes="Text" Text="Max hours"/>
                 </UniformGrid>
             </Grid>
         </Border>
@@ -70,78 +90,80 @@
         <ItemsControl ItemsSource="{Binding ProductionUnits}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="0" Margin="0,-2,0,0"
-                            BorderBrush="#dde1e6" BorderThickness="2"
-                            Padding="5">
+                    <Border Classes="GrayBorder">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
                             <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox>
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
                             <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} DKK / MWh'>
-                                            <Binding Path="ProductionCosts" />
+                                        <MultiBinding StringFormat='{}{0} DKK / MWh'>
+                                            <Binding Path="ProductionCosts"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} MW'>
-                                            <Binding Path="MaxHeat" />
+                                        <MultiBinding StringFormat='{}{0} MW'>
+                                            <Binding Path="MaxHeat"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} MW'>
-                                            <Binding Path="MaxElectricity" />
+                                        <MultiBinding StringFormat='{}{0} MW'>
+                                            <Binding Path="MaxElectricity"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} MWh'>
-                                            <Binding Path="GasConsumption" />
+                                        <MultiBinding StringFormat='{}{0} MWh'>
+                                            <Binding Path="GasConsumption"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} MWh'>
-                                            <Binding Path="OilConsumption" />
+                                        <MultiBinding StringFormat='{}{0} MWh'>
+                                            <Binding Path="OilConsumption"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} kg / MWh'>
-                                            <Binding Path="Co2Emissions" />
+                                        <MultiBinding StringFormat='{}{0} kg / MWh'>
+                                            <Binding Path="Co2Emissions"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0}'>
-                                            <Binding Path="ShallMaintained" />
+                                        <MultiBinding StringFormat='{}{0}'>
+                                            <Binding Path="ShallMaintained"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} h'>
-                                            <Binding Path="MinHour" />
+                                        <MultiBinding StringFormat='{}{0} h'>
+                                            <Binding Path="MinHour"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                <TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0} h'>
-                                            <Binding Path="MaxHour" />
+                                        <MultiBinding StringFormat='{}{0} h'>
+                                            <Binding Path="MaxHour"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
                             </UniformGrid>
-                            <Button Grid.Row="0" Grid.Column="3" Background="Transparent" HorizontalAlignment="Right" Command="{Binding OpenEditUnitMenu}">
+                            <Button Grid.Row="0"
+                                    Grid.Column="3"
+                                    Background="Transparent"
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding OpenEditUnitMenu}">
                                 <TextBlock Text="&#xf304;" FontFamily="{StaticResource FontAwesome}" FontSize="20"/>
                             </Button>
                         </Grid>
@@ -149,7 +171,9 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button x:Name ="AddButton" Theme="{StaticResource ConfirmButton}" Content="Add production unit" HorizontalAlignment="Left" Command="{Binding OpenAddUnitMenu}" Margin="0 10"/>
+        <Button Classes="ConfirmButton"
+                Content="Add production unit"
+                HorizontalAlignment="Left"
+                Command="{Binding OpenAddUnitMenu}"/>
     </StackPanel>
-
 </UserControl>
