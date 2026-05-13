@@ -38,7 +38,10 @@ public partial class OverviewViewModel : ViewModelBase
     [ObservableProperty]
     private Bitmap? heatGrid = null;
 
-	  public OverviewViewModel()
+    [ObservableProperty]
+    private string gridMapName = "";
+
+    public OverviewViewModel()
     {
         Load();
     }
@@ -48,6 +51,7 @@ public partial class OverviewViewModel : ViewModelBase
     {
         var grid = DM.AM.HeatingGrid;
         heatGrid = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", grid.Image));
+        gridMapName = grid.City;
 
         var sources = DM.SDM.Sources;
         var results = DM.RDM.ResultingData;
@@ -90,20 +94,20 @@ public partial class OverviewViewModel : ViewModelBase
 
         ElectricitySeries =
         [
-            Series("Electricity consumption", elecCons, new SKColor(70,70,70)),
-            Series("Electricity production", elecProd, new SKColor(150,150,150))
+            Series("Electricity consumption", elecCons, new SKColor(237,7,27)),
+            Series("Electricity production", elecProd, new SKColor(142,0,12))
         ];
 
         PriceSeries =
         [
-            Series("Gas price", gas, new SKColor(70,70,70)),
-            Series("Electricity price", elec, new SKColor(150,150,150))
+            Series("Gas price", gas, new SKColor(237,7,27)),
+            Series("Electricity price", elec, new SKColor(142,0,12))
         ];
 
         ExpenseSeries =
         [
-            Series("Expenses", expenses, new SKColor(70,70,70)),
-            Series("Profits", profits, new SKColor(150,150,150))
+            Series("Expenses", expenses, new SKColor(237,7,27)),
+            Series("Profits", profits, new SKColor(142,0,12))
         ];
 
         XAxes =
@@ -121,6 +125,8 @@ public partial class OverviewViewModel : ViewModelBase
             GeometrySize = 0,
             Stroke = new SolidColorPaint(color) { StrokeThickness = 2 },
             Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60)),
+            GeometryFill = new SolidColorPaint(color),
+            GeometryStroke = new SolidColorPaint(color) { StrokeThickness = 4 },
             LineSmoothness = 0.5
         };
     }

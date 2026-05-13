@@ -21,15 +21,14 @@
             <Setter Property="Margin" Value="0,0,20,0" />
         </Style>
     </UserControl.Styles>
-    <DockPanel Margin="10" VerticalSpacing= "10" LastChildFill= "true">
+    <DockPanel Margin="20" VerticalSpacing= "10" LastChildFill= "true">
         <TextBlock DockPanel.Dock= "Top" Name= "Title" Classes="h1" />
         <DockPanel DockPanel.Dock= "Top" LastChildFill="true">
             <c:TopTabStrip Name= "TopTabStripNode"/>
             <ComboBox Name= "PeriodComboBox" DockPanel.Dock="Right" HorizontalAlignment= "Right" VerticalAlignment= "Center" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding Periods}" SelectedItem="{Binding SelectedPeriod}"/>
         </DockPanel>
         <ScrollViewer>
-            <Panel Name= "InjectorNode">
-            </Panel>
+            <Panel Name= "InjectorNode"/>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

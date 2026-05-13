@@ -145,7 +145,7 @@ public partial class OptimizerViewModel : ViewModelBase
         List<DateTimePoint> heatProductionData = resultRows.Select(r => new DateTimePoint(r.Time, r.HeatProduction)).ToList();
         ISeries[] heatProductionSeries =
         [
-            Series("Optimized Heat Production Schedule", heatProductionData, new SKColor(70,70,70)),
+            Series("Optimized Heat Production Schedule", heatProductionData, new SKColor(237,7,27)),
         ];
         ChartControlViewModel heatProductionChart = new()
         {
@@ -158,7 +158,7 @@ public partial class OptimizerViewModel : ViewModelBase
         List<DateTimePoint> costsData = resultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToList();
         ISeries[] costsSeries =
         [
-            Series("Costs Data", costsData, new SKColor(70,70,70)),
+            Series("Costs Data", costsData, new SKColor(237,7,27)),
         ];
         ChartControlViewModel costsChart = new()
         {
@@ -171,7 +171,7 @@ public partial class OptimizerViewModel : ViewModelBase
         List<DateTimePoint> consumptionData = resultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToList();
         ISeries[] consumptionSeries =
         [
-            Series("Consumption Data", consumptionData, new SKColor(70,70,70)),
+            Series("Consumption Data", consumptionData, new SKColor(237,7,27)),
         ];
         ChartControlViewModel consumptionChart = new()
         {
@@ -184,7 +184,7 @@ public partial class OptimizerViewModel : ViewModelBase
         List<DateTimePoint> emissionsData = resultRows.Select(r => new DateTimePoint(r.Time, r.Emissions)).ToList();
         ISeries[] emissionsSeries =
         [
-            Series("Emissions Data", emissionsData, new SKColor(70,70,70)),
+            Series("Emissions Data", emissionsData, new SKColor(237,7,27)),
         ];
         ChartControlViewModel emissionsChart = new()
         {
@@ -206,6 +206,8 @@ public partial class OptimizerViewModel : ViewModelBase
             GeometrySize = 0,
             Stroke = new SolidColorPaint(color) { StrokeThickness = 2 },
             Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60)),
+            GeometryFill = new SolidColorPaint(color),
+            GeometryStroke = new SolidColorPaint(color) { StrokeThickness = 4 },
             LineSmoothness = 0.5
         };
     }
