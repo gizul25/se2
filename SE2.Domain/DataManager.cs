@@ -61,20 +61,30 @@ public static class DM
         // Writing the results of the experimental Optimizer
         // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
 
-        RDM.ResultingData = optimizer.CalculateSchedule();
+        RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
     }
 
     public static void SetScenario(int index)
-    {   
+    {
         // temporal for switching from scenario 1 and 2.
-        scenarioName = ""+(index+1);
+        scenarioName = "" + (index + 1);
         AM.LoadScenario(scenarioName);
+        Console.WriteLine("SetScenario");
+        UpdateRDMCurrentScenario();
         Load();
     }
 
     public static void UpdatePeriod(IPeriod period)
     {
+        Console.WriteLine("UpdatePeriod");
         currentPeriod = period;
+        SDM.Load(currentPeriod);
+        UpdateRDMCurrentScenario();
+    }
+
+    private static void UpdateRDMCurrentScenario()
+    {
+        RDM.SetCurrentScenario($"{scenarioName}_{currentPeriod.Period()}");
     }
 
     public static void Export()

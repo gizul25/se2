@@ -45,7 +45,6 @@
             </Setter>
 
             <!--  Selected state  -->
-            <!--  We don't use selector to PART_LayoutRoot, so developer can override selected item background with TabStripItem.Background  -->
             <Style Selector="^:selected">
                 <Setter Property="Background" Value="#F2F4F8" />
                 <Setter Property="Foreground" Value="#21272A" />
@@ -86,10 +85,10 @@
             </Style>
         </Style>
     </UserControl.Styles>
-    <TabStrip Margin="0" Name= "TabNode">
+    <TabStrip Margin="0" Name="TabNode">
         <TabStrip.ItemsPanel>
             <ItemsPanelTemplate>
-                <WrapPanel Orientation= "Vertical"  />
+                <WrapPanel Orientation="Vertical" />
             </ItemsPanelTemplate>
         </TabStrip.ItemsPanel>
     </TabStrip>
