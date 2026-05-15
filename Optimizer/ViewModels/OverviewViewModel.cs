@@ -33,9 +33,6 @@ public partial class OverviewViewModel : ViewModelBase
     private Axis[] xAxes = [];
 
     [ObservableProperty]
-    private Axis[] yAxes = [];
-
-    [ObservableProperty]
     private Bitmap? heatGrid = null;
 
     [ObservableProperty]
@@ -55,11 +52,6 @@ public partial class OverviewViewModel : ViewModelBase
 
         var sources = DM.SDM.Sources;
         var results = DM.RDM.GetCurrentScenarioResultingData();
-        if (results == null)
-        {
-            return;
-        }
-
         if (sources == null || sources.Count == 0 || results == null || results.ResultRows.Count == 0)
         {
             HeatSeries = [];
@@ -67,7 +59,6 @@ public partial class OverviewViewModel : ViewModelBase
             PriceSeries = [];
             ExpenseSeries = [];
             XAxes = [];
-            YAxes = [];
             return;
         }
 
@@ -93,12 +84,10 @@ public partial class OverviewViewModel : ViewModelBase
             GraphUtils.Series("Electricity production", elecProd, GraphUtils.CherryRed)
         ];
 
-        var gas = sources.Select(s => new DateTimePoint(s.StartTime, (double)s.ElectricityPrice)).ToArray();
         var elec = sources.Select(s => new DateTimePoint(s.StartTime, (double)s.ElectricityPrice)).ToArray();
         PriceSeries =
         [
-            GraphUtils.Series("Gas price", gas, GraphUtils.BrightRed),
-            GraphUtils.Series("Electricity price", elec, GraphUtils.CherryRed)
+            GraphUtils.Series("Electricity price", elec, GraphUtils.BrightRed)
         ];
 
         var expenses = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
@@ -109,9 +98,6 @@ public partial class OverviewViewModel : ViewModelBase
             GraphUtils.Series("Profits", profits, GraphUtils.CherryRed)
         ];
 
-        XAxes =
-        [
-            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
-        ];
+        XAxes = GraphUtils.GetXAxis();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System;
+using System.Dynamic;
 using SE2.Data;
 
 namespace SE2.Domain;
@@ -57,9 +58,6 @@ public static class DM
         }
 
         Console.WriteLine(totalNetCost);
-
-        // Writing the results of the experimental Optimizer
-        // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
 
         RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
     }

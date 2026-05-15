@@ -52,7 +52,6 @@
                 <lvc:CartesianChart Grid.Row="1"
                                     Series="{Binding HeatSeries}"
                                     XAxes="{Binding XAxes}"
-                                    YAxes="{Binding YAxes}"
                                     LegendPosition="Top"
                                     Background="White"/>
             </Grid>
@@ -82,21 +81,6 @@
                            Margin="0 0 0 10"/>
                 <lvc:CartesianChart Grid.Row="1"
                                     Series="{Binding ExpenseSeries}"
-                                    XAxes="{Binding XAxes}"
-                                    LegendPosition="Top"
-                                    Background="White"/>
-            </Grid>
-        </Border>
-
-        <!-- ELECTRICITY -->
-        <Border Grid.Row="2"
-                Grid.Column="0">
-            <Grid RowDefinitions="Auto,*">
-                <TextBlock Text="Electricity consumption and production"
-                           FontWeight="Bold"
-                           Margin="0 0 0 10"/>
-                <lvc:CartesianChart Grid.Row="1"
-                                    Series="{Binding ElectricitySeries}"
                                     XAxes="{Binding XAxes}"
                                     LegendPosition="Top"
                                     Background="White"/>

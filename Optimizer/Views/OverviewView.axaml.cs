@@ -1,4 +1,9 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Shapes;
+using Avalonia.Media;
+using Avalonia.Interactivity;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using SE2.ViewModels;
 
 namespace SE2.Views;
@@ -15,6 +20,11 @@ public partial class OverviewView : UserControl
         DataContext = viewModel;
 
         // ScenarioNav re-attaches this control when switching tabs; refresh with latest optimizer output.
-        AttachedToVisualTree += (_, _) => viewModel.Load();
+        AttachedToVisualTree += (_, _) => OnUpdate(null, null);
+    }
+
+    public void OnUpdate(object? sender, EventArgs e)
+    {
+        viewModel.Load();
     }
 }
