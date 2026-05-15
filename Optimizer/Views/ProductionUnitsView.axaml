@@ -75,7 +75,10 @@
                             Padding="5">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
                             <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Spacing="5">
+                                <Image Source="{Binding ImageBitmap}" Width="60" Height="50" />
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </StackPanel>
                             <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
                                 <TextBlock Margin="5" VerticalAlignment="Center">
                                     <TextBlock.Text>
