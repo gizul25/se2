@@ -42,4 +42,11 @@ class GraphUtils
             Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60))
         };
     }
+
+    public static Axis[] GetXAxis()
+    {
+        return [
+            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
+        ];
+    }
 }

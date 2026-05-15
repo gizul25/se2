@@ -56,6 +56,11 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<ChartControlViewModel> _charts = [];
 
+    public OptimizerViewModel()
+    {
+        Load();
+    }
+
     [RelayCommand]
     private void RunOptimization()
     {
