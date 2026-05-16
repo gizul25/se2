@@ -16,7 +16,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool? _selectAll = false;
-    
+
     [ObservableProperty]
     public ObservableCollection<ProductionUnitsModel> _productionUnits = [];
 
@@ -42,17 +42,18 @@ public partial class ProductionUnitsViewModel : ViewModelBase
     [RelayCommand]
     public void OpenAddUnitMenu()
     {
-        _ = OpenEditMenu(new () { Name = "Unit"});
+        _ = OpenEditMenu(new() { Name = "Unit" });
     }
 
     private void Draw()
     {
         ProductionUnits = [];
-        
+
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
             Asset asset = DM.AM.Assets[index];
-            ProductionUnitsModel unitsModel = new () {
+            ProductionUnitsModel unitsModel = new()
+            {
                 Name = asset.Name,
                 ProductionCosts = asset.ProductionCosts,
                 MaxHeat = asset.MaxHeat,
@@ -64,6 +65,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 MaxHour = asset.MaxHour,
                 MinHour = asset.MinHour,
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
+                Color = asset.Color,
                 UnitIndex = index
             };
             unitsModel.OpenEditUnit += OpenEditMenu;
@@ -88,6 +90,6 @@ public partial class ProductionUnitsViewModel : ViewModelBase
     {
         EditProductionUnitViewModel editViewModel = new(productionUnits);
         editViewModel.Redraw += Redraw;
-        await DialogHost.Show(new EditProductionUnitView() {DataContext = editViewModel}, "MainDialogHost");
+        await DialogHost.Show(new EditProductionUnitView() { DataContext = editViewModel }, "MainDialogHost");
     }
 }

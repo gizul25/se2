@@ -62,6 +62,8 @@
                                Text="Min hours" VerticalAlignment="Center"/>
                     <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
                                Text="Max hours" VerticalAlignment="Center"/>
+                    <TextBlock Margin="5" Foreground= "#ffffff" FontWeight="SemiBold"
+                               Text="Color" VerticalAlignment="Center"/>
                 </UniformGrid>
             </Grid>
         </Border>
@@ -137,6 +139,13 @@
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0} h'>
                                             <Binding Path="MaxHour" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock Margin="5" VerticalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat= '{}{0}'>
+                                            <Binding Path="Color" />
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>

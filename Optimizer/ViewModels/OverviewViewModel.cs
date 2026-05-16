@@ -84,8 +84,8 @@ public partial class OverviewViewModel : ViewModelBase
 
         foreach (KeyValuePair<string, DateTimePoint[]> kvp in heatEntries)
         {
-            var colorArr = DM.AM.GetAssetByName(kvp.Key)!.Color;
-            var color = new SKColor((byte)colorArr[0], (byte)colorArr[1], (byte)colorArr[2]);
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
             var series = StackedColumnSeries(kvp.Key, kvp.Value, color);
             heatSeries.Add(series);
         }
