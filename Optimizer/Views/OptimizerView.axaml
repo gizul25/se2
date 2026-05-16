@@ -112,6 +112,7 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <TextBlock Text="{Binding MaintenanceText}" />
         <ComboBox Name="ProductionUnitsComboBox" SelectedIndex="0" MaxDropDownHeight="100" ItemsSource="{Binding ProductionUnits}" SelectionChanged="SelectionChanged" SelectedItem="{Binding SelectedProductionUnit}" />
         <Grid  Name="ChartGrid"
                ColumnSpacing="20"

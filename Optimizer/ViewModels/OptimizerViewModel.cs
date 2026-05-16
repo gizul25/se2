@@ -56,6 +56,9 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<ChartControlViewModel> _charts = [];
 
+    [ObservableProperty]
+    private string maintenanceText = "Maintenance period: Production unit {0} maintained from {1} to {2}";
+
     [RelayCommand]
     private void RunOptimization()
     {
@@ -97,6 +100,7 @@ public partial class OptimizerViewModel : ViewModelBase
             ElectricityProduced = 0;
             PrimaryEnergy = 0;
             Co2Emissions = 0;
+            MaintenanceText = "";
             return;
         }
 
@@ -111,6 +115,7 @@ public partial class OptimizerViewModel : ViewModelBase
         ElectricityProduced = results.ElectricityProduced;
         PrimaryEnergy = results.PrimaryEnergy;
         Co2Emissions = results.Co2Emissions;
+        MaintenanceText = "Maintenance period: Production unit {0} maintained from {1} to {2}";
 
         Axis[] xAxes =
         [
