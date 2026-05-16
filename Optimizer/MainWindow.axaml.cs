@@ -13,6 +13,8 @@ public partial class MainWindow : Window
         SideTabStripNode.SetInjectorNode(InjectorNode);
         SideTabStripNode.AddScenario("Scenario 1", new ScenarioNav("Scenario 1"));
         SideTabStripNode.AddScenario("Scenario 2", new ScenarioNav("Scenario 2"));
+        SideTabStripNode.AddScenario("Scenario 3", new ScenarioNav("Scenario 3"));
+        SideTabStripNode.AddScenario("Scenario 4", new ScenarioNav("Scenario 4"));
     }
 
     public void CreateScenarioNav(int id)
