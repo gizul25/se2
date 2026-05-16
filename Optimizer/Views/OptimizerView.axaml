@@ -126,6 +126,7 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <TextBlock Text="{Binding MaintenanceText}" />
         <ComboBox Name="ProductionUnitsComboBox"
                   SelectedIndex="0"
                   MaxDropDownHeight="100"
