@@ -80,7 +80,7 @@ public partial class OverviewViewModel : ViewModelBase
         {
             var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
             var color = SKColor.Parse(hexString);
-            var series = StackedColumnSeries(kvp.Key, kvp.Value, color);
+            var series = GraphUtils.StackedColumnSeries(kvp.Key, kvp.Value, color);
             heatSeries.Add(series);
         }
         HeatSeries = heatSeries.ToArray();
