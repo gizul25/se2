@@ -17,6 +17,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 {
     [ObservableProperty]
     private bool? _selectAll = false;
+    [ObservableProperty]
+    private string? _colorMaintained;
     
     [ObservableProperty]
     public ObservableCollection<ProductionUnitsModel> _productionUnits = [];
@@ -63,11 +65,14 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
                 ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
+                IsMaintained = asset.IsMaintained,
                 MaxHour = asset.MaxHour,
                 MinHour = asset.MinHour,
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
                 UnitIndex = index
             };
+            if(asset.IsMaintained)
+                unitsModel.ColorMaintained = "#E05B62";
             unitsModel.OpenEditUnit += OpenEditMenu;
             ProductionUnits.Add(unitsModel);
         }
