@@ -70,7 +70,7 @@
         <ItemsControl ItemsSource="{Binding ProductionUnits}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="0" Margin="0,-2,0,0"
+                    <Border Background="{Binding ColorMaintained}" CornerRadius="0" Margin="0,-2,0,0"
                             BorderBrush="#dde1e6" BorderThickness="2"
                             Padding="5">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">

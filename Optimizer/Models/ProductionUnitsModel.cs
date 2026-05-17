@@ -10,6 +10,7 @@ namespace SE2.Models;
 public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
 {
     private bool _isSelected;
+    private string _colorMaintained;
 
     public int UnitIndex { get; set; } = -1;
 
@@ -35,6 +36,16 @@ public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
                 DM.AM.ScenarioData.AvailableUnits.Remove(Name);
                 DM.Load();
             }
+        }
+    }
+
+    public string ColorMaintained
+    {
+        get {return _colorMaintained;}
+        set
+        {
+            _colorMaintained = value;
+            OnPropertyChanged(nameof(ColorMaintained));
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Text.Json;
 
 namespace SE2.Data;
+
 public class AM
 {
     public List<Asset> Assets { get; set; } = [];
@@ -51,7 +52,8 @@ public class Asset
     public string? Image { get; set; }
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
-    public bool ShallMaintained { get; set;}
+    public bool ShallMaintained { get; set; }
+    public bool IsMaintained { get; set; }
     public int MinHour { get; set; } = 30;
     public int MaxHour { get; set; } = 60;
     public int[]? Color { get; set; }

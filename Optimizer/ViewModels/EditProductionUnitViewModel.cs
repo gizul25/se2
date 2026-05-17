@@ -89,6 +89,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
             DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
+            DM.AM.Assets[UnitIndex].IsMaintained = SelectedProductionUnit.IsMaintained;
             DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
             DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
         }
@@ -104,6 +105,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
                 ShallMaintained = SelectedProductionUnit.ShallMaintained,
+                IsMaintained = SelectedProductionUnit.IsMaintained,
                 MinHour = SelectedProductionUnit.MinHour,
                 MaxHour = SelectedProductionUnit.MaxHour
             });

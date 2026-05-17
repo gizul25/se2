@@ -113,9 +113,23 @@ public class Optimizer
                 throw new Exception("Asset has no heat demand");
             }
 
+            if (a.IsMaintained)
+            {
+                Random random = new Random();
+                a.MaintananceStart = Sources[random.Next(Sources.Count)].StartTime;
+                TimeSpan duration = new System.TimeSpan(0, random.Next(a.MinHour, a.MaxHour), 0, 0);
+                a.MaintananceEnd = a.MaintananceStart.Value.Add(duration);
+            }
+
+            if (!a.IsMaintained)
+            {
+                a.MaintananceStart = null;
+                a.MaintananceEnd = null;
+            }
+
             decimal baseCost = a.ProductionCosts;
 
-            foreach (var hour in Sources)
+            foreach (var hour in Sources.TakeWhile(x =>IsAssetAvailable(a.Name, x.StartTime)))
             {
                 if (hour == null)
                 {
