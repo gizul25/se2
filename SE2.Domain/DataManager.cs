@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using SE2.Data;
 
@@ -17,6 +18,7 @@ public static class DM
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
 
+    private static Dictionary<string, IPeriod> scenarioPeriods = new();
     private static IPeriod currentPeriod = new Winter();
     private static readonly List<Asset> selectedAssets = [];
     private static string scenarioName = "1";
@@ -66,6 +68,14 @@ public static class DM
     {
         // temporal for switching from scenario 1 and 2.
         scenarioName = "" + (index + 1);
+        if (scenarioPeriods.ContainsKey(scenarioName))
+        {
+            UpdatePeriod(scenarioPeriods[scenarioName]);
+        }
+        else
+        {
+            UpdatePeriod(new Winter());
+        }
         AM.LoadScenario(scenarioName);
         Console.WriteLine("SetScenario");
         UpdateRDMCurrentScenario();
@@ -76,6 +86,7 @@ public static class DM
     {
         Console.WriteLine("UpdatePeriod");
         currentPeriod = period;
+        scenarioPeriods[scenarioName] = period;
         SDM.Load(currentPeriod);
         UpdateRDMCurrentScenario();
     }
