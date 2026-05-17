@@ -138,7 +138,7 @@ public partial class OptimizerViewModel : ViewModelBase
         ElectricityProduced = results.ElectricityProduced;
         PrimaryEnergy = results.PrimaryEnergy;
         Co2Emissions = results.Co2Emissions;
-        MaintenanceText = "Maintenance period: Production unit {0} maintained from {1} to {2}";
+        MaintenanceText = $"Maintenance period: Production unit {results.MaintainedUnit} maintained from {results.MaintainedStart} to {results.MaintainedEnd}";
 
         // Update charts
         List<ResultRow> resultRows = [];

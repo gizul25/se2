@@ -38,7 +38,6 @@ public class AM
     }
 }
 
-
 public class Asset
 {
     public required string Name { get; set; }
@@ -58,7 +57,7 @@ public class Asset
 
     public override string ToString()
     {
-        return $"{Name},{MaxHeat},{MaxElectricity},{ProductionCosts},{Co2Emissions},{GasConsumption},{OilConsumption}";
+        return $"{Name},{MaxHeat},{MaxElectricity},{ProductionCosts},{Co2Emissions},{GasConsumption},{OilConsumption},{ShallMaintained}";
     }
 }
 
