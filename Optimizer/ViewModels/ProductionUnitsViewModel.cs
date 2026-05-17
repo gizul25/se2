@@ -8,12 +8,13 @@ using SE2.Domain;
 using DialogHostAvalonia;
 using System.Threading.Tasks;
 using SE2.Views;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 
 namespace SE2.ViewModels;
 
 public partial class ProductionUnitsViewModel : ViewModelBase
 {
-
     [ObservableProperty]
     private bool? _selectAll = false;
 
@@ -27,7 +28,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     [ObservableProperty]
     private ProductionUnitsModel? _selectedProductionUnit = null;
-
+    
     partial void OnSelectAllChanged(bool? value)
     {
         if (value.HasValue)
@@ -52,8 +53,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
             Asset asset = DM.AM.Assets[index];
-            ProductionUnitsModel unitsModel = new()
-            {
+            ProductionUnitsModel unitsModel = new () {
+                ImageBitmap = LoadBitmap(asset.Image),
                 Name = asset.Name,
                 ProductionCosts = asset.ProductionCosts,
                 MaxHeat = asset.MaxHeat,
@@ -84,6 +85,12 @@ public partial class ProductionUnitsViewModel : ViewModelBase
         {
             _ = OpenEditMenu(model);
         }
+    }
+
+    private Bitmap LoadBitmap(string imageName)
+    {
+        string uri = $"avares://SE2/Assets/images/{imageName}";
+        return new Bitmap(AssetLoader.Open(new Uri(uri)));
     }
 
     public async Task OpenEditMenu(ProductionUnitsModel productionUnits)

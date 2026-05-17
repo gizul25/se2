@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <AvaloniaResource Include="Assets\images\*" />
     <AvaloniaResource Include="Assets\fonts\*" />
     <AvaloniaResource Include="Assets\images\*" />
     <PackageReference Include="Avalonia" Version="11.3.12" />
