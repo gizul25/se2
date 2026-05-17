@@ -65,7 +65,7 @@
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 			<Border Background="#ED071B" CornerRadius="0" Margin="0,10,0,0"
 					BorderBrush="#C50616" BorderThickness="2">
-				<UniformGrid Width="230" Columns="1" Rows="10" RowSpacing="0">
+				<UniformGrid Width="230" Columns="1" Rows="11" RowSpacing="0">
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Unit" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Costs" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Max Heat Production" /> </Border>
@@ -78,11 +78,12 @@
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Oil Usages" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Electricity Usages" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="CO2 Emissions" /> </Border>
+					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Color" /> </Border>
 				</UniformGrid>
 			</Border>
 			<Border CornerRadius="0" Margin="-2,10,0,0"
 					BorderBrush="#E8E8E8" BorderThickness="2">
-				<UniformGrid Width="230" Columns="1" Rows="10" RowSpacing="0">
+				<UniformGrid Width="230" Columns="1" Rows="11" RowSpacing="0">
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Name}" Watermark="Unit Name" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.ProductionCosts}" Minimum="0" FormatString="0 Dkk / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHeat}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
@@ -95,6 +96,7 @@
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.OilConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxElectricity}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}" Minimum="0" FormatString="0 kg / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Color}" Watermark="Color" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
 				</UniformGrid>
 			</Border>
 		</StackPanel>

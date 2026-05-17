@@ -10,7 +10,7 @@
     "Image": "GB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [21, 97, 109]
+    "Color": "#15616D"
   },
   {
     "Name": "GB2",
@@ -23,7 +23,7 @@
     "Image": "GB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [255, 236, 209]
+    "Color": "#FFECD1"
   },
   {
     "Name": "GB3",
@@ -36,7 +36,7 @@
     "Image": "GB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [255, 125, 0]
+    "Color": "#FF7D00"
   },
   {
     "Name": "OB1",
@@ -49,7 +49,7 @@
     "Image": "OB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [120, 41, 15]
+    "Color": "#78290F"
   },
   {
     "Name": "GM1",
@@ -62,7 +62,7 @@
     "Image": "GM.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [150, 10, 70]
+    "Color": "#960A46"
   },
   {
     "Name": "EB1",
@@ -75,6 +75,6 @@
     "Image": "EB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": [70, 10, 150]
+    "Color": "#460A96"
   }
 ]
