@@ -1,4 +1,6 @@
-﻿using System.Dynamic;
+﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using SE2.Data;
 
 namespace SE2.Domain;
@@ -16,6 +18,7 @@ public static class DM
     public static RDM RDM { get; } = new();
     public static SDM SDM { get; } = new();
 
+    private static Dictionary<string, IPeriod> scenarioPeriods = new();
     private static IPeriod currentPeriod = new Winter();
     private static readonly List<Asset> selectedAssets = [];
     private static string scenarioName = "1";
@@ -58,23 +61,39 @@ public static class DM
 
         Console.WriteLine(totalNetCost);
 
-        // Writing the results of the experimental Optimizer
-        // new Optimizerv1() { Source = SDM.Sources, Assets = selectedAssets}.CalculateNetCost();
-
-        RDM.ResultingData = optimizer.CalculateSchedule();
+        RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
     }
 
     public static void SetScenario(int index)
-    {   
+    {
         // temporal for switching from scenario 1 and 2.
-        scenarioName = ""+(index+1);
+        scenarioName = "" + (index + 1);
+        if (scenarioPeriods.ContainsKey(scenarioName))
+        {
+            UpdatePeriod(scenarioPeriods[scenarioName]);
+        }
+        else
+        {
+            UpdatePeriod(new Winter());
+        }
         AM.LoadScenario(scenarioName);
+        Console.WriteLine("SetScenario");
+        UpdateRDMCurrentScenario();
         Load();
     }
 
     public static void UpdatePeriod(IPeriod period)
     {
+        Console.WriteLine("UpdatePeriod");
         currentPeriod = period;
+        scenarioPeriods[scenarioName] = period;
+        SDM.Load(currentPeriod);
+        UpdateRDMCurrentScenario();
+    }
+
+    private static void UpdateRDMCurrentScenario()
+    {
+        RDM.SetCurrentScenario($"{scenarioName}_{currentPeriod.Period()}");
     }
 
     public static void Export()

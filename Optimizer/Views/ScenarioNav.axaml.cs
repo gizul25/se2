@@ -27,6 +27,7 @@ public partial class ScenarioNav : UserControl
     {
         InitializeComponent();
         Update += optimizerView.OnUpdate;
+        Update += overviewView.OnUpdate;
         viewModel = new ScenarioNavViewModel();
         DataContext = viewModel;
 

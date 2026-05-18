@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using SE2.Domain;
 using SE2.Data;
+using SE2.Utils;
 
 namespace SE2.ViewModels;
 
@@ -43,9 +44,8 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private bool _exportEnabled = false;
 
-    // bug if selected not all production units and then run optimization
     [ObservableProperty]
-    private List<string> _productionUnits = ["Unit 1", "Unit 2", "Unit 3", "All production units"];
+    private List<string> _productionUnits = ["All production units"];
 
     [ObservableProperty]
     private string _selectedProductionUnit = "All production units";
@@ -56,12 +56,19 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<ChartControlViewModel> _charts = [];
 
+    [ObservableProperty]
+    private string maintenanceText = "Maintenance period: Production unit {0} maintained from {1} to {2}";
+
+    public OptimizerViewModel()
+    {
+        Load();
+    }
+
     [RelayCommand]
     private void RunOptimization()
     {
         RunEnabled = false;
         DM.StartOptimizer();
-        ExportEnabled = true;
         RunEnabled = true;
         Load();
     }
@@ -75,47 +82,24 @@ public partial class OptimizerViewModel : ViewModelBase
     public void OnSelectedPeriodChange()
     {
         RunEnabled = true;
-        ExportEnabled = false;
-        DM.RDM.ResultingData = new();
         Load();
     }
 
-    public void Load()
+    private void Reset()
     {
-        if (LoadInProgress)
-        {
-            return;
-        }
+        Console.WriteLine("Reset");
+        ExportEnabled = false;
 
         Charts.Clear();
-        if (DM.RDM.ResultingData == null)
-        {
-            TotalProfit = 0;
-            TotalCost = 0;
-            HeatProduced = 0;
-            ElectricityConsumed = 0;
-            ElectricityProduced = 0;
-            PrimaryEnergy = 0;
-            Co2Emissions = 0;
-            return;
-        }
 
-        var results = DM.RDM.ResultingData;
-
-        LoadInProgress = true;
-
-        TotalProfit = results.TotalProfit;
-        TotalCost = results.TotalCost;
-        HeatProduced = results.HeatProduced;
-        ElectricityConsumed = results.ElectricityConsumed;
-        ElectricityProduced = results.ElectricityProduced;
-        PrimaryEnergy = results.PrimaryEnergy;
-        Co2Emissions = results.Co2Emissions;
-
-        Axis[] xAxes =
-        [
-            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
-        ];
+        TotalProfit = 0;
+        TotalCost = 0;
+        HeatProduced = 0;
+        ElectricityConsumed = 0;
+        ElectricityProduced = 0;
+        PrimaryEnergy = 0;
+        Co2Emissions = 0;
+        MaintenanceText = "";
 
         List<string> prodUnits = [];
         foreach (string productionUnit in DM.AM.ScenarioData.AvailableUnits)
@@ -124,7 +108,39 @@ public partial class OptimizerViewModel : ViewModelBase
         }
         prodUnits.Add("All production units");
         ProductionUnits = prodUnits;
+    }
 
+    public void Load()
+    {
+        if (LoadInProgress)
+        {
+            return;
+        }
+        LoadInProgress = true;
+
+        // TODO: Call reset for each scenario separately and when production units change.
+        Reset();
+
+        var results = DM.RDM.GetCurrentScenarioResultingData();
+        if (results == null)
+        {
+            LoadInProgress = false;
+            return;
+        }
+
+        // Update top part
+        ExportEnabled = true;
+
+        TotalProfit = results.TotalProfit;
+        TotalCost = results.TotalCost;
+        HeatProduced = results.HeatProduced;
+        ElectricityConsumed = results.ElectricityConsumed;
+        ElectricityProduced = results.ElectricityProduced;
+        PrimaryEnergy = results.PrimaryEnergy;
+        Co2Emissions = results.Co2Emissions;
+        MaintenanceText = $"Maintenance period: Production unit {results.MaintainedUnit} maintained from {results.MaintainedStart} to {results.MaintainedEnd}";
+
+        // Update charts
         List<ResultRow> resultRows = [];
         if (SelectedProductionUnit == "All production units")
         {
@@ -143,82 +159,45 @@ public partial class OptimizerViewModel : ViewModelBase
         }
 
         List<DateTimePoint> heatProductionData = resultRows.Select(r => new DateTimePoint(r.Time, r.HeatProduction)).ToList();
-        ISeries[] heatProductionSeries =
-        [
-            Series("Optimized Heat Production Schedule", heatProductionData, new SKColor(237,7,27)),
-        ];
         ChartControlViewModel heatProductionChart = new()
         {
             Title = "Optimized Heat Production Schedule",
-            Series = heatProductionSeries,
-            XAxes = xAxes,
+            Series = [
+                GraphUtils.Series("Optimized Heat Production Schedule", heatProductionData, GraphUtils.BrightRed),
+            ],
         };
         Charts.Add(heatProductionChart);
 
         List<DateTimePoint> costsData = resultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToList();
-        ISeries[] costsSeries =
-        [
-            Series("Costs Data", costsData, new SKColor(237,7,27)),
-        ];
         ChartControlViewModel costsChart = new()
         {
             Title = "Costs Data",
-            Series = costsSeries,
-            XAxes = xAxes,
+            Series = [
+                GraphUtils.Series("Costs Data", costsData, GraphUtils.BrightRed),
+            ],
         };
         Charts.Add(costsChart);
 
         List<DateTimePoint> consumptionData = resultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToList();
-        ISeries[] consumptionSeries =
-        [
-            Series("Consumption Data", consumptionData, new SKColor(237,7,27)),
-        ];
         ChartControlViewModel consumptionChart = new()
         {
             Title = "Consumption Data",
-            Series = consumptionSeries,
-            XAxes = xAxes,
+            Series = [
+                GraphUtils.Series("Consumption Data", consumptionData, GraphUtils.BrightRed),
+            ],
         };
         Charts.Add(consumptionChart);
 
         List<DateTimePoint> emissionsData = resultRows.Select(r => new DateTimePoint(r.Time, r.Emissions)).ToList();
-        ISeries[] emissionsSeries =
-        [
-            Series("Emissions Data", emissionsData, new SKColor(237,7,27)),
-        ];
         ChartControlViewModel emissionsChart = new()
         {
             Title = "Emissions Data",
-            Series = emissionsSeries,
-            XAxes = xAxes,
+            Series = [
+                GraphUtils.Series("Emissions Data", emissionsData, GraphUtils.BrightRed),
+            ],
         };
         Charts.Add(emissionsChart);
 
         LoadInProgress = false;
-    }
-
-    private static ISeries Series(string name, List<DateTimePoint> values, SKColor color)
-    {
-        return new LineSeries<DateTimePoint>
-        {
-            Name = name,
-            Values = values,
-            GeometrySize = 0,
-            Stroke = new SolidColorPaint(color) { StrokeThickness = 2 },
-            Fill = new SolidColorPaint(new SKColor(color.Red, color.Green, color.Blue, 60)),
-            GeometryFill = new SolidColorPaint(color),
-            GeometryStroke = new SolidColorPaint(color) { StrokeThickness = 4 },
-            LineSmoothness = 0.5
-        };
-    }
-
-    private List<double> Make(Random r, int count, int min, int max)
-    {
-        List<double> list = [];
-        for (int i = 0; i < count; i++)
-        {
-            list.Add(r.Next(min, max));
-        }
-        return list;
     }
 }

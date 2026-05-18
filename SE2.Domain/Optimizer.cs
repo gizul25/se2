@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SE2.Data;
 
 namespace SE2.Domain;
@@ -6,11 +7,12 @@ public class Optimizer
 {
     public List<SourceData> Sources { get; set; } = new();
     public List<Asset> Assets { get; set; } = new();
-    
+
     private List<NetCostData> netCostCache = new();
+    private List<Asset> maintainableAssets = [];
 
     public void OptimizerInit()
-    {	
+    {
         if (Sources == null || Sources.Count == 0)
         {
             throw new Exception("No sources defined");
@@ -57,22 +59,22 @@ public class Optimizer
             {
                 throw new Exception("Asset has no heat demand");
             }
-			
-			if(a.MaintananceStart.HasValue && a.MaintananceEnd.HasValue)
+
+            if (a.MaintananceStart.HasValue && a.MaintananceEnd.HasValue)
             {
-				if(a.MaintananceStart >= a.MaintananceEnd)
-				{
-					throw new Exception($"Maintanance is invalid {a.Name}");
-				}
-				var duration = (a.MaintananceEnd.Value - a.MaintananceStart.Value).TotalHours;
-				if(duration < 30 || duration > 60)
-				{
-					throw new Exception($"Asset {a.Name} maintainance must be 30-60 hours");
-				}
-			}
+                if (a.MaintananceStart >= a.MaintananceEnd)
+                {
+                    throw new Exception($"Maintanance is invalid {a.Name}");
+                }
+                var duration = (a.MaintananceEnd.Value - a.MaintananceStart.Value).TotalHours;
+                if (duration < 30 || duration > 60)
+                {
+                    throw new Exception($"Asset {a.Name} maintainance must be 30-60 hours");
+                }
+            }
         }
     }
-    
+
     public void OptimizerExit()
     {
         netCostCache?.Clear();
@@ -93,8 +95,10 @@ public class Optimizer
         Sources = Sources
             .OrderBy(x => x.StartTime)
             .ToList();
-        
+
         List<NetCostData> netCostSeries = new();
+
+        maintainableAssets = [];
 
         foreach (var a in Assets)
         {
@@ -107,21 +111,25 @@ public class Optimizer
             {
                 throw new Exception("Asset name is missing");
             }
-            
+
             if (a.MaxHeat <= 0)
             {
                 throw new Exception("Asset has no heat demand");
             }
 
-            decimal baseCost = a.ProductionCosts;
+            if (DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
+            {
+                maintainableAssets.Add(a);
+            }
 
+            decimal baseCost = a.ProductionCosts;
             foreach (var hour in Sources)
             {
                 if (hour == null)
                 {
                     throw new Exception("Source is null");
                 }
-                
+
                 if (hour.StartTime == default)
                 {
                     throw new Exception("Source has no start time");
@@ -139,11 +147,12 @@ public class Optimizer
                     }
                     else
                     {
-                        netCost = baseCost + (Math.Abs(elecPerHeat) *  price);
+                        netCost = baseCost + (Math.Abs(elecPerHeat) * price);
                     }
                 }
-                
-                netCostSeries.Add(new NetCostData {
+
+                netCostSeries.Add(new NetCostData
+                {
                     Time = hour.StartTime,
                     AssetName = a.Name,
                     NetCost = netCost
@@ -165,11 +174,11 @@ public class Optimizer
         {
             throw new Exception("No assets initialized");
         }
-        
+
         Sources = [.. Sources.OrderBy(x => x.StartTime)];
-        
+
         List<NetCostData> netCosts;
-        
+
         if (netCostCache == null || netCostCache.Count == 0)
         {
             netCosts = CalculateNetCost();
@@ -187,18 +196,25 @@ public class Optimizer
         decimal totalElectricityConsumed = 0m;
         decimal totalEmissions = 0m;
         decimal totalPrimaryEnergy = 0m;
-        
+
+        // TODO: proper implementation please
+        Random random = new Random();
+        var maintainedUnit = maintainableAssets[0];
+        maintainedUnit.MaintananceStart = Sources[0].StartTime;
+        TimeSpan duration = new System.TimeSpan(0, maintainedUnit.MinHour, 0, 0);
+        maintainedUnit.MaintananceEnd = maintainedUnit.MaintananceStart.Value.Add(duration);
+
         foreach (var hour in Sources)
         {
             decimal demand = (decimal)hour.HeatDemand;
             decimal remaining = demand;
-            
+
             var hourlyCosts = netCosts
-                .Where(nc => nc.Time == hour.StartTime) 
-				.Where(nc => IsAssetAvailable(nc.AssetName, hour.StartTime))
+                .Where(nc => nc.Time == hour.StartTime)
+                .Where(nc => IsAssetAvailable(nc.AssetName, hour.StartTime))
                 .OrderBy(nc => nc.NetCost)
                 .ToList();
-            
+
             decimal hourHeatProduced = 0m;
             decimal hourCost = 0m;
             decimal hourElectricityProduced = 0m;
@@ -212,13 +228,13 @@ public class Optimizer
                 {
                     break;
                 }
-                
+
                 var asset = Assets.FirstOrDefault(a => a.Name == nc.AssetName);
                 if (asset == null)
                 {
                     throw new Exception($"Asset {nc.AssetName} not found");
                 }
-                
+
                 decimal maxHeat = (decimal)asset.MaxHeat;
                 decimal heatProduced = Math.Min(maxHeat, remaining);
                 decimal cost = heatProduced * nc.NetCost;
@@ -233,22 +249,23 @@ public class Optimizer
                 {
                     hourElectricityConsumed += Math.Abs(electricity);
                 }
-                
+
                 decimal emissionPerHeat = (decimal)(asset.Co2Emissions / asset.MaxHeat);
-                decimal emissions = heatProduced * emissionPerHeat; 
-                
+                decimal emissions = heatProduced * emissionPerHeat;
+
                 decimal energyPerHeat = (decimal)((asset.GasConsumption + asset.OilConsumption) / asset.MaxHeat);
                 decimal primaryEnergy = heatProduced * energyPerHeat;
 
-                results.SchedulerRows.Add(new SchedulerRow {
+                results.SchedulerRows.Add(new SchedulerRow
+                {
                     Time = hour.StartTime,
                     AssetName = asset.Name,
                     HeatProduction = (double)heatProduced,
                     Costs = cost,
                     Consumption = (double)Math.Abs(electricity),
-                    Emissions = (double)emissions, 
+                    Emissions = (double)emissions,
                 });
-                
+
                 hourHeatProduced += heatProduced;
                 hourCost += cost;
                 hourEmissions += emissions;
@@ -261,13 +278,14 @@ public class Optimizer
             {
                 throw new Exception("Not enough heat demands at this time");
             }
-            
+
             totalElectricityProduced += hourElectricityProduced;
             totalElectricityConsumed += hourElectricityConsumed;
             totalEmissions += hourEmissions;
             totalPrimaryEnergy += hourPrimaryEnergy;
-            
-            results.ResultRows.Add(new ResultRow {
+
+            results.ResultRows.Add(new ResultRow
+            {
                 Time = hour.StartTime,
                 HeatProduction = (double)hourHeatProduced,
                 Costs = hourCost,
@@ -283,21 +301,24 @@ public class Optimizer
         results.ElectricityConsumed = (double)totalElectricityConsumed;
         results.Co2Emissions = (double)totalEmissions;
         results.PrimaryEnergy = (double)totalPrimaryEnergy;
+        results.MaintainedUnit = maintainedUnit.Name;
+        results.MaintainedStart = (System.DateTime)maintainedUnit.MaintananceStart!;
+        results.MaintainedEnd = (System.DateTime)maintainedUnit.MaintananceEnd!;
 
         return results;
     }
 
-	private bool IsAssetAvailable(string assetName, DateTime time)
+    private bool IsAssetAvailable(string assetName, DateTime time)
     {
         var asset = Assets.FirstOrDefault(a => a.Name == assetName);
-		if (asset == null)
-		{ 
-			return false;
+        if (asset == null)
+        {
+            return false;
         }
-		if(asset.MaintananceStart == null || asset.MaintananceEnd == null)
-		{ 
-			return true;
-		}
+        if (asset.MaintananceStart == null || asset.MaintananceEnd == null)
+        {
+            return true;
+        }
         return time < asset.MaintananceStart || time >= asset.MaintananceEnd;
     }
 }

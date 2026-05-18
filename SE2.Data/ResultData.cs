@@ -18,7 +18,7 @@ public class ResultData
 
     [JsonPropertyName("heat_produced")]
     public double HeatProduced { get; set; } = 0;
-    
+
     [JsonPropertyName("electricity_consumed")]
     public double ElectricityConsumed { get; set; } = 0;
 
@@ -30,6 +30,15 @@ public class ResultData
 
     [JsonPropertyName("co2_emissions")]
     public double Co2Emissions { get; set; } = 0;
+
+    [JsonPropertyName("maintained_unit")]
+    public string MaintainedUnit { get; set; } = "";
+
+    [JsonPropertyName("maintained_start")]
+    public DateTime MaintainedStart { get; set; }
+
+    [JsonPropertyName("maintained_end")]
+    public DateTime MaintainedEnd { get; set; }
 }
 
 public class ResultRow
@@ -48,7 +57,7 @@ public class ResultRow
 
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
-    
+
     public override string? ToString()
     {
         return $"{Time} {HeatProduction} {Costs} {Consumption} {Emissions}";
@@ -74,7 +83,7 @@ public class SchedulerRow
 
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
-    
+
     public override string? ToString()
     {
         return $"{Time} {AssetName} {HeatProduction} {Costs} {Consumption} {Emissions}";
