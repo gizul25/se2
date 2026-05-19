@@ -8,9 +8,9 @@
         <Style Selector="TabStripItem.SidePanel">
             <Setter Property= "Width" Value= "250"/>
             <Setter Property="FontSize" Value="{DynamicResource TabItemHeaderFontSize}" />
-            <Setter Property="FontWeight" Value="{DynamicResource TabItemHeaderThemeFontWeight}" />
+            <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="Background" Value="{DynamicResource TabItemHeaderBackgroundUnselected}" />
-            <Setter Property="Foreground" Value="{DynamicResource TabItemHeaderForegroundUnselected}" />
+            <Setter Property="Foreground" Value="#F2F4F8" />
             <Setter Property="Padding" Value="{DynamicResource TabItemHeaderMargin}" />
             <Setter Property="Margin" Value="0" />
             <Setter Property="MinHeight" Value="{DynamicResource TabStripItemMinHeight}" />
@@ -21,8 +21,6 @@
                     <Border
                     Name="PART_LayoutRoot"
                     Background="{TemplateBinding Background}"
-                    BorderBrush="#F2F4F8"
-                    BorderThickness="1"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
                         <Panel>
