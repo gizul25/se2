@@ -9,7 +9,6 @@ public class Optimizer
     public List<Asset> Assets { get; set; } = new();
 
     private List<NetCostData> netCostCache = new();
-    private List<Asset> maintainableAssets = [];
 
     public void OptimizerInit()
     {
@@ -80,6 +79,8 @@ public class Optimizer
         netCostCache?.Clear();
     }
 
+    // Performs additional error handling checks for assets and generates net cost -
+    // which tweaks some things when electricity is negative.
     public List<NetCostData> CalculateNetCost()
     {
         if (Sources == null || Sources.Count == 0)
@@ -98,8 +99,6 @@ public class Optimizer
 
         List<NetCostData> netCostSeries = new();
 
-        maintainableAssets = [];
-
         foreach (var a in Assets)
         {
             if (a == null)
@@ -115,11 +114,6 @@ public class Optimizer
             if (a.MaxHeat <= 0)
             {
                 throw new Exception("Asset has no heat demand");
-            }
-
-            if (DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
-            {
-                maintainableAssets.Add(a);
             }
 
             decimal baseCost = a.ProductionCosts;
@@ -138,17 +132,22 @@ public class Optimizer
                 decimal price = hour.ElectricityPrice;
                 decimal netCost = baseCost;
 
+                // Generate heat = generate or use electricity. So here we take electricity
+                // into account how much it influences heat production price.
                 if (a.MaxElectricity != 0f)
                 {
                     decimal elecPerHeat = (decimal)(a.MaxElectricity / a.MaxHeat);
-                    if (elecPerHeat > 0)
-                    {
-                        netCost = baseCost - (elecPerHeat * price);
-                    }
-                    else
-                    {
-                        netCost = baseCost + (Math.Abs(elecPerHeat) * price);
-                    }
+                    netCost = baseCost - (elecPerHeat * price);
+                    // // Electricity is produced in addition to heat
+                    // if (elecPerHeat > 0)
+                    // {
+                    //     netCost = baseCost - (elecPerHeat * price);
+                    // }
+                    // // Electricity is consumed to generate heat
+                    // else
+                    // {
+                    //     netCost = baseCost + (Math.Abs(elecPerHeat) * price);
+                    // }
                 }
 
                 netCostSeries.Add(new NetCostData
@@ -165,20 +164,9 @@ public class Optimizer
 
     public ResultData CalculateSchedule()
     {
-        if (Sources == null || Sources.Count == 0)
-        {
-            throw new Exception("No sources initialized");
-        }
-
-        if (Assets == null || Assets.Count == 0)
-        {
-            throw new Exception("No assets initialized");
-        }
-
         Sources = [.. Sources.OrderBy(x => x.StartTime)];
 
         List<NetCostData> netCosts;
-
         if (netCostCache == null || netCostCache.Count == 0)
         {
             netCosts = CalculateNetCost();
@@ -198,11 +186,11 @@ public class Optimizer
         decimal totalPrimaryEnergy = 0m;
 
         // TODO: proper implementation please
-        Random random = new Random();
-        var maintainedUnit = maintainableAssets[0];
-        maintainedUnit.MaintananceStart = Sources[0].StartTime;
-        TimeSpan duration = new System.TimeSpan(0, maintainedUnit.MinHour, 0, 0);
-        maintainedUnit.MaintananceEnd = maintainedUnit.MaintananceStart.Value.Add(duration);
+        // Random random = new Random();
+        // var maintainedUnit = maintainableAssets[0];
+        // maintainedUnit.MaintananceStart = Sources[0].StartTime;
+        // TimeSpan duration = new System.TimeSpan(0, maintainedUnit.MinHour, 0, 0);
+        // maintainedUnit.MaintananceEnd = maintainedUnit.MaintananceStart.Value.Add(duration);
 
         foreach (var hour in Sources)
         {
@@ -301,9 +289,10 @@ public class Optimizer
         results.ElectricityConsumed = (double)totalElectricityConsumed;
         results.Co2Emissions = (double)totalEmissions;
         results.PrimaryEnergy = (double)totalPrimaryEnergy;
-        results.MaintainedUnit = maintainedUnit.Name;
-        results.MaintainedStart = (System.DateTime)maintainedUnit.MaintananceStart!;
-        results.MaintainedEnd = (System.DateTime)maintainedUnit.MaintananceEnd!;
+        results.HourlyNetCost = netCostCache;
+        // results.MaintainedUnit = maintainedUnit.Name;
+        // results.MaintainedStart = (System.DateTime)maintainedUnit.MaintananceStart!;
+        // results.MaintainedEnd = (System.DateTime)maintainedUnit.MaintananceEnd!;
 
         return results;
     }
@@ -320,5 +309,18 @@ public class Optimizer
             return true;
         }
         return time < asset.MaintananceStart || time >= asset.MaintananceEnd;
+    }
+
+    private List<Asset> GetMaintainableAssets()
+    {
+        List<Asset> maintainableAssets = [];
+        foreach (var a in Assets)
+        {
+            if (DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
+            {
+                maintainableAssets.Add(a);
+            }
+        }
+        return maintainableAssets;
     }
 }
