@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SE2.Data;
 
@@ -7,9 +8,9 @@ public class Optimizer
 {
     public List<SourceData> Sources { get; set; } = new();
     public List<Asset> Assets { get; set; } = new();
+    public List<Asset> MaintainableAssets { get; set; } = new();
 
     private List<NetCostData> netCostCache = new();
-    private List<Asset> maintainableAssets = [];
 
     public void OptimizerInit()
     {
@@ -60,16 +61,11 @@ public class Optimizer
                 throw new Exception("Asset has no heat demand");
             }
 
-            if (a.MaintananceStart.HasValue && a.MaintananceEnd.HasValue)
+            if (a.MinHour != 0 || a.MaxHour != 0)
             {
-                if (a.MaintananceStart >= a.MaintananceEnd)
+                if (a.MinHour > a.MaxHour)
                 {
                     throw new Exception($"Maintanance is invalid {a.Name}");
-                }
-                var duration = (a.MaintananceEnd.Value - a.MaintananceStart.Value).TotalHours;
-                if (duration < 30 || duration > 60)
-                {
-                    throw new Exception($"Asset {a.Name} maintainance must be 30-60 hours");
                 }
             }
         }
@@ -80,6 +76,8 @@ public class Optimizer
         netCostCache?.Clear();
     }
 
+    // Performs additional error handling checks for assets and generates net cost -
+    // which tweaks some things when electricity is negative.
     public List<NetCostData> CalculateNetCost()
     {
         if (Sources == null || Sources.Count == 0)
@@ -98,8 +96,6 @@ public class Optimizer
 
         List<NetCostData> netCostSeries = new();
 
-        maintainableAssets = [];
-
         foreach (var a in Assets)
         {
             if (a == null)
@@ -115,11 +111,6 @@ public class Optimizer
             if (a.MaxHeat <= 0)
             {
                 throw new Exception("Asset has no heat demand");
-            }
-
-            if (DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
-            {
-                maintainableAssets.Add(a);
             }
 
             decimal baseCost = a.ProductionCosts;
@@ -138,17 +129,12 @@ public class Optimizer
                 decimal price = hour.ElectricityPrice;
                 decimal netCost = baseCost;
 
+                // Generate heat = generate or use electricity. So here we take electricity
+                // into account how much it influences heat production price.
                 if (a.MaxElectricity != 0f)
                 {
                     decimal elecPerHeat = (decimal)(a.MaxElectricity / a.MaxHeat);
-                    if (elecPerHeat > 0)
-                    {
-                        netCost = baseCost - (elecPerHeat * price);
-                    }
-                    else
-                    {
-                        netCost = baseCost + (Math.Abs(elecPerHeat) * price);
-                    }
+                    netCost = baseCost - (elecPerHeat * price);
                 }
 
                 netCostSeries.Add(new NetCostData
@@ -163,22 +149,67 @@ public class Optimizer
         return netCostSeries;
     }
 
-    public ResultData CalculateSchedule()
+    // Chooses which unit is the optimal to be maintained and which period is optimal too
+    public ResultData? CalculateSchedule()
     {
-        if (Sources == null || Sources.Count == 0)
+        int permutationIndex = -1;
+        double currentLowestCost = -1;
+        ResultData? resultData = null;
+        List<MaintenancePeriod> maintenancePeriods = GenerateMaintenancePeriods();
+        if (maintenancePeriods.Count == 0)
         {
-            throw new Exception("No sources initialized");
+            return CalculatePeriod(new List<MaintenancePeriod>());
         }
 
-        if (Assets == null || Assets.Count == 0)
+        for (int i = 0; i < maintenancePeriods.Count; i++)
         {
-            throw new Exception("No assets initialized");
+            MaintenancePeriod maintenancePeriod = maintenancePeriods[i];
+
+            ResultData result = CalculatePeriod(new List<MaintenancePeriod>() { maintenancePeriod });
+            double cost = result.TotalCost;
+            if (currentLowestCost == -1 || cost < currentLowestCost)
+            {
+                permutationIndex = i;
+                currentLowestCost = cost;
+                resultData = result;
+            }
+        }
+        return resultData;
+    }
+
+    private List<MaintenancePeriod> GenerateMaintenancePeriods()
+    {
+        List<MaintenancePeriod> maintenancePeriods = [];
+        DateTime lastHour = Sources[Sources.Count - 1].StartTime;
+        foreach (var hour in Sources)
+        {
+            foreach (var asset in MaintainableAssets)
+            {
+                var maintenanceStart = hour.StartTime;
+                TimeSpan duration = new System.TimeSpan(0, asset.MinHour, 0, 0);
+                var maintenanceEnd = maintenanceStart.Add(duration);
+                if (maintenanceEnd > lastHour)
+                {
+                    continue;
+                }
+
+                maintenancePeriods.Add(new MaintenancePeriod
+                {
+                    MaintainedUnit = asset.Name,
+                    MaintainedStart = maintenanceStart,
+                    MaintainedEnd = maintenanceEnd,
+                });
+            }
         }
 
+        return maintenancePeriods;
+    }
+
+    private ResultData CalculatePeriod(List<MaintenancePeriod> maintenancePeriods)
+    {
         Sources = [.. Sources.OrderBy(x => x.StartTime)];
 
         List<NetCostData> netCosts;
-
         if (netCostCache == null || netCostCache.Count == 0)
         {
             netCosts = CalculateNetCost();
@@ -197,12 +228,19 @@ public class Optimizer
         decimal totalEmissions = 0m;
         decimal totalPrimaryEnergy = 0m;
 
-        // TODO: proper implementation please
-        Random random = new Random();
-        var maintainedUnit = maintainableAssets[0];
-        maintainedUnit.MaintananceStart = Sources[0].StartTime;
-        TimeSpan duration = new System.TimeSpan(0, maintainedUnit.MinHour, 0, 0);
-        maintainedUnit.MaintananceEnd = maintainedUnit.MaintananceStart.Value.Add(duration);
+        // Update maintenance data for units based on maintenance period
+        foreach (Asset asset in Assets)
+        {
+            asset.MaintananceStart = null;
+            asset.MaintananceEnd = null;
+        }
+
+        foreach (MaintenancePeriod maintenancePeriod in maintenancePeriods)
+        {
+            var asset = Assets.FirstOrDefault(a => a.Name == maintenancePeriod.MaintainedUnit);
+            asset.MaintananceStart = maintenancePeriod.MaintainedStart;
+            asset.MaintananceEnd = maintenancePeriod.MaintainedEnd;
+        }
 
         foreach (var hour in Sources)
         {
@@ -301,9 +339,8 @@ public class Optimizer
         results.ElectricityConsumed = (double)totalElectricityConsumed;
         results.Co2Emissions = (double)totalEmissions;
         results.PrimaryEnergy = (double)totalPrimaryEnergy;
-        results.MaintainedUnit = maintainedUnit.Name;
-        results.MaintainedStart = (System.DateTime)maintainedUnit.MaintananceStart!;
-        results.MaintainedEnd = (System.DateTime)maintainedUnit.MaintananceEnd!;
+        results.HourlyNetCost = netCostCache;
+        results.MaintenancePeriods = maintenancePeriods;
 
         return results;
     }

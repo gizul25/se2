@@ -1,6 +1,7 @@
 using System.Text.Json;
 
 namespace SE2.Data;
+
 public class AM
 {
     public List<Asset> Assets { get; set; } = [];
@@ -36,40 +37,17 @@ public class AM
         }
         return null;
     }
-}
 
-public class Asset
-{
-    public required string Name { get; set; }
-    public float MaxHeat { get; set; }
-    public int ProductionCosts { get; set; }
-    public int Co2Emissions { get; set; }
-    public float GasConsumption { get; set; }
-    public float MaxElectricity { get; set; }
-    public float OilConsumption { get; set; }
-    public string? Image { get; set; }
-    public DateTime? MaintananceStart { get; set; }
-    public DateTime? MaintananceEnd { get; set; }
-    public bool ShallMaintained { get; set; }
-    public int MinHour { get; set; } = 30;
-    public int MaxHour { get; set; } = 60;
-    public string Color { get; set; }
-
-    public override string ToString()
+    public List<Asset> GetMaintainableAssets()
     {
-        return $"{Name},{MaxHeat},{MaxElectricity},{ProductionCosts},{Co2Emissions},{GasConsumption},{OilConsumption},{ShallMaintained}";
-    }
-}
-
-public class Grid
-{
-    public required string Image { get; set; }
-    public required string City { get; set; }
-    public int Size { get; set; }
-    public required string Architecture { get; set; }
-
-    public override string? ToString()
-    {
-        return $"{City},{Size},{Architecture}";
+        List<Asset> maintainableAssets = [];
+        foreach (var a in Assets)
+        {
+            if (ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
+            {
+                maintainableAssets.Add(a);
+            }
+        }
+        return maintainableAssets;
     }
 }

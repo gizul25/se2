@@ -135,7 +135,7 @@
         <Grid  Name="ChartGrid"
                ColumnSpacing="20"
                RowSpacing="20"
-               ColumnDefinitions="*,*,*"
-               RowDefinitions="*,*,*,*"/>
+               ColumnDefinitions="*,*"
+               RowDefinitions="*,*,*,*,*,*"/>
     </StackPanel>
 </UserControl>

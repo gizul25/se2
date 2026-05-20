@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace SE2.Data;
@@ -31,14 +32,11 @@ public class ResultData
     [JsonPropertyName("co2_emissions")]
     public double Co2Emissions { get; set; } = 0;
 
-    [JsonPropertyName("maintained_unit")]
-    public string MaintainedUnit { get; set; } = "";
+    [JsonPropertyName("maintenance_periods")]
+    public List<MaintenancePeriod> MaintenancePeriods { get; set; } = [];
 
-    [JsonPropertyName("maintained_start")]
-    public DateTime MaintainedStart { get; set; }
-
-    [JsonPropertyName("maintained_end")]
-    public DateTime MaintainedEnd { get; set; }
+    [JsonPropertyName("hourly_net_cost")]
+    public List<NetCostData> HourlyNetCost { get; set; } = [];
 }
 
 public class ResultRow
@@ -88,4 +86,16 @@ public class SchedulerRow
     {
         return $"{Time} {AssetName} {HeatProduction} {Costs} {Consumption} {Emissions}";
     }
+}
+
+public class MaintenancePeriod
+{
+    [JsonPropertyName("maintained_unit")]
+    public string MaintainedUnit { get; set; } = "";
+
+    [JsonPropertyName("maintained_start")]
+    public DateTime MaintainedStart { get; set; }
+
+    [JsonPropertyName("maintained_end")]
+    public DateTime MaintainedEnd { get; set; }
 }
