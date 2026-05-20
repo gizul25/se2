@@ -9,7 +9,8 @@
              x:Class="SE2.Views.ProductionUnitsView"
              x:DataType="vm:ProductionUnitsViewModel">
     <UserControl.Resources>
-
+        <SolidColorBrush x:Key="RedBorderOpaque" Color="#C50616" Opacity="0.5"/>
+        <SolidColorBrush x:Key="GrayBorderOpaque" Color="#DDE1E6" Opacity="0.5"/>
     </UserControl.Resources>
     <UserControl.Styles>
         <Style Selector="CheckBox.WhiteCheckBox">
@@ -20,6 +21,12 @@
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
         <Style Selector=":is(CheckBox)">
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckBackgroundStrokeUncheckedPressed}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckBackgroundFillUncheckedPressed}" />
+                </Style>
+            </Style>
             <Style Selector="^:checked /template/ Border#NormalRectangle">
                 <Setter Property="Background" Value="#ED071B"/>
                 <Setter Property="BorderBrush" Value="#000000"/>
@@ -77,16 +84,16 @@
                 <CheckBox Grid.Row="0" Grid.Column="0" Classes="WhiteCheckBox" IsChecked="{Binding SelectAll}"></CheckBox>
                 <TextBlock Grid.Row="0" Grid.Column="1" Classes= "MainText" Text="Production unit"/>
                 <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
-                    <TextBlock Classes="Text" Text="Net costs"/>
-                    <TextBlock Classes="Text" Text="Heat production"/>
-                    <TextBlock Classes="Text" Text="Electricity"/>
-                    <TextBlock Classes="Text" Text="Gas Usages"/>
-                    <TextBlock Classes="Text" Text="Oil Usages"/>
-                    <TextBlock Classes="Text" Text="Emissions"/>
-                    <TextBlock Classes="Text" Text="Maintained"/>
-                    <TextBlock Classes="Text" Text="Min hours"/>
-                    <TextBlock Classes="Text" Text="Max hours"/>
-                    <TextBlock Classes="Text" Text="Color"/>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Net costs"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Heat production"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Electricity"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Gas Usages"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Oil Usages"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Emissions"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Maintained"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Min hours"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Max hours"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Color"/></Border>
                 </UniformGrid>
             </Grid>
         </Border>
@@ -98,84 +105,89 @@
                     <Border Classes="GrayBorder">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
                             <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox>
-                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Spacing="5">
+                            <UniformGrid Grid.Row="0" Grid.Column="1" Rows="1" Columns="2">
                                 <Image Source="{Binding ImageBitmap}" Width="60" Height="50" />
                                 <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                            </StackPanel>
+                            </UniformGrid>
                             <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
-                                <TextBlock Classes="PropertyText">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat='{}{0} DKK / MWh'>
-                                            <Binding Path="ProductionCosts"/>
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat='{}{0} MW'>
-                                            <Binding Path="MaxHeat"/>
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5">
+                                    <TextBlock Classes="PropertyText">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat='{}{0} DKK / MWh'>
+                                                <Binding Path="ProductionCosts"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5">
+                                    <TextBlock Classes="PropertyText">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat='{}{0} MW'>
+                                                <Binding Path="MaxHeat"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} MW'>
                                             <Binding Path="MaxElectricity"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} MWh'>
                                             <Binding Path="GasConsumption"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} MWh'>
                                             <Binding Path="OilConsumption"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} kg / MWh'>
                                             <Binding Path="Co2Emissions"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0}'>
                                             <Binding Path="ShallMaintained"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} h'>
                                             <Binding Path="MinHour"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <TextBlock Classes="PropertyText">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><TextBlock Classes="PropertyText">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat='{}{0} h'>
                                             <Binding Path="MaxHour"/>
                                         </MultiBinding>
                                     </TextBlock.Text>
-                                </TextBlock>
-                                <StackPanel Orientation="Horizontal">
+                                </TextBlock></Border>
+                                <Border BorderBrush="{StaticResource GrayBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5"><StackPanel Orientation="Horizontal">
                                     <Ellipse Fill="{Binding Color}" Height="10" Width="10"/>
-                                <TextBlock Margin="5" VerticalAlignment="Center">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat= '{}{0}'>
-                                            <Binding Path="Color" />
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
+                                    <TextBlock Margin="5" VerticalAlignment="Center">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat= '{}{0}'>
+                                                <Binding Path="Color" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
                                 </StackPanel>
+                                </Border>
                             </UniformGrid>
                             <Button Grid.Row="0"
                                     Grid.Column="3"
