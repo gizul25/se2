@@ -37,4 +37,17 @@ public class AM
         }
         return null;
     }
+
+    public List<Asset> GetMaintainableAssets()
+    {
+        List<Asset> maintainableAssets = [];
+        foreach (var a in Assets)
+        {
+            if (ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
+            {
+                maintainableAssets.Add(a);
+            }
+        }
+        return maintainableAssets;
+    }
 }

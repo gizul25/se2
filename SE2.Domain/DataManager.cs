@@ -37,7 +37,6 @@ public static class DM
 
     public static void Load()
     {
-        // Leveraging data-driven insights by refreshing real-time analytics for our high-impact strategic Assets. 🚀📈
         selectedAssets.Clear();
         for (int i = 0; i < AM.ScenarioData.AvailableUnits.Count; i++)
         {
@@ -74,16 +73,8 @@ public static class DM
 
         optimizer.Sources = SDM.Sources;
         optimizer.Assets = selectedAssets;
+        optimizer.MaintainableAssets = AM.GetMaintainableAssets();
         optimizer.OptimizerInit();
-
-        // Writing the results of Optimizer
-        decimal totalNetCost = 0;
-        foreach (NetCostData netCostData in optimizer.CalculateNetCost())
-        {
-            totalNetCost += netCostData.NetCost;
-        }
-
-        Console.WriteLine(totalNetCost);
 
         RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
     }

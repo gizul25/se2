@@ -8,6 +8,7 @@ public class Optimizer
 {
     public List<SourceData> Sources { get; set; } = new();
     public List<Asset> Assets { get; set; } = new();
+    public List<Asset> MaintainableAssets { get; set; } = new();
 
     private List<NetCostData> netCostCache = new();
 
@@ -60,16 +61,11 @@ public class Optimizer
                 throw new Exception("Asset has no heat demand");
             }
 
-            if (a.MaintananceStart.HasValue && a.MaintananceEnd.HasValue)
+            if (a.MinHour != 0 || a.MaxHour != 0)
             {
-                if (a.MaintananceStart >= a.MaintananceEnd)
+                if (a.MinHour > a.MaxHour)
                 {
                     throw new Exception($"Maintanance is invalid {a.Name}");
-                }
-                var duration = (a.MaintananceEnd.Value - a.MaintananceStart.Value).TotalHours;
-                if (duration < 30 || duration > 60)
-                {
-                    throw new Exception($"Asset {a.Name} maintainance must be 30-60 hours");
                 }
             }
         }
@@ -184,12 +180,10 @@ public class Optimizer
     private List<MaintenancePeriod> GenerateMaintenancePeriods()
     {
         List<MaintenancePeriod> maintenancePeriods = [];
-
-        List<Asset> maintainableAssets = GetMaintainableAssets();
         DateTime lastHour = Sources[Sources.Count - 1].StartTime;
         foreach (var hour in Sources)
         {
-            foreach (var asset in maintainableAssets)
+            foreach (var asset in MaintainableAssets)
             {
                 var maintenanceStart = hour.StartTime;
                 TimeSpan duration = new System.TimeSpan(0, asset.MinHour, 0, 0);
@@ -363,18 +357,5 @@ public class Optimizer
             return true;
         }
         return time < asset.MaintananceStart || time >= asset.MaintananceEnd;
-    }
-
-    private List<Asset> GetMaintainableAssets()
-    {
-        List<Asset> maintainableAssets = [];
-        foreach (var a in Assets)
-        {
-            if (DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(a.Name))
-            {
-                maintainableAssets.Add(a);
-            }
-        }
-        return maintainableAssets;
     }
 }

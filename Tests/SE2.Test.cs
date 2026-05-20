@@ -90,6 +90,30 @@ namespace SE2.Test
             };
         }
 
+        private Optimizer LoadScenarioWithPeriod(string scenario, IPeriod period)
+        {
+            var optimizer = new Optimizer();
+            var am = new AM();
+            var sdm = new SDM();
+
+            sdm.Load(period);
+            am.Load();
+            am.LoadScenario(scenario);
+
+            List<Asset> selectedAssets = [];
+            for (int i = 0; i < am.ScenarioData.AvailableUnits.Count; i++)
+            {
+                selectedAssets.Add(am.GetAssetByName(am.ScenarioData.AvailableUnits[i]));
+            }
+
+            optimizer.Sources = sdm.Sources;
+            optimizer.Assets = selectedAssets;
+            optimizer.MaintainableAssets = am.GetMaintainableAssets();
+            optimizer.OptimizerInit();
+
+            return optimizer;
+        }
+
         [Test]
         public void LoadNotExistingAsset()
         {
@@ -138,8 +162,8 @@ namespace SE2.Test
             {
                 Name = "TestAssetInvalid",
                 MaxHeat = 10,
-                MaintananceStart = DateTime.Today.AddHours(10),
-                MaintananceEnd = DateTime.Today.AddHours(5)
+                MinHour = 10,
+                MaxHour = 5
             });
             Assert.Throws<Exception>(() => optimizer.OptimizerInit());
         }
@@ -152,8 +176,8 @@ namespace SE2.Test
             {
                 Name = "TestAssetValid",
                 MaxHeat = 10,
-                MaintananceStart = DateTime.Today,
-                MaintananceEnd = DateTime.Today.AddHours(40)
+                MinHour = 10,
+                MaxHour = 40
             });
             Assert.DoesNotThrow(() => optimizer.OptimizerInit());
         }
@@ -194,7 +218,7 @@ namespace SE2.Test
         }
 
         [Test]
-        public void CalculateSchedule_MixedWithNegativePrice_SelectsCheaperAsset()
+        public void CalculateSchedule_NegativePrice_CorrectCost()
         {
             // Arrange
             var optimizer = new Optimizer();
@@ -225,6 +249,108 @@ namespace SE2.Test
             Assert.AreEqual(50, result.ElectricityProduced);
             Assert.AreEqual(0, result.ElectricityConsumed);
             Assert.AreEqual(6500, result.TotalCost, 0.01);
+        }
+
+        [Test]
+        public void CalculateSchedule_MixedWithNegativePrice_SelectsCheaperAsset()
+        {
+            // Arrange
+            var optimizer = new Optimizer();
+
+            optimizer.Assets.Add(new Asset
+            {
+                Name = "Gas Motor",
+                MaxHeat = 100,
+                MaxElectricity = 50,
+                ProductionCosts = 40,
+                Co2Emissions = 1,
+                GasConsumption = 0.7f,
+                OilConsumption = 0f
+            });
+            optimizer.Assets.Add(new Asset
+            {
+                Name = "Electric Boiler",
+                MaxHeat = 100,
+                MaxElectricity = -100,
+                ProductionCosts = 2,
+                Co2Emissions = 0,
+                GasConsumption = 0f,
+                OilConsumption = 0
+            });
+
+            optimizer.Sources.Add(new SourceData
+            {
+                StartTime = new DateTime(2026, 5, 1, 10, 0, 0),
+                HeatDemand = 100,
+                ElectricityPrice = -50
+            });
+            optimizer.Sources.Add(new SourceData
+            {
+                StartTime = new DateTime(2026, 5, 1, 11, 0, 0),
+                HeatDemand = 100,
+                ElectricityPrice = 50
+            });
+
+            optimizer.OptimizerInit();
+
+            var result = optimizer.CalculateSchedule();
+
+            Assert.AreEqual(200, result.HeatProduced);
+            Assert.AreEqual(50, result.ElectricityProduced);
+            Assert.AreEqual(100, result.ElectricityConsumed);
+            Assert.AreEqual(-3300, result.TotalCost, 0.01);
+        }
+
+        [Test]
+        public void CalculateSchedule_Scenario1Winter_OptimalCost()
+        {
+            var optimizer = LoadScenarioWithPeriod("1", new Winter());
+            var result = optimizer.CalculateSchedule();
+
+            Assert.AreEqual(2870.38, result.HeatProduced, 0.01);
+            Assert.AreEqual(0, result.ElectricityProduced);
+            Assert.AreEqual(0, result.ElectricityConsumed);
+            Assert.AreEqual(1577696, result.TotalCost, 0.01);
+            Assert.AreEqual(1, result.MaintenancePeriods.Count);
+        }
+
+        [Test]
+        public void CalculateSchedule_Scenario1Summer_OptimalCost()
+        {
+            var optimizer = LoadScenarioWithPeriod("1", new Summer());
+            var result = optimizer.CalculateSchedule();
+
+            Assert.AreEqual(1093.1, result.HeatProduced, 0.01);
+            Assert.AreEqual(0, result.ElectricityProduced);
+            Assert.AreEqual(0, result.ElectricityConsumed);
+            Assert.AreEqual(560285.4, result.TotalCost, 0.01);
+            Assert.AreEqual(1, result.MaintenancePeriods.Count);
+        }
+
+        [Test]
+        public void CalculateSchedule_Scenario2Winter_OptimalCost()
+        {
+            var optimizer = LoadScenarioWithPeriod("2", new Winter());
+            var result = optimizer.CalculateSchedule();
+
+            Assert.AreEqual(2870.38, result.HeatProduced, 0.01);
+            Assert.AreEqual(1202.31, result.ElectricityProduced, 0.01);
+            Assert.AreEqual(148.03, result.ElectricityConsumed, 0.01);
+            Assert.AreEqual(1225965.92, result.TotalCost, 0.01);
+            Assert.AreEqual(1, result.MaintenancePeriods.Count);
+        }
+
+        [Test]
+        public void CalculateSchedule_Scenario2Summer_OptimalCost()
+        {
+            var optimizer = LoadScenarioWithPeriod("2", new Summer());
+            var result = optimizer.CalculateSchedule();
+
+            Assert.AreEqual(1093.1, result.HeatProduced, 0.01);
+            Assert.AreEqual(252.1, result.ElectricityProduced, 0.01);
+            Assert.AreEqual(629.15, result.ElectricityConsumed, 0.01);
+            Assert.AreEqual(239452.31, result.TotalCost, 0.01);
+            Assert.AreEqual(1, result.MaintenancePeriods.Count);
         }
     }
 
