@@ -25,6 +25,8 @@ public static class DM
 
     private static readonly Optimizer optimizer = new();
 
+    private static bool runEnabled = true;
+
     public static void Init()
     {
         SDM.Load(currentPeriod);
@@ -42,6 +44,28 @@ public static class DM
             selectedAssets.Add(AM.GetAssetByName(AM.ScenarioData.AvailableUnits[i]) ??
                 throw new Exception("Selected Assets don't exist any more"));
         }
+    }
+
+    public static async Task RunOptimization()
+    {
+        if (!runEnabled)
+        {
+            return;
+        }
+
+        runEnabled = false;
+        SemaphoreSlim signal = new SemaphoreSlim(0, 1);
+
+        Thread thread = new Thread(() => Thread_RunOptimizer(signal));
+        thread.Start();
+        await signal.WaitAsync();
+        runEnabled = true;
+    }
+
+    private static void Thread_RunOptimizer(SemaphoreSlim signal)
+    {
+        DM.StartOptimizer();
+        signal.Release();
     }
 
     public static void StartOptimizer()

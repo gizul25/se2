@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Linq;
 using SE2.Domain;
 using SE2.Data;
@@ -65,10 +66,10 @@ public partial class OptimizerViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void RunOptimization()
+    private async Task RunOptimization()
     {
         RunEnabled = false;
-        DM.StartOptimizer();
+        await DM.RunOptimization();
         RunEnabled = true;
         Load();
     }
@@ -216,34 +217,7 @@ public partial class OptimizerViewModel : ViewModelBase
         IDictionary<string, List<DateTimePoint?>> heatEntries = schedulerRows
             .GroupBy(r => r.AssetName)
             .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, c.HeatProduction)).ToList());
-
-        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in heatEntries)
-        {
-            var arr = kvp.Value;
-            var currIndex = 0;
-            var nullInserted = false;
-            foreach (ResultRow row in results.ResultRows)
-            {
-                var time = row.Time;
-                if (currIndex >= arr.Count)
-                {
-                    break;
-                }
-
-                var indexTime = arr[currIndex].DateTime;
-                if (time < indexTime && !nullInserted)
-                {
-                    arr.Insert(currIndex, null);
-                    currIndex += 1;
-                    nullInserted = true;
-                }
-                if (time == indexTime)
-                {
-                    currIndex += 1;
-                    nullInserted = false;
-                }
-            }
-        }
+        InsertDataBreaks(heatEntries, results.ResultRows);
 
         foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in heatEntries)
         {
@@ -259,6 +233,28 @@ public partial class OptimizerViewModel : ViewModelBase
             Series = heatSeries.ToArray(),
         };
         Charts.Add(heatSeriesChart);
+
+        // Unit cost
+        List<ISeries> unitCostSeries = [];
+        IDictionary<string, List<DateTimePoint?>> unitCostEntries = schedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, (double)c.Costs)).ToList());
+        InsertDataBreaks(unitCostEntries, results.ResultRows);
+
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in unitCostEntries)
+        {
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            unitCostSeries.Add(series);
+        }
+
+        ChartControlViewModel unitCostChart = new()
+        {
+            Title = "Unit Cost",
+            Series = unitCostSeries.ToArray(),
+        };
+        Charts.Add(unitCostChart);
 
         // Other charts
         List<DateTimePoint> heatProductionData = resultRows.Select(r => new DateTimePoint(r.Time, r.HeatProduction)).ToList();
@@ -302,5 +298,36 @@ public partial class OptimizerViewModel : ViewModelBase
         Charts.Add(emissionsChart);
 
         LoadInProgress = false;
+    }
+
+    private void InsertDataBreaks(IDictionary<string, List<DateTimePoint?>> entries, List<ResultRow> resultRows)
+    {
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in entries)
+        {
+            var arr = kvp.Value;
+            var currIndex = 0;
+            var nullInserted = false;
+            foreach (ResultRow row in resultRows)
+            {
+                var time = row.Time;
+                if (currIndex >= arr.Count)
+                {
+                    break;
+                }
+
+                var indexTime = arr[currIndex].DateTime;
+                if (time < indexTime && !nullInserted)
+                {
+                    arr.Insert(currIndex, null);
+                    currIndex += 1;
+                    nullInserted = true;
+                }
+                if (time == indexTime)
+                {
+                    currIndex += 1;
+                    nullInserted = false;
+                }
+            }
+        }
     }
 }
