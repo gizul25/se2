@@ -390,4 +390,89 @@ namespace SE2.Test
     //         Assert.AreEqual(2, viewModel.ExpenseSeries.Length);
     //     }
     // }
+		public class AMTests
+		{
+            [Test]
+            public void GetAssetByName_ReturnsAsset()
+			{
+                var am = new AM()
+                {
+					Assets = new List<Asset>	
+					{
+                        new Asset { Name = "Boiler A", Color = "Red" },
+						new Asset { Name = "Boiler B", Color = "Blue" }	
+					}
+				};
+				
+				var result = am.GetAssetByName("Boiler A");
+				Assert.IsNotNull(result);
+                Assert.AreEqual("Boiler A", result.Name);
+				Assert.AreEqual("Red", result.Color);	
+            }
+            
+			[Test]
+			public void LoadScenario_Valid()
+			{
+				var am = new AM();
+				
+				Assert.DoesNotThrow(() => am.LoadScenario("1"));	
+                Assert.IsNotNull(am.ScenarioData);
+			}	
+
+			[Test]
+            public void LoadScenario_Invalid()
+			{
+				var am = new AM();
+				
+				Assert.Throws<Exception>(() => am.LoadScenario("123"));	
+			}		
+			
+			[Test]
+			public void GetAssetByName_Invalid()
+			{
+				var am = new AM()
+				{
+					Assets = new List<Asset>
+					{
+						new Asset {  Name = "Boiler A", Color = "Red" },
+					}
+				};
+
+				var result = am.GetAssetByName("");
+				Assert.IsNull(result);		
+			}
+
+			[Test]
+      public void GetAssetByName_Duplicate()
+			{
+				var am = new AM()
+				{
+					Assets = new List<Asset>
+					{
+						new Asset {  Name = "Boiler", Color = "Red" },
+						new Asset {  Name = "Boiler", Color = "Blue" }
+					}
+				};
+				
+				var result = am.GetAssetByName("Boiler");
+				Assert.IsNotNull(result);
+				Assert.AreEqual("Red", result!.Color);
+			}
+
+			[Test]
+			public void GetAssetByName_Null()
+			{
+				var am = new AM()
+				{
+					Assets = new List<Asset>
+					{
+						new Asset {  Name = "Boiler", Color = "Red" },
+					}
+				};
+
+                Asset? result = null;
+                Assert.DoesNotThrow(() => result = am.GetAssetByName(null));
+				Assert.IsNull(result);
+		    }
+    }
 }
