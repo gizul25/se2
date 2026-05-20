@@ -12,14 +12,18 @@
 
     </UserControl.Resources>
     <UserControl.Styles>
-        <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-            <Setter Property="Background" Value="#ED071B"/>
-            <Setter Property="BorderBrush" Value="#000000"/>
-        </Style>
         <Style Selector="CheckBox.WhiteCheckBox">
-            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="#ffffff"/>
+            </Style>
             <Setter Property="CornerRadius" Value="0"/>
             <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector=":is(CheckBox)">
+            <Style Selector="^:checked /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="#ED071B"/>
+                <Setter Property="BorderBrush" Value="#000000"/>
+            </Style>
         </Style>
         <Style Selector="Border.RedBorder">
             <Setter Property="Background" Value="#ED071B"/>
@@ -162,6 +166,8 @@
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Fill="{Binding Color}" Height="10" Width="10"/>
                                 <TextBlock Margin="5" VerticalAlignment="Center">
                                     <TextBlock.Text>
                                         <MultiBinding StringFormat= '{}{0}'>
@@ -169,6 +175,7 @@
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
+                                </StackPanel>
                             </UniformGrid>
                             <Button Grid.Row="0"
                                     Grid.Column="3"
