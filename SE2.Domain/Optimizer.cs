@@ -300,7 +300,7 @@ public class Optimizer
                     AssetName = asset.Name,
                     HeatProduction = (double)heatProduced,
                     Costs = cost,
-                    Consumption = (double)Math.Abs(electricity),
+                    Electricity = (double)-electricity,
                     Emissions = (double)emissions,
                 });
 
@@ -327,6 +327,7 @@ public class Optimizer
                 Time = hour.StartTime,
                 HeatProduction = (double)hourHeatProduced,
                 Costs = hourCost,
+                Production = (double)hourElectricityProduced,
                 Consumption = (double)hourElectricityConsumed,
                 Emissions = (double)hourEmissions
             });

@@ -50,6 +50,9 @@ public class ResultRow
     [JsonPropertyName("costs")]
     public decimal Costs { get; set; }
 
+    [JsonPropertyName("production")]
+    public double Production { get; set; }
+
     [JsonPropertyName("consumption")]
     public double Consumption { get; set; }
 
@@ -58,7 +61,7 @@ public class ResultRow
 
     public override string? ToString()
     {
-        return $"{Time} {HeatProduction} {Costs} {Consumption} {Emissions}";
+        return $"{Time} {HeatProduction} {Costs} {Production} {Consumption} {Emissions}";
     }
 }
 
@@ -76,15 +79,15 @@ public class SchedulerRow
     [JsonPropertyName("costs")]
     public decimal Costs { get; set; }
 
-    [JsonPropertyName("consumption")]
-    public double Consumption { get; set; }
+    [JsonPropertyName("electricity")]
+    public double Electricity { get; set; }
 
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
 
     public override string? ToString()
     {
-        return $"{Time} {AssetName} {HeatProduction} {Costs} {Consumption} {Emissions}";
+        return $"{Time} {AssetName} {HeatProduction} {Costs} {Electricity} {Emissions}";
     }
 }
 
