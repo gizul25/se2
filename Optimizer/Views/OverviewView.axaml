@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:SE2.ViewModels"
+             xmlns:c="using:SE2.Views"
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SE2.Views.OverviewView"
+             x:DataType="vm:OverviewViewModel">
+    <UserControl.Styles>
+        <Style Selector="Border">
+            <Setter Property="Height" Value="360"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DDDDDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding" Value="15"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid Margin="20 40 20 20"
+          RowSpacing="20"
+          ColumnSpacing="20"
+          RowDefinitions="*,*,*"
+          ColumnDefinitions="*,*">
+
+        <!-- GRID -->
+        <Border Grid.Row="0"
+                Grid.Column="0">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock FontWeight="Bold"
+                           Margin="0 0 0 10">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat= "Grid map - {0}">
+                            <Binding Path="GridMapName" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <Image Grid.Row="1"
+                       Source="{Binding HeatGrid}"
+                       Stretch="UniformToFill"/>
+            </Grid>
+        </Border>
+
+        <!-- HEAT -->
+        <Border Grid.Row="0"
+                Grid.Column="1">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="Heat demand and production"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding HeatSeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding HeatYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+
+        <!-- PRICES -->
+        <Border Grid.Row="1"
+                Grid.Column="0">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="Electricity prices"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding PriceSeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding PriceYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+
+        <!-- EXPENSES -->
+        <Border Grid.Row="1"
+                Grid.Column="1">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="Net cost and revenue"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding ExpenseSeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding ExpenseYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+
+        <!-- ELECTRICITY -->
+        <Border Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="Electricity production and consumption"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding ElectricitySeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding ElectricityYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

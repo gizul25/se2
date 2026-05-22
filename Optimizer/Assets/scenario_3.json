@@ -1,0 +1,6 @@
+{
+  "available_units": ["OB1", "GM1", "EB1"],
+  "available_maintenance_units": ["OB1", "GM1", "EB1"],
+  "maintenance_hours_min": [30, 30, 30],
+  "maintenance_hours_max": [60, 60, 60]
+}
