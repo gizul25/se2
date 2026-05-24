@@ -76,7 +76,7 @@
 
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Gas Usage" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Oil Usage" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Electricity Usages" /> </Border>
+					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Electricity Production" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="CO2 Emissions" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Color" /> </Border>
 				</UniformGrid>

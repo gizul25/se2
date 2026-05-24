@@ -10,14 +10,24 @@ namespace SE2.Models;
 public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
 {
     private bool _isSelected;
+    private bool _consumesMultiple;
 
     public int UnitIndex { get; set; } = -1;
 
     public Bitmap? ImageBitmap { get; set; }
-    
+
     public event EventHandler? OpenEditUnit;
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    public bool ConsumesMultiple
+    {
+        get { return _consumesMultiple; }
+        set
+        {
+            _consumesMultiple = value;
+            OnPropertyChanged(nameof(ConsumesMultiple));
+        }
+    }
     public bool IsSelected
     {
         get { return _isSelected; }
@@ -30,7 +40,7 @@ public partial class ProductionUnitsModel : Asset, INotifyPropertyChanged
                 DM.AM.ScenarioData.AvailableUnits.Add(Name);
                 DM.Load();
             }
-            else if(value == false)
+            else if (value == false)
             {
                 DM.AM.ScenarioData.AvailableUnits.Remove(Name);
                 DM.Load();

@@ -91,7 +91,7 @@
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Max hours"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Gas Usages"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Oil Usages"/></Border>
-                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Electricity Usages"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Electricity Production"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="CO2 Emissions"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Color"/></Border>
                 </UniformGrid>
@@ -105,7 +105,8 @@
                     <Border Classes="GrayBorder">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="20">
                             <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox>
-                            <UniformGrid Grid.Row="0" Grid.Column="1" Rows="1" Columns="2">
+                            <UniformGrid Grid.Row="0" Grid.Column="1" Rows="1" Columns="3">
+                                <Panel VerticalAlignment="Center" Margin="-20,0,0,0"><TextBlock ToolTip.Tip = "Warning: Unit Consumes Multiple Types Of Fuel(Ignore if the behavior is intended)" IsVisible="{Binding ConsumesMultiple}" Foreground="#EDED07" Text="&#xf071;" FontFamily="{StaticResource FontAwesome}" FontSize="32" /></Panel>
                                 <Image Source="{Binding ImageBitmap}" Width="60" Height="50" />
                                 <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="10,0,0,0"/>
                             </UniformGrid>

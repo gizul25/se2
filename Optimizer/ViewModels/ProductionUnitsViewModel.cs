@@ -7,6 +7,7 @@ using SE2.Data;
 using SE2.Domain;
 using DialogHostAvalonia;
 using System.Threading.Tasks;
+using System.Linq;
 using SE2.Views;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -75,6 +76,16 @@ public partial class ProductionUnitsViewModel : ViewModelBase
             };
             unitsModel.OpenEditUnit += OpenEditMenu;
             ProductionUnits.Add(unitsModel);
+        }
+
+        var multiFuelUnits = from asset in ProductionUnits
+                             where ((asset.GasConsumption != 0 && asset.MaxElectricity < 0) ||
+                             (asset.GasConsumption != 0 && asset.OilConsumption !=0) ||
+                             (asset.MaxElectricity <0 && asset.OilConsumption !=0))
+                             select asset;
+        foreach(var asset in multiFuelUnits)
+        {
+            asset.ConsumesMultiple = true;
         }
     }
 
