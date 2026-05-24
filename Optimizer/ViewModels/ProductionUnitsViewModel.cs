@@ -93,7 +93,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     private Bitmap LoadBitmap(string imageName)
     {
-        string uri = $"avares://SE2/Assets/images/{imageName}";
+        string uri = $"avares://SE2/Assets/images/{imageName ?? "Default.jpg"}";
         return new Bitmap(AssetLoader.Open(new Uri(uri)));
     }
 

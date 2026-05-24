@@ -77,7 +77,7 @@
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Gas Usage" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Oil Usage" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Electricity Usages" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="CO2 Emissions" /> </Border>
+					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="CO2 Emissions" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Color" /> </Border>
 				</UniformGrid>
 			</Border>
@@ -95,8 +95,8 @@
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.GasConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.OilConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
 					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxElectricity}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}" Minimum="0" FormatString="0 kg / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Color}" Watermark="Color" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
+					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}" Minimum="0" FormatString="0 kg / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
+					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,-2"> <TextBox Text="{Binding Path=SelectedProductionUnit.Color}" Watermark="Color" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
 				</UniformGrid>
 			</Border>
 		</StackPanel>

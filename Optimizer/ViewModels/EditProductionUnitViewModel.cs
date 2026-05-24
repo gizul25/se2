@@ -43,6 +43,12 @@ public partial class EditProductionUnitViewModel : ViewModelBase
         {
             DM.AM.Assets.RemoveAt(UnitIndex);
         }
+
+        //maybe it's ugly, but simpler than raising events
+        if (_selectedProductionUnit.IsSelected)
+        {
+            _selectedProductionUnit.IsSelected = false;
+        }
         Redraw?.Invoke(null, new());
         DialogHost.Close("MainDialogHost");
     }
