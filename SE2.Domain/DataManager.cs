@@ -25,6 +25,8 @@ public static class DM
 
     private static readonly Optimizer optimizer = new();
 
+    private static bool runEnabled = true;
+
     public static void Init()
     {
         SDM.Load(currentPeriod);
@@ -35,7 +37,6 @@ public static class DM
 
     public static void Load()
     {
-        // Leveraging data-driven insights by refreshing real-time analytics for our high-impact strategic Assets. 🚀📈
         selectedAssets.Clear();
         for (int i = 0; i < AM.ScenarioData.AvailableUnits.Count; i++)
         {
@@ -44,22 +45,36 @@ public static class DM
         }
     }
 
+    public static async Task RunOptimization()
+    {
+        if (!runEnabled)
+        {
+            return;
+        }
+
+        runEnabled = false;
+        SemaphoreSlim signal = new SemaphoreSlim(0, 1);
+
+        Thread thread = new Thread(() => Thread_RunOptimizer(signal));
+        thread.Start();
+        await signal.WaitAsync();
+        runEnabled = true;
+    }
+
+    private static void Thread_RunOptimizer(SemaphoreSlim signal)
+    {
+        DM.StartOptimizer();
+        signal.Release();
+    }
+
     public static void StartOptimizer()
     {
         Load();
 
         optimizer.Sources = SDM.Sources;
         optimizer.Assets = selectedAssets;
+        optimizer.MaintainableAssets = AM.GetMaintainableAssets();
         optimizer.OptimizerInit();
-
-        // Writing the results of Optimizer
-        decimal totalNetCost = 0;
-        foreach (NetCostData netCostData in optimizer.CalculateNetCost())
-        {
-            totalNetCost += netCostData.NetCost;
-        }
-
-        Console.WriteLine(totalNetCost);
 
         RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
     }

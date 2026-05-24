@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Linq;
 using SE2.Domain;
 using SE2.Data;
@@ -65,10 +66,10 @@ public partial class OptimizerViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void RunOptimization()
+    private async Task RunOptimization()
     {
         RunEnabled = false;
-        DM.StartOptimizer();
+        await DM.RunOptimization();
         RunEnabled = true;
         Load();
     }
@@ -138,7 +139,19 @@ public partial class OptimizerViewModel : ViewModelBase
         ElectricityProduced = results.ElectricityProduced;
         PrimaryEnergy = results.PrimaryEnergy;
         Co2Emissions = results.Co2Emissions;
-        MaintenanceText = $"Maintenance period: Production unit {results.MaintainedUnit} maintained from {results.MaintainedStart} to {results.MaintainedEnd}";
+
+        MaintenanceText = "";
+
+        for (int i = 0; i < results.MaintenancePeriods.Count; i++)
+        {
+            MaintenancePeriod maintenancePeriod = results.MaintenancePeriods[i];
+
+            MaintenanceText += $"Maintenance period: Production unit {maintenancePeriod.MaintainedUnit} maintained from {maintenancePeriod.MaintainedStart} to {maintenancePeriod.MaintainedEnd}";
+            if (i != results.MaintenancePeriods.Count - 1)
+            {
+                maintenanceText += "\n";
+            }
+        }
 
         // Update charts
         List<ResultRow> resultRows = [];
@@ -148,56 +161,191 @@ public partial class OptimizerViewModel : ViewModelBase
         }
         else
         {
-            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r => new ResultRow
+            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r =>
             {
-                Time = r.Time,
-                HeatProduction = r.HeatProduction,
-                Costs = r.Costs,
-                Consumption = r.Consumption,
-                Emissions = r.Emissions,
+                var production = 0.0;
+                var consumption = 0.0;
+                if (r.Electricity > 0)
+                {
+                    consumption = r.Electricity;
+                }
+                else
+                {
+                    production = Math.Abs(r.Electricity);
+                }
+
+                return new ResultRow
+                {
+                    Time = r.Time,
+                    HeatProduction = r.HeatProduction,
+                    Costs = r.Costs,
+                    Production = production,
+                    Consumption = consumption,
+                    Emissions = r.Emissions,
+                };
             }).ToList();
         }
 
-        List<DateTimePoint> heatProductionData = resultRows.Select(r => new DateTimePoint(r.Time, r.HeatProduction)).ToList();
-        ChartControlViewModel heatProductionChart = new()
+        // Net cost chart
+        List<NetCostData> netCostRows = [];
+        if (SelectedProductionUnit == "All production units")
         {
-            Title = "Optimized Heat Production Schedule",
-            Series = [
-                GraphUtils.Series("Optimized Heat Production Schedule", heatProductionData, GraphUtils.BrightRed),
-            ],
-        };
-        Charts.Add(heatProductionChart);
-
-        List<DateTimePoint> costsData = resultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToList();
-        ChartControlViewModel costsChart = new()
+            netCostRows = results.HourlyNetCost;
+        }
+        else
         {
-            Title = "Costs Data",
-            Series = [
-                GraphUtils.Series("Costs Data", costsData, GraphUtils.BrightRed),
-            ],
-        };
-        Charts.Add(costsChart);
+            netCostRows = results.HourlyNetCost.Where(r => r.AssetName == SelectedProductionUnit).ToList();
+        }
 
-        List<DateTimePoint> consumptionData = resultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToList();
-        ChartControlViewModel consumptionChart = new()
+        List<ISeries> netCostSeries = [];
+        IDictionary<string, DateTimePoint[]> netCostEntries = netCostRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, (double)c.NetCost)).ToArray());
+
+        foreach (KeyValuePair<string, DateTimePoint[]> kvp in netCostEntries)
         {
-            Title = "Consumption Data",
-            Series = [
-                GraphUtils.Series("Consumption Data", consumptionData, GraphUtils.BrightRed),
-            ],
-        };
-        Charts.Add(consumptionChart);
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            netCostSeries.Add(series);
+        }
 
-        List<DateTimePoint> emissionsData = resultRows.Select(r => new DateTimePoint(r.Time, r.Emissions)).ToList();
+        ChartControlViewModel netCostChart = new()
+        {
+            Title = "Unit Cost for 1 MWh",
+            Series = netCostSeries.ToArray(),
+        };
+        Charts.Add(netCostChart);
+
+        // Unit scheduling
+        List<SchedulerRow> schedulerRows = [];
+        if (SelectedProductionUnit == "All production units")
+        {
+            schedulerRows = results.SchedulerRows;
+        }
+        else
+        {
+            schedulerRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).ToList();
+        }
+
+        List<ISeries> heatSeries = [];
+        IDictionary<string, List<DateTimePoint?>> heatEntries = schedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, c.HeatProduction)).ToList());
+        InsertDataBreaks(heatEntries, results.ResultRows);
+
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in heatEntries)
+        {
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            heatSeries.Add(series);
+        }
+
+        ChartControlViewModel heatSeriesChart = new()
+        {
+            Title = "Heat Production Scheduling",
+            Series = heatSeries.ToArray(),
+        };
+        Charts.Add(heatSeriesChart);
+
+        // Unit cost
+        List<ISeries> unitCostSeries = [];
+        IDictionary<string, List<DateTimePoint?>> unitCostEntries = schedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, (double)c.Costs)).ToList());
+        InsertDataBreaks(unitCostEntries, results.ResultRows);
+
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in unitCostEntries)
+        {
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            unitCostSeries.Add(series);
+        }
+
+        ChartControlViewModel unitCostChart = new()
+        {
+            Title = "Unit Cost",
+            Series = unitCostSeries.ToArray(),
+        };
+        Charts.Add(unitCostChart);
+
+        // Electricity usage
+        List<ISeries> electricityConsumptionSeries = [];
+        IDictionary<string, List<DateTimePoint?>> electricityConsumptionEntries = schedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, (double)c.Electricity)).ToList());
+        InsertDataBreaks(electricityConsumptionEntries, results.ResultRows);
+
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in electricityConsumptionEntries)
+        {
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            electricityConsumptionSeries.Add(series);
+        }
+
+        ChartControlViewModel electricityConsumptionChart = new()
+        {
+            Title = "Electricity usage (postive = consume, negative = produce)",
+            Series = electricityConsumptionSeries.ToArray(),
+        };
+        Charts.Add(electricityConsumptionChart);
+
+        // CO2 Emissions
+        List<ISeries> emissionsSeries = [];
+        IDictionary<string, List<DateTimePoint?>> emissionsEntries = schedulerRows
+            .GroupBy(r => r.AssetName)
+            .ToDictionary(r => r.Key, r => r.Select(c => new DateTimePoint(c.Time, (double)c.Emissions)).ToList());
+        InsertDataBreaks(emissionsEntries, results.ResultRows);
+
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in emissionsEntries)
+        {
+            var hexString = DM.AM.GetAssetByName(kvp.Key)!.Color;
+            var color = SKColor.Parse(hexString);
+            var series = GraphUtils.Series(kvp.Key, kvp.Value, color);
+            emissionsSeries.Add(series);
+        }
+
         ChartControlViewModel emissionsChart = new()
         {
-            Title = "Emissions Data",
-            Series = [
-                GraphUtils.Series("Emissions Data", emissionsData, GraphUtils.BrightRed),
-            ],
+            Title = "CO2 Emissions",
+            Series = emissionsSeries.ToArray(),
         };
         Charts.Add(emissionsChart);
 
         LoadInProgress = false;
+    }
+
+    private void InsertDataBreaks(IDictionary<string, List<DateTimePoint?>> entries, List<ResultRow> resultRows)
+    {
+        foreach (KeyValuePair<string, List<DateTimePoint?>> kvp in entries)
+        {
+            var arr = kvp.Value;
+            var currIndex = 0;
+            var nullInserted = false;
+            foreach (ResultRow row in resultRows)
+            {
+                var time = row.Time;
+                if (currIndex >= arr.Count)
+                {
+                    break;
+                }
+
+                var indexTime = arr[currIndex].DateTime;
+                if (time < indexTime && !nullInserted)
+                {
+                    arr.Insert(currIndex, null);
+                    currIndex += 1;
+                    nullInserted = true;
+                }
+                if (time == indexTime)
+                {
+                    currIndex += 1;
+                    nullInserted = false;
+                }
+            }
+        }
     }
 }

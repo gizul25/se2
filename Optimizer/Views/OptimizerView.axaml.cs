@@ -32,8 +32,9 @@ public partial class OptimizerView : UserControl
         var charts = viewModel.Charts;
         for (int i = 0; i < charts.Count; i++)
         {
-            int col = i % 3;
-            int row = i / 3;
+            int colCount = 2;
+            int col = i % colCount;
+            int row = i / colCount;
 
             ChartControlViewModel chart = charts[i];
             ChartControl chartControl = new()

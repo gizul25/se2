@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace SE2.Data;
@@ -31,14 +32,11 @@ public class ResultData
     [JsonPropertyName("co2_emissions")]
     public double Co2Emissions { get; set; } = 0;
 
-    [JsonPropertyName("maintained_unit")]
-    public string MaintainedUnit { get; set; } = "";
+    [JsonPropertyName("maintenance_periods")]
+    public List<MaintenancePeriod> MaintenancePeriods { get; set; } = [];
 
-    [JsonPropertyName("maintained_start")]
-    public DateTime MaintainedStart { get; set; }
-
-    [JsonPropertyName("maintained_end")]
-    public DateTime MaintainedEnd { get; set; }
+    [JsonPropertyName("hourly_net_cost")]
+    public List<NetCostData> HourlyNetCost { get; set; } = [];
 }
 
 public class ResultRow
@@ -52,6 +50,9 @@ public class ResultRow
     [JsonPropertyName("costs")]
     public decimal Costs { get; set; }
 
+    [JsonPropertyName("production")]
+    public double Production { get; set; }
+
     [JsonPropertyName("consumption")]
     public double Consumption { get; set; }
 
@@ -60,7 +61,7 @@ public class ResultRow
 
     public override string? ToString()
     {
-        return $"{Time} {HeatProduction} {Costs} {Consumption} {Emissions}";
+        return $"{Time} {HeatProduction} {Costs} {Production} {Consumption} {Emissions}";
     }
 }
 
@@ -78,14 +79,26 @@ public class SchedulerRow
     [JsonPropertyName("costs")]
     public decimal Costs { get; set; }
 
-    [JsonPropertyName("consumption")]
-    public double Consumption { get; set; }
+    [JsonPropertyName("electricity")]
+    public double Electricity { get; set; }
 
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
 
     public override string? ToString()
     {
-        return $"{Time} {AssetName} {HeatProduction} {Costs} {Consumption} {Emissions}";
+        return $"{Time} {AssetName} {HeatProduction} {Costs} {Electricity} {Emissions}";
     }
+}
+
+public class MaintenancePeriod
+{
+    [JsonPropertyName("maintained_unit")]
+    public string MaintainedUnit { get; set; } = "";
+
+    [JsonPropertyName("maintained_start")]
+    public DateTime MaintainedStart { get; set; }
+
+    [JsonPropertyName("maintained_end")]
+    public DateTime MaintainedEnd { get; set; }
 }
