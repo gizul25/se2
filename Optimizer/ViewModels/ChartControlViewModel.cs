@@ -17,4 +17,5 @@ public partial class ChartControlViewModel : ViewModelBase
 
     public ISeries[] Series { get; set; } = [];
     public Axis[] XAxes { get; set; } = GraphUtils.GetXAxis();
+    public Axis[] YAxes { get; set; } = [];
 }

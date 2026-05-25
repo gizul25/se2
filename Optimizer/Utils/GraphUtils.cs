@@ -16,6 +16,7 @@ class GraphUtils
 {
     public static SKColor BrightRed = new SKColor(237, 7, 27);
     public static SKColor CherryRed = new SKColor(142, 0, 12);
+    public static SKColor BrightGreen = new SKColor(34, 177, 76);
 
     public static ISeries Series(string name, IReadOnlyCollection<DateTimePoint>? values, SKColor color)
     {
@@ -47,6 +48,17 @@ class GraphUtils
     {
         return [
             new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
+        ];
+    }
+
+    public static Axis[] GetYAxis(string label)
+    {
+        return [
+            new Axis
+            {
+                Name = label,
+                NameTextSize = 16,
+            }
         ];
     }
 }
