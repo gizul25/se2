@@ -21,7 +21,7 @@
     <Grid Margin="20 40 20 20"
           RowSpacing="20"
           ColumnSpacing="20"
-          RowDefinitions="*,*,*"
+          RowDefinitions="*,*,*,*"
           ColumnDefinitions="*,*">
 
         <!-- GRID -->
@@ -92,8 +92,7 @@
 
         <!-- ELECTRICITY -->
         <Border Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="2">
+                Grid.Column="0">
             <Grid RowDefinitions="Auto,*">
                 <TextBlock Text="Electricity production and consumption"
                            FontWeight="Bold"
@@ -102,6 +101,38 @@
                                     Series="{Binding ElectricitySeries}"
                                     XAxes="{Binding XAxes}"
                                     YAxes="{Binding ElectricityYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+
+        <!-- PRIMARY ENERGY -->
+        <Border Grid.Row="2"
+                Grid.Column="1">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="Primary energy consumption"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding PrimaryEnergySeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding PrimaryEnergyYAxes}"
+                                    LegendPosition="Top"
+                                    Background="White"/>
+            </Grid>
+        </Border>
+
+        <!-- CO2 EMISSIONS -->
+        <Border Grid.Row="3"
+                Grid.Column="0">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock Text="CO2 Emissions"
+                           FontWeight="Bold"
+                           Margin="0 0 0 10"/>
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding EmissionsSeries}"
+                                    XAxes="{Binding XAxes}"
+                                    YAxes="{Binding EmissionsYAxes}"
                                     LegendPosition="Top"
                                     Background="White"/>
             </Grid>

@@ -121,7 +121,7 @@
                     <TextBlock Text="CO2 Emissions"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Classes="Heading" Text="{Binding Co2Emissions, StringFormat={}{0:n0}}"/>
-                        <TextBlock Classes="Heading" Text=""/>
+                        <TextBlock Classes="Heading" Text=" kg CO2"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

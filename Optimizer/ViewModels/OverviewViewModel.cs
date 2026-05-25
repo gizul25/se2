@@ -30,6 +30,12 @@ public partial class OverviewViewModel : ViewModelBase
     private ISeries[] expenseSeries = [];
 
     [ObservableProperty]
+    private ISeries[] primaryEnergySeries = [];
+
+    [ObservableProperty]
+    private ISeries[] emissionsSeries = [];
+
+    [ObservableProperty]
     private Axis[] xAxes = [];
 
     [ObservableProperty]
@@ -43,6 +49,12 @@ public partial class OverviewViewModel : ViewModelBase
 
     [ObservableProperty]
     private Axis[] expenseYAxes = [];
+
+    [ObservableProperty]
+    private Axis[] primaryEnergyYAxes = [];
+
+    [ObservableProperty]
+    private Axis[] emissionsYAxes = [];
 
     [ObservableProperty]
     private Bitmap? heatGrid = null;
@@ -113,10 +125,24 @@ public partial class OverviewViewModel : ViewModelBase
             GraphUtils.Series("Revenue", profits, GraphUtils.BrightGreen)
         ];
 
+        var primaryEnergy = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.PrimaryEnergy)).ToArray();
+        PrimaryEnergySeries =
+        [
+            GraphUtils.Series("Primary energy", primaryEnergy, GraphUtils.BrightRed)
+        ];
+
+        var emissions = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Emissions)).ToArray();
+        EmissionsSeries =
+        [
+            GraphUtils.Series("CO2 Emissions", emissions, GraphUtils.BrightRed)
+        ];
+
         XAxes = GraphUtils.GetXAxis();
         HeatYAxes = GraphUtils.GetYAxis("MWh");
         ElectricityYAxes = GraphUtils.GetYAxis("MWh");
         PriceYAxes = GraphUtils.GetYAxis("DKK/MWh");
         ExpenseYAxes = GraphUtils.GetYAxis("DKK");
+        PrimaryEnergyYAxes = GraphUtils.GetYAxis("MWh");
+        EmissionsYAxes = GraphUtils.GetYAxis("kg CO2");
     }
 }

@@ -132,14 +132,6 @@ public partial class OptimizerViewModel : ViewModelBase
         // Update top part
         ExportEnabled = true;
 
-        TotalProfit = results.TotalProfit;
-        TotalCost = results.TotalCost;
-        HeatProduced = results.HeatProduced;
-        ElectricityConsumed = results.ElectricityConsumed;
-        ElectricityProduced = results.ElectricityProduced;
-        PrimaryEnergy = results.PrimaryEnergy;
-        Co2Emissions = results.Co2Emissions;
-
         MaintenanceText = "";
 
         for (int i = 0; i < results.MaintenancePeriods.Count; i++)
@@ -185,6 +177,14 @@ public partial class OptimizerViewModel : ViewModelBase
                 };
             }).ToList();
         }
+
+        TotalCost = resultRows.Sum(r => (double)r.Costs);
+        TotalProfit = -TotalCost;
+        HeatProduced = resultRows.Sum(r => (double)r.HeatProduction);
+        ElectricityConsumed = resultRows.Sum(r => (double)r.Consumption);
+        ElectricityProduced = resultRows.Sum(r => (double)r.Production);
+        PrimaryEnergy = resultRows.Sum(r => (double)r.PrimaryEnergy);
+        Co2Emissions = resultRows.Sum(r => (double)r.Emissions);
 
         // Net cost chart
         List<NetCostData> netCostRows = [];
@@ -291,7 +291,7 @@ public partial class OptimizerViewModel : ViewModelBase
 
         ChartControlViewModel electricityConsumptionChart = new()
         {
-            Title = "Electricity usage (postive = consume, negative = produce)",
+            Title = "Electricity usage (positive = consume, negative = produce)",
             Series = electricityConsumptionSeries.ToArray(),
             YAxes = GraphUtils.GetYAxis("MWh")
         };
