@@ -33,6 +33,18 @@ public partial class OverviewViewModel : ViewModelBase
     private Axis[] xAxes = [];
 
     [ObservableProperty]
+    private Axis[] heatYAxes = [];
+
+    [ObservableProperty]
+    private Axis[] electricityYAxes = [];
+
+    [ObservableProperty]
+    private Axis[] priceYAxes = [];
+
+    [ObservableProperty]
+    private Axis[] expenseYAxes = [];
+
+    [ObservableProperty]
     private Bitmap? heatGrid = null;
 
     [ObservableProperty]
@@ -47,8 +59,8 @@ public partial class OverviewViewModel : ViewModelBase
     public void Load()
     {
         var grid = DM.AM.HeatingGrid;
-        heatGrid = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", grid.Image));
-        gridMapName = grid.City;
+        HeatGrid = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", grid.Image));
+        GridMapName = grid.City;
 
         var sources = DM.SDM.Sources;
         var results = DM.RDM.GetCurrentScenarioResultingData();
@@ -74,30 +86,37 @@ public partial class OverviewViewModel : ViewModelBase
             var series = GraphUtils.StackedColumnSeries(kvp.Key, kvp.Value, color);
             heatSeries.Add(series);
         }
+
+        var heatDemand = sources.Select(s => new DateTimePoint(s.StartTime, s.HeatDemand)).ToArray();
+        heatSeries.Add(GraphUtils.Series("Heat demand", heatDemand, GraphUtils.BrightRed));
         HeatSeries = heatSeries.ToArray();
 
         var elecCons = results.ResultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToArray();
-        var elecProd = results.ResultRows.Select(r => new DateTimePoint(r.Time, 0d)).ToArray();
+        var elecProd = results.ResultRows.Select(r => new DateTimePoint(r.Time, r.Production)).ToArray();
         ElectricitySeries =
         [
             GraphUtils.Series("Electricity consumption", elecCons, GraphUtils.BrightRed),
-            GraphUtils.Series("Electricity production", elecProd, GraphUtils.CherryRed)
+            GraphUtils.Series("Electricity production", elecProd, GraphUtils.BrightGreen)
         ];
 
         var elec = sources.Select(s => new DateTimePoint(s.StartTime, (double)s.ElectricityPrice)).ToArray();
         PriceSeries =
         [
-            GraphUtils.Series("Electricity price", elec, GraphUtils.BrightRed)
+            GraphUtils.Series("Electricity prices", elec, GraphUtils.BrightRed)
         ];
 
         var expenses = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
         var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.HeatProduction * 1000 - (double)r.Costs)).ToArray();
         ExpenseSeries =
         [
-            GraphUtils.Series("Expenses", expenses, GraphUtils.BrightRed),
-            GraphUtils.Series("Profits", profits, GraphUtils.CherryRed)
+            GraphUtils.Series("Net cost", expenses, GraphUtils.BrightRed),
+            GraphUtils.Series("Revenue", profits, GraphUtils.BrightGreen)
         ];
 
         XAxes = GraphUtils.GetXAxis();
+        HeatYAxes = GraphUtils.GetYAxis("MWh");
+        ElectricityYAxes = GraphUtils.GetYAxis("MWh");
+        PriceYAxes = GraphUtils.GetYAxis("DKK/MWh");
+        ExpenseYAxes = GraphUtils.GetYAxis("DKK");
     }
 }

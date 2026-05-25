@@ -214,6 +214,7 @@ public partial class OptimizerViewModel : ViewModelBase
         {
             Title = "Unit Cost for 1 MWh",
             Series = netCostSeries.ToArray(),
+            YAxes = GraphUtils.GetYAxis("DKK/MWh")
         };
         Charts.Add(netCostChart);
 
@@ -246,6 +247,7 @@ public partial class OptimizerViewModel : ViewModelBase
         {
             Title = "Heat Production Scheduling",
             Series = heatSeries.ToArray(),
+            YAxes = GraphUtils.GetYAxis("MWh")
         };
         Charts.Add(heatSeriesChart);
 
@@ -268,6 +270,7 @@ public partial class OptimizerViewModel : ViewModelBase
         {
             Title = "Unit Cost",
             Series = unitCostSeries.ToArray(),
+            YAxes = GraphUtils.GetYAxis("DKK")
         };
         Charts.Add(unitCostChart);
 
@@ -290,6 +293,7 @@ public partial class OptimizerViewModel : ViewModelBase
         {
             Title = "Electricity usage (postive = consume, negative = produce)",
             Series = electricityConsumptionSeries.ToArray(),
+            YAxes = GraphUtils.GetYAxis("MWh")
         };
         Charts.Add(electricityConsumptionChart);
 
@@ -312,6 +316,7 @@ public partial class OptimizerViewModel : ViewModelBase
         {
             Title = "CO2 Emissions",
             Series = emissionsSeries.ToArray(),
+            YAxes = GraphUtils.GetYAxis("kg CO2")
         };
         Charts.Add(emissionsChart);
 

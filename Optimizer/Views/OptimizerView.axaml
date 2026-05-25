@@ -64,7 +64,7 @@
         <Grid ColumnDefinitions="* * * * * * *" HorizontalAlignment= "Stretch">
             <Border Grid.Column="0" Classes="RedBorder">
                 <StackPanel Margin="4"  Spacing="4">
-                    <TextBlock Classes="Subheading"  Text="Total Profit"/>
+                    <TextBlock Classes="Subheading"  Text="Total Revenue"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Classes="Heading" Text="{Binding TotalProfit, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes="Heading" Text=" DKK"/>
@@ -73,7 +73,7 @@
             </Border>
             <Border Grid.Column="1" Classes="RedBorder">
                 <StackPanel Margin="4" Spacing="4">
-                    <TextBlock Text="Total Cost"/>
+                    <TextBlock Text="Total Expenses"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Classes="Heading" Text="{Binding TotalCost, StringFormat={}{0:n0}}"/>
                         <TextBlock Classes="Heading" Text=" DKK"/>
