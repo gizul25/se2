@@ -12,7 +12,7 @@ using SkiaSharp;
 
 namespace SE2.Utils;
 
-class GraphUtils
+public class GraphUtils
 {
     public static SKColor BrightRed = new SKColor(237, 7, 27);
     public static SKColor CherryRed = new SKColor(142, 0, 12);
