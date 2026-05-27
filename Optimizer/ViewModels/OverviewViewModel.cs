@@ -100,7 +100,7 @@ public partial class OverviewViewModel : ViewModelBase
         }
 
         var heatDemand = sources.Select(s => new DateTimePoint(s.StartTime, s.HeatDemand)).ToArray();
-        heatSeries.Add(GraphUtils.Series("Heat demand", heatDemand, GraphUtils.BrightRed));
+        heatSeries.Add(GraphUtils.Series("Heat demand", heatDemand, GraphUtils.Black));
         HeatSeries = heatSeries.ToArray();
 
         var elecCons = results.ResultRows.Select(r => new DateTimePoint(r.Time, r.Consumption)).ToArray();
