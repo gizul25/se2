@@ -200,26 +200,6 @@ public class UnitTest1
         Assert.IsType<OptimizerView>(scenarioInjector.Children[0]);
     }
 
-    //Causes errors
-	/*[AvaloniaFact]
-    public void Configuration_FromRangeLargeNumber()
-    {
-        var window = new MainWindow();
-        window.Show();
-
-        var scenarioNav = GetFirstScenarioNav(window);
-
-        var topTabStrip = scenarioNav.FindControl<TopTabStrip>("TopTabStripNode");
-        var scenarioInjector = scenarioNav.FindControl<Panel>("InjectorNode");
-        Assert.NotNull(topTabStrip);
-        Assert.NotNull(scenarioInjector);
-
-        topTabStrip!.SelectIndex(2);
-
-        Assert.Single(scenarioInjector!.Children);
-        Assert.IsType<ProductionUnitsView>(scenarioInjector.Children[0]);
-    }*/
-
     private static ScenarioNav GetFirstScenarioNav(MainWindow window)
     {
         var injectorNode = window.FindControl<Panel>("InjectorNode");
