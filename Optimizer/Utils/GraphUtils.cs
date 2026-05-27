@@ -48,7 +48,7 @@ public class GraphUtils
     public static Axis[] GetXAxis()
     {
         return [
-            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd"))
+            new DateTimeAxis(TimeSpan.FromHours(1), date => date.ToString("MM-dd hh:mm"))
         ];
     }
 
