@@ -68,6 +68,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
                 ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
+                IsMaintained = asset.IsMaintained,
                 MaxHour = asset.MaxHour,
                 MinHour = asset.MinHour,
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
@@ -80,13 +81,27 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
         var multiFuelUnits = from asset in ProductionUnits
                              where ((asset.GasConsumption != 0 && asset.MaxElectricity < 0) ||
-                             (asset.GasConsumption != 0 && asset.OilConsumption !=0) ||
-                             (asset.MaxElectricity <0 && asset.OilConsumption !=0))
+                             (asset.GasConsumption != 0 && asset.OilConsumption != 0) ||
+                             (asset.MaxElectricity < 0 && asset.OilConsumption != 0))
                              select asset;
-        foreach(var asset in multiFuelUnits)
+        foreach (var asset in multiFuelUnits)
         {
             asset.ConsumesMultiple = true;
         }
+        var maintainableUnits = from asset in ProductionUnits
+                                where asset.ShallMaintained
+                                select asset;
+        var maintainedUnit = (from asset in maintainableUnits
+                             where asset.IsMaintained
+                             select asset).FirstOrDefault();
+        if(maintainedUnit != null)
+        {
+            foreach(var asset in maintainableUnits.Where(a => a != maintainedUnit))
+            {
+                asset.ShallMaintained = false;
+            }
+        }
+
     }
 
     private void Redraw(object? sender, EventArgs args)

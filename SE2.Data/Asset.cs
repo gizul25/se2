@@ -13,6 +13,7 @@ public class Asset
     public DateTime? MaintananceStart { get; set; }
     public DateTime? MaintananceEnd { get; set; }
     public bool ShallMaintained { get; set; }
+    public bool IsMaintained { get; set; }
     public int MinHour { get; set; } = 30;
     public int MaxHour { get; set; } = 60;
     public string Color { get; set; }
