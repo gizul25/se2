@@ -301,6 +301,7 @@ public class Optimizer
                     HeatProduction = (double)heatProduced,
                     Costs = cost,
                     Electricity = (double)-electricity,
+                    PrimaryEnergy = (double)primaryEnergy,
                     Emissions = (double)emissions,
                 });
 
@@ -329,6 +330,7 @@ public class Optimizer
                 Costs = hourCost,
                 Production = (double)hourElectricityProduced,
                 Consumption = (double)hourElectricityConsumed,
+                PrimaryEnergy = (double)hourPrimaryEnergy,
                 Emissions = (double)hourEmissions
             });
         }

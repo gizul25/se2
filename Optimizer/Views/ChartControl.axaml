@@ -20,7 +20,8 @@
             <lvc:CartesianChart Grid.Row="1"
                                 Series="{Binding Series}"
                                 XAxes="{Binding XAxes}"
-                                LegendPosition="Hidden"
+                                YAxes="{Binding YAxes}"
+                                LegendPosition="Top"
                                 Background="White"/>
         </Grid>
     </Border>

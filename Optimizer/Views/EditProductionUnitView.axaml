@@ -67,7 +67,7 @@
 					BorderBrush="#C50616" BorderThickness="2">
 				<UniformGrid Width="230" Columns="1" Rows="11" RowSpacing="0">
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Unit" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Costs" /> </Border>
+					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Expenses" /> </Border>
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Max Heat Production" /> </Border>
 
 					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Maintenance" /> </Border>

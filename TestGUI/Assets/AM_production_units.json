@@ -10,7 +10,7 @@
     "Image": "GB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": "#20BDD6"
+    "Color": "#15616D"
   },
   {
     "Name": "GB2",
@@ -23,7 +23,7 @@
     "Image": "GB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": "#79C230"
+    "Color": "#FFECD1"
   },
   {
     "Name": "GB3",
@@ -49,7 +49,7 @@
     "Image": "OB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": "#D94E1E"
+    "Color": "#78290F"
   },
   {
     "Name": "GM1",
@@ -62,7 +62,7 @@
     "Image": "GM.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": "#FF0336"
+    "Color": "#960A46"
   },
   {
     "Name": "EB1",
@@ -75,6 +75,6 @@
     "Image": "EB.jpg",
     "MinHour": 30,
     "MaxHour": 60,
-    "Color": "#DE62BF"
+    "Color": "#460A96"
   }
 ]
