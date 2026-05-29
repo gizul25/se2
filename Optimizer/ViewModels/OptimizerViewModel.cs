@@ -6,10 +6,12 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DialogHostAvalonia;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Linq;
+using SE2.Views;
 using SE2.Domain;
 using SE2.Data;
 using SE2.Utils;
@@ -69,9 +71,17 @@ public partial class OptimizerViewModel : ViewModelBase
     private async Task RunOptimization()
     {
         RunEnabled = false;
-        await DM.RunOptimization();
+        await OpenPopup();
         RunEnabled = true;
         Load();
+    }
+
+    public async Task OpenPopup()
+    {
+        Console.WriteLine("OpenPopup");
+        OptimizerPopupViewModel optimizerPopupViewModel = new();
+        var tasks = new[] { DialogHost.Show(new OptimizerPopupView() { DataContext = optimizerPopupViewModel }, "MainDialogHost"), optimizerPopupViewModel.Run() };
+        await Task.WhenAll(tasks);
     }
 
     [RelayCommand]

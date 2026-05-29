@@ -150,7 +150,7 @@ public class Optimizer
     }
 
     // Chooses which unit is the optimal to be maintained and which period is optimal too
-    public ResultData? CalculateSchedule()
+    public ResultData? CalculateSchedule(CancellationToken ct, IProgress<double> progress)
     {
         int permutationIndex = -1;
         double currentLowestCost = -1;
@@ -163,17 +163,37 @@ public class Optimizer
 
         for (int i = 0; i < maintenancePeriods.Count; i++)
         {
+            ct.ThrowIfCancellationRequested();
+
             MaintenancePeriod maintenancePeriod = maintenancePeriods[i];
 
-            ResultData result = CalculatePeriod(new List<MaintenancePeriod>() { maintenancePeriod });
-            double cost = result.TotalCost;
-            if (currentLowestCost == -1 || cost < currentLowestCost)
+            try
             {
-                permutationIndex = i;
-                currentLowestCost = cost;
-                resultData = result;
+                ResultData result = CalculatePeriod(new List<MaintenancePeriod>() { maintenancePeriod });
+
+                double cost = result.TotalCost;
+                if (currentLowestCost == -1 || cost < currentLowestCost)
+                {
+                    permutationIndex = i;
+                    currentLowestCost = cost;
+                    resultData = result;
+                }
             }
+            // Only heat demand error can happen, all good
+            catch (Exception)
+            {
+                continue;
+            }
+
+            double value = (i + 1) / (double)maintenancePeriods.Count;
+            progress.Report(value);
         }
+
+        if (resultData == null)
+        {
+            throw new Exception("Not enough units to fulfill heat demand");
+        }
+
         return resultData;
     }
 
