@@ -23,10 +23,12 @@ public class UnitTest1
     public UnitTest1()
     {
         SE2.Domain.DM.Init();
-        SE2.Domain.DM.StartOptimizer();
+        var progress = new Progress<double>();
+        CancellationTokenSource cts = new();
+        SE2.Domain.DM.StartOptimizer(cts.Token, progress);
     }
 
-	[AvaloniaFact]
+    [AvaloniaFact]
     public void Avalonia_TestWorking()
     {
         // Setup controls:
@@ -49,15 +51,15 @@ public class UnitTest1
     [AvaloniaFact]
     public void MainNav_CorrectScenarioCount()
     {
-		var window = new MainWindow();
+        var window = new MainWindow();
 
         window.Show();
-		var sideTabStrip = window.FindControl<SideTabStrip>("SideTabStripNode");
-		Assert.NotNull(sideTabStrip);
+        var sideTabStrip = window.FindControl<SideTabStrip>("SideTabStripNode");
+        Assert.NotNull(sideTabStrip);
 
-		var tabStrip = sideTabStrip!.FindControl<Avalonia.Controls.Primitives.TabStrip>("TabNode");
+        var tabStrip = sideTabStrip!.FindControl<Avalonia.Controls.Primitives.TabStrip>("TabNode");
         Assert.NotNull(tabStrip);
-		Assert.True(tabStrip!.Items.Count >= 2);
+        Assert.True(tabStrip!.Items.Count >= 2);
     }
 
     [AvaloniaFact]
@@ -228,285 +230,288 @@ public class UnitTest1
         return optimizerView!;
     }
 
-	public class ChartControlViewModelTests
-	{	
-		[Fact]
-		public void Ctor_DefaultTitle_IsEmpty()
-    	{
-        	var vm = new ChartControlViewModel();
-        	Assert.Equal("", vm.Title);
-    	}
-		
-		[Fact]
-		public void Ctor_DefaultSeries_IsEmptyArray()
-    	{
-        	var vm = new ChartControlViewModel();
-        	Assert.NotNull(vm.Series);
-        	Assert.Empty(vm.Series);
-    	}
+    public class ChartControlViewModelTests
+    {
+        [Fact]
+        public void Ctor_DefaultTitle_IsEmpty()
+        {
+            var vm = new ChartControlViewModel();
+            Assert.Equal("", vm.Title);
+        }
 
-		[Fact]
-    	public void Ctor_XAxes_EqualsGraphUtilsXAxis()
-    	{
-        	var vm = new ChartControlViewModel();
-        	var expected = GraphUtils.GetXAxis();
+        [Fact]
+        public void Ctor_DefaultSeries_IsEmptyArray()
+        {
+            var vm = new ChartControlViewModel();
+            Assert.NotNull(vm.Series);
+            Assert.Empty(vm.Series);
+        }
 
-        	Assert.NotNull(vm.XAxes);
-        	Assert.Equal(expected.Length, vm.XAxes.Length);
-    	}
-	}
+        [Fact]
+        public void Ctor_XAxes_EqualsGraphUtilsXAxis()
+        {
+            var vm = new ChartControlViewModel();
+            var expected = GraphUtils.GetXAxis();
 
-	public class EditProductionUnitViewModelTests
-	{
-		private static void EnsureDMReady()
-    	{
+            Assert.NotNull(vm.XAxes);
+            Assert.Equal(expected.Length, vm.XAxes.Length);
+        }
+    }
+
+    public class EditProductionUnitViewModelTests
+    {
+        private static void EnsureDMReady()
+        {
             if (SE2.Domain.DM.SDM == null || SE2.Domain.DM.RDM == null)
             {
                 SE2.Domain.DM.Init();
-                SE2.Domain.DM.StartOptimizer();
+
+                var progress = new Progress<double>();
+                CancellationTokenSource cts = new();
+                SE2.Domain.DM.StartOptimizer(cts.Token, progress);
             }
-		}	
-		
-		[Fact]
-		public void Ctor_WhenUnitIndexMinusOne_CancelContentIsCancel()
-    	{
-        	var model = new ProductionUnitsModel { Name = "NewUnit", UnitIndex = -1 };
-        	var vm = new EditProductionUnitViewModel(model);
+        }
 
-        	Assert.Equal("Cancel", vm.CancelContent);
-    	}
-		
-		[Fact]
-    	public void TestSave_WhenSelectedProductionUnitNull_CanSaveFalse()
-    	{
-        	EnsureDMReady();
+        [Fact]
+        public void Ctor_WhenUnitIndexMinusOne_CancelContentIsCancel()
+        {
+            var model = new ProductionUnitsModel { Name = "NewUnit", UnitIndex = -1 };
+            var vm = new EditProductionUnitViewModel(model);
 
-        	var model = new ProductionUnitsModel { Name = "X", UnitIndex = -1 };
-        	var vm = new EditProductionUnitViewModel(model);
+            Assert.Equal("Cancel", vm.CancelContent);
+        }
 
-        	vm.SelectedProductionUnit = null!;
-        	vm.TestSave();
+        [Fact]
+        public void TestSave_WhenSelectedProductionUnitNull_CanSaveFalse()
+        {
+            EnsureDMReady();
 
-        	Assert.False(vm.CanSave);
-    	}
+            var model = new ProductionUnitsModel { Name = "X", UnitIndex = -1 };
+            var vm = new EditProductionUnitViewModel(model);
 
-    	[Fact]
-    	public void TestSave_WhenNameEmpty_CanSaveFalse()
-    	{
-        	EnsureDMReady();
+            vm.SelectedProductionUnit = null!;
+            vm.TestSave();
 
-       		var model = new ProductionUnitsModel { Name = "", UnitIndex = -1 };
-        	var vm = new EditProductionUnitViewModel(model);
+            Assert.False(vm.CanSave);
+        }
 
-        	vm.TestSave();
+        [Fact]
+        public void TestSave_WhenNameEmpty_CanSaveFalse()
+        {
+            EnsureDMReady();
 
-        	Assert.False(vm.CanSave);
-    	}
+            var model = new ProductionUnitsModel { Name = "", UnitIndex = -1 };
+            var vm = new EditProductionUnitViewModel(model);
 
-    	[Fact]
-    	public void TestSave_WhenNameUnchanged_CanSaveTrue()
-    	{
-        	EnsureDMReady();
+            vm.TestSave();
 
-        	var model = new ProductionUnitsModel { Name = "UnitA", UnitIndex = 0 };
-        	var vm = new EditProductionUnitViewModel(model);
+            Assert.False(vm.CanSave);
+        }
 
-        	vm.SelectedProductionUnit.Name = "UnitA";
-        	vm.TestSave();
+        [Fact]
+        public void TestSave_WhenNameUnchanged_CanSaveTrue()
+        {
+            EnsureDMReady();
 
-        	Assert.True(vm.CanSave);
-    	}
+            var model = new ProductionUnitsModel { Name = "UnitA", UnitIndex = 0 };
+            var vm = new EditProductionUnitViewModel(model);
 
-    	[Fact]
-    	public void TestSave_WhenDuplicateNameExistsInAssets_CanSaveFalse()
-    	{
-        	EnsureDMReady();
+            vm.SelectedProductionUnit.Name = "UnitA";
+            vm.TestSave();
 
-        	DM.AM.Assets.Clear();
-        	DM.AM.Assets.Add(new Asset { Name = "Dup" });
+            Assert.True(vm.CanSave);
+        }
 
-        	var model = new ProductionUnitsModel { Name = "Original", UnitIndex = 0 };
-        	var vm = new EditProductionUnitViewModel(model);
+        [Fact]
+        public void TestSave_WhenDuplicateNameExistsInAssets_CanSaveFalse()
+        {
+            EnsureDMReady();
 
-        	vm.SelectedProductionUnit.Name = "Dup";
-        	vm.TestSave();
+            DM.AM.Assets.Clear();
+            DM.AM.Assets.Add(new Asset { Name = "Dup" });
 
-        	Assert.False(vm.CanSave);
-    	}
+            var model = new ProductionUnitsModel { Name = "Original", UnitIndex = 0 };
+            var vm = new EditProductionUnitViewModel(model);
 
-    	[Fact]
-    	public void TestSave_WhenUniqueNewName_CanSaveTrue()
-    	{
-        	EnsureDMReady();
+            vm.SelectedProductionUnit.Name = "Dup";
+            vm.TestSave();
 
-        	DM.AM.Assets.Clear();
-        	DM.AM.Assets.Add(new Asset { Name = "Existing1" });
-        	DM.AM.Assets.Add(new Asset { Name = "Existing2" });
+            Assert.False(vm.CanSave);
+        }
 
-        	var model = new ProductionUnitsModel { Name = "Original", UnitIndex = 0 };
-        	var vm = new EditProductionUnitViewModel(model);
+        [Fact]
+        public void TestSave_WhenUniqueNewName_CanSaveTrue()
+        {
+            EnsureDMReady();
 
-        	vm.SelectedProductionUnit.Name = "UniqueNewName";
-        	vm.TestSave();
+            DM.AM.Assets.Clear();
+            DM.AM.Assets.Add(new Asset { Name = "Existing1" });
+            DM.AM.Assets.Add(new Asset { Name = "Existing2" });
 
-        	Assert.True(vm.CanSave);
-    	}
-	}
-	
-	public class ScenarioNavViewModelTests
-	{
-		[Fact]
-    	public void Defaults_SelectedPeriod_IsWinter()
-    	{
-        	var vm = new ScenarioNavViewModel();
-        	Assert.Equal("Winter period", vm.SelectedPeriod);
-    	}
+            var model = new ProductionUnitsModel { Name = "Original", UnitIndex = 0 };
+            var vm = new EditProductionUnitViewModel(model);
 
-    	[Fact]
-    	public void Defaults_Periods_ContainsWinterAndSummer()
-    	{
-        	var vm = new ScenarioNavViewModel();
+            vm.SelectedProductionUnit.Name = "UniqueNewName";
+            vm.TestSave();
 
-        	Assert.Contains("Winter period", vm.Periods);
-        	Assert.Contains("Summer period", vm.Periods);
-        	Assert.Equal(2, vm.Periods.Count);
-    	}
+            Assert.True(vm.CanSave);
+        }
+    }
 
-    	[Fact]
-    	public void CanSet_SelectedPeriod_ToSummer()
-    	{
-        	var vm = new ScenarioNavViewModel();
-        	vm.SelectedPeriod = "Summer period";
-        	Assert.Equal("Summer period", vm.SelectedPeriod);
-    	}
-	}
+    public class ScenarioNavViewModelTests
+    {
+        [Fact]
+        public void Defaults_SelectedPeriod_IsWinter()
+        {
+            var vm = new ScenarioNavViewModel();
+            Assert.Equal("Winter period", vm.SelectedPeriod);
+        }
 
-	public class OptimizerViewModelTests
-	{
-		private static void InvokeInsertDataBreaks(OptimizerViewModel vm, IDictionary<string, List<DateTimePoint?>> entries, List<ResultRow> resultRows)
-    	{
-        	var mi = typeof(OptimizerViewModel).GetMethod("InsertDataBreaks", BindingFlags.Instance | BindingFlags.NonPublic);
+        [Fact]
+        public void Defaults_Periods_ContainsWinterAndSummer()
+        {
+            var vm = new ScenarioNavViewModel();
 
-        	Assert.NotNull(mi);
-        	mi!.Invoke(vm, new object[] { entries, resultRows });
-    	}
+            Assert.Contains("Winter period", vm.Periods);
+            Assert.Contains("Summer period", vm.Periods);
+            Assert.Equal(2, vm.Periods.Count);
+        }
 
-    	[Fact]
-    	public void InsertDataBreaks_WhenGapBeforeFirstPoint_InsertsNull()
-    	{
-        	var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
+        [Fact]
+        public void CanSet_SelectedPeriod_ToSummer()
+        {
+            var vm = new ScenarioNavViewModel();
+            vm.SelectedPeriod = "Summer period";
+            Assert.Equal("Summer period", vm.SelectedPeriod);
+        }
+    }
 
-        	var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
-        	var t2 = new DateTime(2020, 1, 1, 2, 0, 0);
+    public class OptimizerViewModelTests
+    {
+        private static void InvokeInsertDataBreaks(OptimizerViewModel vm, IDictionary<string, List<DateTimePoint?>> entries, List<ResultRow> resultRows)
+        {
+            var mi = typeof(OptimizerViewModel).GetMethod("InsertDataBreaks", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        	var entries = new Dictionary<string, List<DateTimePoint?>>
-        	{
-            	["A"] = new List<DateTimePoint?> { new DateTimePoint(t2, 10) }
-        	};
+            Assert.NotNull(mi);
+            mi!.Invoke(vm, new object[] { entries, resultRows });
+        }
 
-        	var resultRows = new List<ResultRow>
-        	{
-            	new ResultRow { Time = t1 },
-            	new ResultRow { Time = t2 },
-        	};
+        [Fact]
+        public void InsertDataBreaks_WhenGapBeforeFirstPoint_InsertsNull()
+        {
+            var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
 
-        	InvokeInsertDataBreaks(vm, entries, resultRows);
+            var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
+            var t2 = new DateTime(2020, 1, 1, 2, 0, 0);
 
-        	Assert.Equal(2, entries["A"].Count);
-        	Assert.Null(entries["A"][0]);
-        	Assert.NotNull(entries["A"][1]);
-    	}
+            var entries = new Dictionary<string, List<DateTimePoint?>>
+            {
+                ["A"] = new List<DateTimePoint?> { new DateTimePoint(t2, 10) }
+            };
 
-    	[Fact]
-    	public void InsertDataBreaks_WhenNoGap_DoesNotInsertNull()
-    	{
-        	var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
+            var resultRows = new List<ResultRow>
+            {
+                new ResultRow { Time = t1 },
+                new ResultRow { Time = t2 },
+            };
 
-        	var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
-        	var entries = new Dictionary<string, List<DateTimePoint?>>
-        	{
-            	["A"] = new List<DateTimePoint?> { new DateTimePoint(t1, 10) }
-        	};
+            InvokeInsertDataBreaks(vm, entries, resultRows);
 
-        	var resultRows = new List<ResultRow> { new ResultRow { Time = t1 } };
+            Assert.Equal(2, entries["A"].Count);
+            Assert.Null(entries["A"][0]);
+            Assert.NotNull(entries["A"][1]);
+        }
 
-        	InvokeInsertDataBreaks(vm, entries, resultRows);
+        [Fact]
+        public void InsertDataBreaks_WhenNoGap_DoesNotInsertNull()
+        {
+            var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
 
-        	Assert.Single(entries["A"]);
-        	Assert.NotNull(entries["A"][0]);
-    	}
+            var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
+            var entries = new Dictionary<string, List<DateTimePoint?>>
+            {
+                ["A"] = new List<DateTimePoint?> { new DateTimePoint(t1, 10) }
+            };
 
-    	[Fact]
-    	public void InsertDataBreaks_WhenMultipleGaps_OnlyOneNullPerGapWindow()
-    	{
-        	var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
+            var resultRows = new List<ResultRow> { new ResultRow { Time = t1 } };
 
-        	var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
-        	var t2 = new DateTime(2020, 1, 1, 2, 0, 0);
-        	var t3 = new DateTime(2020, 1, 1, 3, 0, 0);
+            InvokeInsertDataBreaks(vm, entries, resultRows);
 
-        	var entries = new Dictionary<string, List<DateTimePoint?>>
-        	{
-            	["A"] = new List<DateTimePoint?> { new DateTimePoint(t3, 10) }
-        	};
+            Assert.Single(entries["A"]);
+            Assert.NotNull(entries["A"][0]);
+        }
 
-        	var resultRows = new List<ResultRow>
-        	{
-            	new ResultRow { Time = t1 },
-            	new ResultRow { Time = t2 },
-            	new ResultRow { Time = t3 },
-        	};
+        [Fact]
+        public void InsertDataBreaks_WhenMultipleGaps_OnlyOneNullPerGapWindow()
+        {
+            var vm = (OptimizerViewModel)Activator.CreateInstance(typeof(OptimizerViewModel), nonPublic: true)!;
 
-        	InvokeInsertDataBreaks(vm, entries, resultRows);
+            var t1 = new DateTime(2020, 1, 1, 1, 0, 0);
+            var t2 = new DateTime(2020, 1, 1, 2, 0, 0);
+            var t3 = new DateTime(2020, 1, 1, 3, 0, 0);
 
-        	Assert.Equal(2, entries["A"].Count);
-        	Assert.Null(entries["A"][0]);
-        	Assert.NotNull(entries["A"][1]);
-    	}
-	}
+            var entries = new Dictionary<string, List<DateTimePoint?>>
+            {
+                ["A"] = new List<DateTimePoint?> { new DateTimePoint(t3, 10) }
+            };
 
-	public class OverviewViewModelTests
-	{
-    	private static void EnsureDMReadyWithEmptyData()
-    	{
+            var resultRows = new List<ResultRow>
+            {
+                new ResultRow { Time = t1 },
+                new ResultRow { Time = t2 },
+                new ResultRow { Time = t3 },
+            };
+
+            InvokeInsertDataBreaks(vm, entries, resultRows);
+
+            Assert.Equal(2, entries["A"].Count);
+            Assert.Null(entries["A"][0]);
+            Assert.NotNull(entries["A"][1]);
+        }
+    }
+
+    public class OverviewViewModelTests
+    {
+        private static void EnsureDMReadyWithEmptyData()
+        {
             DM.Init();
-			DM.SDM.Sources.Clear();
+            DM.SDM.Sources.Clear();
             DM.RDM.SetCurrentScenario("1_winter");
             DM.RDM.SetCurrentScenarioResultingData(new ResultData { ResultRows = new List<ResultRow>() });
-		}
+        }
 
-		[Fact]
-    	public void Load_WhenNoSourcesOrResults_SetsSeriesAndAxesToEmpty()
-    	{
-        	EnsureDMReadyWithEmptyData();
+        [Fact]
+        public void Load_WhenNoSourcesOrResults_SetsSeriesAndAxesToEmpty()
+        {
+            EnsureDMReadyWithEmptyData();
 
-        	var vm = new OverviewViewModel();
-        	vm.Load();
+            var vm = new OverviewViewModel();
+            vm.Load();
 
-        	Assert.Empty(vm.HeatSeries);
-        	Assert.Empty(vm.ElectricitySeries);
-        	Assert.Empty(vm.PriceSeries);
-        	Assert.Empty(vm.ExpenseSeries);
-        	Assert.Empty(vm.XAxes);
-    	}
+            Assert.Empty(vm.HeatSeries);
+            Assert.Empty(vm.ElectricitySeries);
+            Assert.Empty(vm.PriceSeries);
+            Assert.Empty(vm.ExpenseSeries);
+            Assert.Empty(vm.XAxes);
+        }
 
-    	[Fact]
-    	public void Defaults_GridMapName_NotNull()
-    	{
-        	EnsureDMReadyWithEmptyData();
+        [Fact]
+        public void Defaults_GridMapName_NotNull()
+        {
+            EnsureDMReadyWithEmptyData();
 
-        	var vm = new OverviewViewModel();
-        	Assert.NotNull(vm.GridMapName);
-    	}
+            var vm = new OverviewViewModel();
+            Assert.NotNull(vm.GridMapName);
+        }
 
-    	[Fact]
-    	public void Load_DoesNotThrow_WhenNoData()
-    	{
-        	EnsureDMReadyWithEmptyData();
+        [Fact]
+        public void Load_DoesNotThrow_WhenNoData()
+        {
+            EnsureDMReadyWithEmptyData();
 
-        	var vm = new OverviewViewModel();
-        	var ex = Record.Exception(() => vm.Load());
-        	Assert.Null(ex);
-    	}
-	}
+            var vm = new OverviewViewModel();
+            var ex = Record.Exception(() => vm.Load());
+            Assert.Null(ex);
+        }
+    }
 }

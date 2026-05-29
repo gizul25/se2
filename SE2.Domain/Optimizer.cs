@@ -149,6 +149,13 @@ public class Optimizer
         return netCostSeries;
     }
 
+    public ResultData? CalculateSchedule()
+    {
+        var progress = new Progress<double>();
+        CancellationTokenSource cts = new();
+        return CalculateSchedule(cts.Token, progress);
+    }
+
     // Chooses which unit is the optimal to be maintained and which period is optimal too
     public ResultData? CalculateSchedule(CancellationToken ct, IProgress<double> progress)
     {
