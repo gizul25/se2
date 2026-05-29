@@ -15,6 +15,8 @@ using SE2.Views;
 using SE2.Domain;
 using SE2.Data;
 using SE2.Utils;
+using Avalonia.VisualTree;
+using Avalonia.Controls;
 
 namespace SE2.ViewModels;
 
@@ -62,14 +64,24 @@ public partial class OptimizerViewModel : ViewModelBase
     [ObservableProperty]
     private string maintenanceText = "Maintenance period: Production unit {0} maintained from {1} to {2}";
 
-    public OptimizerViewModel()
+    private readonly OptimizerView? view;
+
+    public OptimizerViewModel() : this(null) { }
+
+    public OptimizerViewModel(OptimizerView? view)
     {
+        this.view = view;
         Load();
     }
 
     [RelayCommand]
     private async Task RunOptimization()
     {
+        if (!RunEnabled)
+        {
+            return;
+        }
+
         RunEnabled = false;
         await OpenPopup();
         RunEnabled = true;
@@ -78,9 +90,16 @@ public partial class OptimizerViewModel : ViewModelBase
 
     public async Task OpenPopup()
     {
-        Console.WriteLine("OpenPopup");
-        OptimizerPopupViewModel optimizerPopupViewModel = new();
-        var tasks = new[] { DialogHost.Show(new OptimizerPopupView() { DataContext = optimizerPopupViewModel }, "MainDialogHost"), optimizerPopupViewModel.Run() };
+        if (view == null)
+        {
+            throw new Exception("View must be passed for dialog to work properly");
+        }
+
+        var window = (Window?)view.GetVisualRoot();
+        DialogHost dialogHost = window?.FindControl<DialogHost>("DialogHost")!;
+
+        OptimizerPopupViewModel optimizerPopupViewModel = new(dialogHost);
+        var tasks = new[] { DialogHost.Show(new OptimizerPopupView() { DataContext = optimizerPopupViewModel }, dialogHost), optimizerPopupViewModel.Run() };
         await Task.WhenAll(tasks);
     }
 

@@ -11,7 +11,7 @@ using SE2.Domain;
 
 namespace SE2.ViewModels;
 
-public partial class OptimizerPopupViewModel : ViewModelBase
+public partial class OptimizerPopupViewModel(DialogHost dialogHost) : ViewModelBase
 {
     [ObservableProperty]
     private double _progress = 0.0f;
@@ -25,8 +25,6 @@ public partial class OptimizerPopupViewModel : ViewModelBase
     [ObservableProperty]
     private bool _hasNoError = true;
 
-    public event EventHandler? Redraw;
-
     private CancellationTokenSource cts = new();
 
     public async Task Run()
@@ -35,11 +33,11 @@ public partial class OptimizerPopupViewModel : ViewModelBase
         try
         {
             await DM.RunOptimization(cts.Token, progress);
-            DialogHost.Close("MainDialogHost");
+            Close();
         }
         catch (OperationCanceledException)
         {
-            DialogHost.Close("MainDialogHost");
+            Close();
         }
         catch (Exception e)
         {
@@ -52,12 +50,18 @@ public partial class OptimizerPopupViewModel : ViewModelBase
     [RelayCommand]
     public void OnClose()
     {
-        DialogHost.Close("MainDialogHost");
+        Close();
     }
 
     [RelayCommand]
     public void OnCancel()
     {
         cts.Cancel();
+    }
+
+    void Close()
+    {
+        DialogSession dialogSession = dialogHost.CurrentSession!;
+        dialogSession.Close();
     }
 }
