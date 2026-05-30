@@ -340,6 +340,9 @@ public class Optimizer
                     Electricity = (double)-electricity,
                     PrimaryEnergy = (double)primaryEnergy,
                     Emissions = (double)emissions,
+					HeatExpense = heatExpense,
+					ElectricityExpense = elecExpense,
+					ElectricityRevenue = elecRevenue,
                 });
 
                 hourHeatProduced += heatProduced;
@@ -380,7 +383,9 @@ public class Optimizer
         }
 
         results.TotalCost = (double)results.ResultRows.Sum(r => r.Costs);
-        results.TotalProfit = (double)(totalElectricityRevenue - (totalHeatExpense + totalElectricityExpense));
+        results.TotalRevenue = (double)totalElectricityRevenue;
+    	results.TotalExpenses = (double)(totalHeatExpense + totalElectricityExpense);
+		//results.TotalProfit = (double)(totalElectricityRevenue - (totalHeatExpense + totalElectricityExpense));
         results.HeatProduced = results.ResultRows.Sum(r => r.HeatProduction);
         results.ElectricityProduced = (double)totalElectricityProduced;
         results.ElectricityConsumed = (double)totalElectricityConsumed;
