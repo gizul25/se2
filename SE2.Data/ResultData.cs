@@ -11,6 +11,12 @@ public class ResultData
     [JsonPropertyName("scheduler_rows")]
     public List<SchedulerRow> SchedulerRows { get; set; } = [];
 
+	[JsonPropertyName("total_revenue")]
+    public double TotalRevenue { get; set; } = 0;
+
+	[JsonPropertyName("total_expenses")]
+	public double TotalExpenses { get; set; } = 0;
+
     [JsonPropertyName("total_profit")]
     public double TotalProfit { get; set; } = 0;
 
@@ -90,6 +96,15 @@ public class SchedulerRow
 
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
+	
+    [JsonPropertyName("heat_expense")]
+	public decimal HeatExpense { get; set; }
+
+	[JsonPropertyName("electricity_revenue")]
+	public decimal ElectricityRevenue { get; set; }
+
+	[JsonPropertyName("electricity_expense")]
+	public decimal ElectricityExpense { get; set; }
 
     public override string? ToString()
     {
