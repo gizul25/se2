@@ -26,6 +26,7 @@ public static class DM
     private static readonly Optimizer optimizer = new();
 
     private static bool runEnabled = true;
+    static Exception? _threadException;
 
     public static void Init()
     {
@@ -45,7 +46,7 @@ public static class DM
         }
     }
 
-    public static async Task RunOptimization()
+    public static async Task RunOptimization(CancellationToken ct, IProgress<double> progress)
     {
         if (!runEnabled)
         {
@@ -55,19 +56,35 @@ public static class DM
         runEnabled = false;
         SemaphoreSlim signal = new SemaphoreSlim(0, 1);
 
-        Thread thread = new Thread(() => Thread_RunOptimizer(signal));
+        _threadException = null;
+        Thread thread = new Thread(() => Thread_RunOptimizer(signal, ct, progress));
         thread.Start();
         await signal.WaitAsync();
         runEnabled = true;
+
+        if (_threadException != null)
+        {
+            throw _threadException;
+        }
     }
 
-    private static void Thread_RunOptimizer(SemaphoreSlim signal)
+    private static void Thread_RunOptimizer(SemaphoreSlim signal, CancellationToken ct, IProgress<double> progress)
     {
-        DM.StartOptimizer();
-        signal.Release();
+        try
+        {
+            StartOptimizer(ct, progress);
+        }
+        catch (Exception e)
+        {
+            _threadException = e;
+        }
+        finally
+        {
+            signal.Release();
+        }
     }
 
-    public static void StartOptimizer()
+    public static void StartOptimizer(CancellationToken ct, IProgress<double> progress)
     {
         Load();
 
@@ -76,7 +93,7 @@ public static class DM
         optimizer.MaintainableAssets = AM.GetMaintainableAssets();
         optimizer.OptimizerInit();
 
-        RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule());
+        RDM.SetCurrentScenarioResultingData(optimizer.CalculateSchedule(ct, progress));
     }
 
     public static void SetScenario(int index)

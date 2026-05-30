@@ -13,7 +13,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </Window.Styles>
-    <dialogHostAvalonia:DialogHost Identifier="MainDialogHost" dialogHostAvalonia:DialogHostStyle.CornerRadius="12">
+    <dialogHostAvalonia:DialogHost Name= "DialogHost" Identifier="MainDialogHost" dialogHostAvalonia:DialogHostStyle.CornerRadius="12">
         <DockPanel LastChildFill="true">
             <Border Background="#ED071B" Padding="10" DockPanel.Dock="Left">
                 <StackPanel Classes= "MainSidePanel" Name= "MainSidePanel" Spacing= "20" >
