@@ -18,7 +18,7 @@ public partial class OptimizerView : UserControl
     public OptimizerView()
     {
         InitializeComponent();
-        viewModel = new OptimizerViewModel();
+        viewModel = new OptimizerViewModel(this);
         DataContext = viewModel;
         viewModel.Charts.CollectionChanged += OnChartsChanged;
         viewModel.SelectedProductionUnit = (string)ProductionUnitsComboBox?.SelectedItem!;
