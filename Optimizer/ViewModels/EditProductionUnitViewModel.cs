@@ -105,17 +105,18 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
             DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
             DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
+
         }
         else
         {
             DM.AM.Assets.Add(new()
             {
                 Name = SelectedProductionUnit.Name,
-                MaxHeat = SelectedProductionUnit.MaxHeat ??= 2.0f,
+                MaxHeat = SelectedProductionUnit.MaxHeat == 0 ? 2.0f : SelectedProductionUnit.MaxHeat,
                 GasConsumption = SelectedProductionUnit.GasConsumption,
                 OilConsumption = SelectedProductionUnit.OilConsumption,
-                MaxElectricity = SelectedProductionUnit.MaxElectricity ??= 2.5f,
-                Color = SelectedProductionUnit.Color ??= "#E1FF00",
+                MaxElectricity = (SelectedProductionUnit.GasConsumption == 0 && SelectedProductionUnit.OilConsumption == 0 && SelectedProductionUnit.MaxElectricity == 0) ? 2.5f : SelectedProductionUnit.MaxElectricity,
+                Color = SelectedProductionUnit.Color == null ? "#E1FF00" : SelectedProductionUnit.Color,
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
                 ShallMaintained = SelectedProductionUnit.ShallMaintained,

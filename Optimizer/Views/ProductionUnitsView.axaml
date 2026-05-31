@@ -86,7 +86,7 @@
                 <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Production Costs"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Max Heat Production"/></Border>
-                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Maintained"/></Border>
+                    <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Maintenance"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Min hours"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Max hours"/></Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0" Margin="0,-4,-2,-4" Padding="5"><TextBlock Classes="Text" Text="Gas Usage"/></Border>
