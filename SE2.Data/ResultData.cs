@@ -68,6 +68,12 @@ public class ResultRow
     [JsonPropertyName("emissions")]
     public double Emissions { get; set; }
 
+	[JsonPropertyName("expenses")]
+    public double Expenses { get; set; }
+
+    [JsonPropertyName("profits")]
+    public double Profits { get; set; }
+
     public override string? ToString()
     {
         return $"{Time} {HeatProduction} {Costs} {Production} {Consumption} {PrimaryEnergy} {Emissions}";
