@@ -68,6 +68,13 @@ public class Optimizer
                     throw new Exception($"Maintanance is invalid {a.Name}");
                 }
             }
+            
+            if((a.GasConsumption != 0 && a.MaxElectricity < 0) ||
+                             (a.GasConsumption != 0 && a.OilConsumption != 0) ||
+                             (a.MaxElectricity < 0 && a.OilConsumption != 0))
+            {
+                throw new Exception($"Asset uses multiple types of fuel");
+            }
         }
     }
 

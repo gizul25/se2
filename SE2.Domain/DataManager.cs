@@ -128,6 +128,25 @@ public static class DM
         RDM.SetCurrentScenario($"{scenarioName}_{currentPeriod.Period()}");
     }
 
+   /* public static void GetMaintenance()
+    {
+        Load();
+
+        optimizer.Sources = SDM.Sources;
+        optimizer.Assets = selectedAssets;
+        optimizer.MaintainableAssets = AM.GetMaintainableAssets();
+        optimizer.OptimizerInit();
+        var maintainedUnit = from period in DM.optimizer.CalculateSchedule().MaintenancePeriods
+                             where period != null
+                             select period.MaintainedUnit;
+        foreach(var asset in maintainedUnit)
+        {
+            var a = AM.GetAssetByName(asset);
+            a.IsMaintained = AM.GetMaintainableAssets().Contains(a) && selectedAssets.Contains(a); 
+        }
+
+    }*/
+
     public static void Export()
     {
         RDM.Save(currentPeriod);
