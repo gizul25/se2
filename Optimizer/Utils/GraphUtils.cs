@@ -19,6 +19,7 @@ public class GraphUtils
     public static SKColor BrightGreen = new SKColor(34, 177, 76);
     public static SKColor Black = new SKColor(0, 0, 0);
     public static SKColor BrightOrange = new SKColor(255, 153, 28);
+    public static SKColor BrightBlue = new SKColor(1, 101, 252);
 
     public static ISeries Series(string name, IReadOnlyCollection<DateTimePoint>? values, SKColor color)
     {

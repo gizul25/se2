@@ -123,7 +123,7 @@ public partial class OverviewViewModel : ViewModelBase
         var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Profits)).ToArray();
         ExpenseSeries =
         [
-            GraphUtils.Series("Net cost", netCost, GraphUtils.BrightRed),
+            GraphUtils.Series("Net cost", netCost, GraphUtils.BrightBlue),
             GraphUtils.Series("Revenue", revenue, GraphUtils.BrightGreen),
             GraphUtils.Series("Expenses", expense, GraphUtils.CherryRed),
             GraphUtils.Series("Profits", profits, GraphUtils.BrightOrange),
