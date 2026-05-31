@@ -118,7 +118,7 @@ public partial class OverviewViewModel : ViewModelBase
         ];
         
         var netCost = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
-        var revenue = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.HeatProduction * 1000 - (double)r.Costs)).ToArray();
+        var revenue = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Profits + (double)r.Expenses)).ToArray();
         var expense = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Expenses)).ToArray();
         var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Profits)).ToArray();
         ExpenseSeries =
