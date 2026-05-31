@@ -116,13 +116,17 @@ public partial class OverviewViewModel : ViewModelBase
         [
             GraphUtils.Series("Electricity prices", elec, GraphUtils.BrightRed)
         ];
-
-        var expenses = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
-        var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.HeatProduction * 1000 - (double)r.Costs)).ToArray();
+        
+        var netCost = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Costs)).ToArray();
+        var revenue = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.HeatProduction * 1000 - (double)r.Costs)).ToArray();
+        var expense = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Expenses)).ToArray();
+        var profits = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.Profits)).ToArray();
         ExpenseSeries =
         [
-            GraphUtils.Series("Net cost", expenses, GraphUtils.BrightRed),
-            GraphUtils.Series("Revenue", profits, GraphUtils.BrightGreen)
+            GraphUtils.Series("Net cost", netCost, GraphUtils.BrightRed),
+            GraphUtils.Series("Revenue", revenue, GraphUtils.BrightGreen),
+            GraphUtils.Series("Expenses", expense, GraphUtils.CherryRed),
+            GraphUtils.Series("Profits", profits, GraphUtils.BrightOrange),
         ];
 
         var primaryEnergy = results.ResultRows.Select(r => new DateTimePoint(r.Time, (double)r.PrimaryEnergy)).ToArray();
