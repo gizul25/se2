@@ -179,10 +179,13 @@ public partial class OptimizerViewModel : ViewModelBase
         if (SelectedProductionUnit == "All production units")
         {
             resultRows = results.ResultRows;
+            TotalCost = results.TotalExpenses;
+            TotalProfit = results.TotalRevenue - results.TotalExpenses;
         }
         else
         {
-            resultRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).Select(r =>
+            var unitSchedulerRows = results.SchedulerRows.Where(r => r.AssetName == SelectedProductionUnit).ToList();
+            resultRows = unitSchedulerRows.Select(r =>
             {
                 var production = 0.0;
                 var consumption = 0.0;
@@ -203,12 +206,17 @@ public partial class OptimizerViewModel : ViewModelBase
                     Production = production,
                     Consumption = consumption,
                     Emissions = r.Emissions,
+                    PrimaryEnergy = r.PrimaryEnergy,
                 };
             }).ToList();
-        }
 
-        TotalCost = resultRows.Sum(r => (double)r.Costs);
-        TotalProfit = -TotalCost;
+			var unitRevenue = unitSchedulerRows.Sum(r => (double)r.ElectricityRevenue);
+            var unitExpenses = unitSchedulerRows.Sum(r => (double)(r.HeatExpense + r.ElectricityExpense));
+
+            TotalCost = unitExpenses;
+            TotalProfit = unitRevenue - unitExpenses;
+        }
+        
         HeatProduced = resultRows.Sum(r => (double)r.HeatProduction);
         ElectricityConsumed = resultRows.Sum(r => (double)r.Consumption);
         ElectricityProduced = resultRows.Sum(r => (double)r.Production);
