@@ -378,7 +378,9 @@ public class Optimizer
                 Production = (double)hourElectricityProduced,
                 Consumption = (double)hourElectricityConsumed,
                 PrimaryEnergy = (double)hourPrimaryEnergy,
-                Emissions = (double)hourEmissions
+                Emissions = (double)hourEmissions,
+				Expenses = (double)(hourHeatExpense + hourElecExpense),
+				Profits = (double)hourElecRevenue,
             });
         }
 
