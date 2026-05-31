@@ -104,8 +104,8 @@
                 <DataTemplate>
                     <Border Classes="GrayBorder">
                         <Grid ColumnDefinitions="*,2*,13*,*" ColumnSpacing="5">
-                            <Panel Grid.Row="0" Grid.Column="0"><CheckBox CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox></Panel>
-                            <StackPanel Grid.Row="0" Grid.Column="1" Width="120" Orientation="Horizontal">
+                            <CheckBox Grid.Row="0" Grid.Column="0" CornerRadius="0" BorderThickness="2" IsChecked="{Binding IsSelected, Mode=TwoWay}"></CheckBox>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Width="120" Orientation="Horizontal" VerticalAlignment="Stretch">
                                 <Image Source="{Binding ImageBitmap}" Width="60" Height="50" />
                                 <StackPanel VerticalAlignment="Center">
                                 <TextBlock Classes="PropertyText">
