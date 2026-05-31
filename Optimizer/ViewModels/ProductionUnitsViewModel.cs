@@ -51,9 +51,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     private void Draw()
     {
+        //DM.GetMaintenance();
         ProductionUnits = [];
-
-
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
             Asset asset = DM.AM.Assets[index];
@@ -77,29 +76,6 @@ public partial class ProductionUnitsViewModel : ViewModelBase
             };
             unitsModel.OpenEditUnit += OpenEditMenu;
             ProductionUnits.Add(unitsModel);
-        }
-
-        var multiFuelUnits = from asset in ProductionUnits
-                             where ((asset.GasConsumption != 0 && asset.MaxElectricity < 0) ||
-                             (asset.GasConsumption != 0 && asset.OilConsumption != 0) ||
-                             (asset.MaxElectricity < 0 && asset.OilConsumption != 0))
-                             select asset;
-        foreach (var asset in multiFuelUnits)
-        {
-            asset.ConsumesMultiple = true;
-        }
-        var maintainableUnits = from asset in ProductionUnits
-                                where asset.ShallMaintained
-                                select asset;
-        var maintainedUnit = (from asset in maintainableUnits
-                             where asset.IsMaintained
-                             select asset).FirstOrDefault();
-        if(maintainedUnit != null)
-        {
-            foreach(var asset in maintainableUnits.Where(a => a != maintainedUnit))
-            {
-                asset.ShallMaintained = false;
-            }
         }
 
     }
