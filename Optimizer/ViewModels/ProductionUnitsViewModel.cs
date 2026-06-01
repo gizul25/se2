@@ -7,6 +7,7 @@ using SE2.Data;
 using SE2.Domain;
 using DialogHostAvalonia;
 using System.Threading.Tasks;
+using System.Linq;
 using SE2.Views;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -50,9 +51,8 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     private void Draw()
     {
+        //DM.GetMaintenance();
         ProductionUnits = [];
-
-
         for (int index = 0; index < DM.AM.Assets.Count; index++)
         {
             Asset asset = DM.AM.Assets[index];
@@ -67,6 +67,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
                 MaxElectricity = asset.MaxElectricity,
                 OilConsumption = asset.OilConsumption,
                 ShallMaintained = DM.AM.ScenarioData.AvailableMaintenanceUnits.Contains(asset.Name),
+                IsMaintained = asset.IsMaintained,
                 MaxHour = asset.MaxHour,
                 MinHour = asset.MinHour,
                 IsSelected = DM.AM.ScenarioData.AvailableUnits.Contains(asset.Name),
@@ -76,6 +77,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
             unitsModel.OpenEditUnit += OpenEditMenu;
             ProductionUnits.Add(unitsModel);
         }
+
     }
 
     private void Redraw(object? sender, EventArgs args)
@@ -93,7 +95,7 @@ public partial class ProductionUnitsViewModel : ViewModelBase
 
     private Bitmap LoadBitmap(string imageName)
     {
-        string uri = $"avares://SE2/Assets/images/{imageName}";
+        string uri = $"avares://SE2/Assets/images/{imageName ?? "Default.jpg"}";
         return new Bitmap(AssetLoader.Open(new Uri(uri)));
     }
 

@@ -1,49 +1,49 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:vm="using:SE2.ViewModels"
-			 xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
-			 x:DataType="vm:EditProductionUnitViewModel"
-			 x:Class="SE2.Views.EditProductionUnitView">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:vm="using:SE2.ViewModels"
+	xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+	x:DataType="vm:EditProductionUnitViewModel"
+	x:Class="SE2.Views.EditProductionUnitView">
 
 	<UserControl.Resources>
 
 		<ControlTheme x:Key="Heading" TargetType="TextBlock">
-			<Setter Property="FontSize" Value="26"/>
-			<Setter Property="Foreground" Value="#21272A"/>
-			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="FontSize" Value="26" />
+			<Setter Property="Foreground" Value="#21272A" />
+			<Setter Property="FontWeight" Value="Bold" />
 		</ControlTheme>
 
 		<ControlTheme x:Key="ConfirmButton" TargetType="Button">
-			<Setter Property="Background" Value="#ED071B"/>
-			<Setter Property="Foreground" Value="#ffffff"/>
-			<Setter Property="Padding" Value="14,8,14,8"/>
-			<Setter Property="CornerRadius" Value="4"/>
+			<Setter Property="Background" Value="#ED071B" />
+			<Setter Property="Foreground" Value="#ffffff" />
+			<Setter Property="Padding" Value="14,8,14,8" />
+			<Setter Property="CornerRadius" Value="4" />
 			<Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-				<Setter Property="Background" Value="#CF0416"/>
-				<Setter Property="Foreground" Value="#ffffff"/>
+				<Setter Property="Background" Value="#CF0416" />
+				<Setter Property="Foreground" Value="#ffffff" />
 			</Style>
 			<Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-				<Setter Property="Background" Value="#A3000E"/>
-				<Setter Property="Foreground" Value="#ffffff"/>
+				<Setter Property="Background" Value="#A3000E" />
+				<Setter Property="Foreground" Value="#ffffff" />
 			</Style>
 			<Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-				<Setter Property="Background" Value="#858585"/>
-				<Setter Property="Foreground" Value="#ffffff"/>
+				<Setter Property="Background" Value="#858585" />
+				<Setter Property="Foreground" Value="#ffffff" />
 			</Style>
 		</ControlTheme>
 
 		<ControlTheme x:Key="CancelButton" TargetType="Button">
-			<Setter Property="Background" Value="#da1e28"/>
-			<Setter Property="Foreground" Value="#ffffff"/>
-			<Setter Property="Padding" Value="14,8,14,8"/>
-			<Setter Property="CornerRadius" Value="4"/>
+			<Setter Property="Background" Value="#da1e28" />
+			<Setter Property="Foreground" Value="#ffffff" />
+			<Setter Property="Padding" Value="14,8,14,8" />
+			<Setter Property="CornerRadius" Value="4" />
 			<Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-				<Setter Property="Background" Value="#cf1e26"/>
-				<Setter Property="Foreground" Value="#ffffff"/>
+				<Setter Property="Background" Value="#cf1e26" />
+				<Setter Property="Foreground" Value="#ffffff" />
 			</Style>
 			<Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-				<Setter Property="Background" Value="#b51920"/>
-				<Setter Property="Foreground" Value="#ffffff"/>
+				<Setter Property="Background" Value="#b51920" />
+				<Setter Property="Foreground" Value="#ffffff" />
 			</Style>
 		</ControlTheme>
 
@@ -51,58 +51,226 @@
 
 	<UserControl.Styles>
 		<Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-			<Setter Property="Background" Value="#ED071B"/>
+			<Setter Property="Background" Value="#ED071B" />
+		</Style>
+		<Style Selector="CheckBox:disabled /template/ Border#NormalRectangle">
+			<Setter Property="Background" Value="#DAD7D7" />
 		</Style>
 	</UserControl.Styles>
 
 	<StackPanel VerticalAlignment="Center">
 		<Panel Margin="0,10,0,10">
-			<TextBlock x:Name="Heading" Theme="{StaticResource Heading}" HorizontalAlignment="Center" TextAlignment="Center" Text="Edit production unit"/>
-			<Button HorizontalAlignment="Right" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}">
+			<TextBlock x:Name="Heading" Theme="{StaticResource Heading}"
+				HorizontalAlignment="Center" TextAlignment="Center" Text="Edit production unit" />
+			<Button HorizontalAlignment="Right" Background="Transparent"
+				Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}">
 				<TextBlock Text="&#xf00d;" FontFamily="{StaticResource FontAwesome}" FontSize="20" />
 			</Button>
 		</Panel>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 			<Border Background="#ED071B" CornerRadius="0" Margin="0,10,0,0"
-					BorderBrush="#C50616" BorderThickness="2">
-				<UniformGrid Width="230" Columns="1" Rows="11" RowSpacing="0">
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Unit" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Production Expenses" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Max Heat Production" /> </Border>
+				BorderBrush="#C50616" BorderThickness="2">
+				<Grid Width="230" ColumnDefinitions="*" RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition SharedSizeGroup="A" />
+						<RowDefinition SharedSizeGroup="B" />
+						<RowDefinition SharedSizeGroup="C" />
+						<RowDefinition SharedSizeGroup="D" />
+						<RowDefinition SharedSizeGroup="E" />
+						<RowDefinition SharedSizeGroup="F" />
+						<RowDefinition SharedSizeGroup="G" />
+						<RowDefinition SharedSizeGroup="H" />
+						<RowDefinition SharedSizeGroup="I" />
+						<RowDefinition SharedSizeGroup="J" />
+						<RowDefinition SharedSizeGroup="K" />
+					</Grid.RowDefinitions>
+					<Border Grid.Row="0" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Production Unit" />
+					</Border>
+					<Border Grid.Row="1" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Production Expenses" />
+					</Border>
+					<Border Grid.Row="2" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Max Heat Production" />
+					</Border>
 
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Maintenance" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Min hours" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Max hours" /> </Border>
+					<Border Grid.Row="3" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Maintenance" />
+					</Border>
+					<Border Grid.Row="4" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Min hours" />
+					</Border>
+					<Border Grid.Row="5" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Max hours" />
+					</Border>
 
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Gas Usages" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Oil Usages" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Electricity Usages" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="CO2 Emissions" /> </Border>
-					<Border BorderBrush="#C50616" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold" Foreground= "#ffffff" Text="Color" /> </Border>
-				</UniformGrid>
+					<Border Grid.Row="6" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Gas Usage" />
+					</Border>
+					<Border Grid.Row="7" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Oil Usage" />
+					</Border>
+					<Border Grid.Row="8" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Electricity Production" />
+					</Border>
+					<Border Grid.Row="9" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="CO2 Emissions" />
+					</Border>
+					<Border Grid.Row="10" BorderBrush="#C50616" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="SemiBold"
+							Foreground="#ffffff" Text="Color" />
+					</Border>
+				</Grid>
 			</Border>
 			<Border CornerRadius="0" Margin="-2,10,0,0"
-					BorderBrush="#E8E8E8" BorderThickness="2">
-				<UniformGrid Width="230" Columns="1" Rows="11" RowSpacing="0">
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Name}" Watermark="Unit Name" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.ProductionCosts}" Minimum="0" FormatString="0 Dkk / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHeat}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
+				BorderBrush="#E8E8E8" BorderThickness="2">
+				<Grid Width="230" ColumnDefinitions="*" RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition SharedSizeGroup="A" />
+						<RowDefinition SharedSizeGroup="B" />
+						<RowDefinition SharedSizeGroup="C" />
+						<RowDefinition SharedSizeGroup="D" />
+						<RowDefinition SharedSizeGroup="E" />
+						<RowDefinition SharedSizeGroup="F" />
+						<RowDefinition SharedSizeGroup="G" />
+						<RowDefinition SharedSizeGroup="H" />
+						<RowDefinition SharedSizeGroup="I" />
+						<RowDefinition SharedSizeGroup="J" />
+						<RowDefinition SharedSizeGroup="K" />
+					</Grid.RowDefinitions>
+					<Border Grid.Row="0" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0">
+						<TextBox Text="{Binding Path=SelectedProductionUnit.Name}"
+							Watermark="Unit Name" Margin="5" BorderThickness="0"
+							VerticalAlignment="Center" TextChanged="OnTextChanged"
+							TextChanging="OnTextChanged" />
+					</Border>
+					<Border Grid.Row="1" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.ProductionCosts}"
+							Minimum="0" FormatString="0" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="DKK / MWh" VerticalAlignment="Center"
+									Margin="0,0,10,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="2" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHeat}"
+							Minimum="0" FormatString="F2" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="MW" VerticalAlignment="Center" Margin="0,0,60,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
 
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <CheckBox IsChecked="{Binding Path=SelectedProductionUnit.ShallMaintained}" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MinHour}" Minimum="0" FormatString="0 h" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHour}" Minimum="0" FormatString="0 h" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center"  /> </Border>
+					<Border Grid.Row="3" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<CheckBox IsChecked="{Binding Path=SelectedProductionUnit.ShallMaintained}"
+							Margin="8,0,0,0" BorderThickness="0" VerticalAlignment="Center" />
+					</Border>
+					<Border Grid.Row="4" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.MinHour}"
+							Minimum="0" FormatString="0" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="h" VerticalAlignment="Center" Margin="0,0,76,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="5" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxHour}"
+							Minimum="0" FormatString="0" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="h" VerticalAlignment="Center" Margin="0,0,76,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
 
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.GasConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.OilConsumption}" Minimum="0" FormatString="0.00 MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxElectricity}" Minimum="0" FormatString="0.00 MW" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,-2" Padding="5"> <NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}" Minimum="0" FormatString="0 kg / MWh" ShowButtonSpinner="False" Margin="0" BorderThickness="0" VerticalAlignment="Center" /> </Border>
-					<Border BorderBrush="#E8E8E8" BorderThickness="2" Margin="-2,-2,-2,0"> <TextBox Text="{Binding Path=SelectedProductionUnit.Color}" Watermark="Color" Margin="5" BorderThickness="0" VerticalAlignment="Center" TextChanged="OnTextChanged" TextChanging="OnTextChanged"/> </Border>
-				</UniformGrid>
+					<Border Grid.Row="6" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.GasConsumption}"
+							Minimum="0" FormatString="F2" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="MWh" VerticalAlignment="Center" Margin="0,0,50,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="7" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.OilConsumption}"
+							Minimum="0" FormatString="F2" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="MWh" VerticalAlignment="Center" Margin="0,0,50,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="8" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.MaxElectricity}"
+							FormatString="F2" ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="MW" VerticalAlignment="Center" Margin="0,0,60,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="9" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0" Padding="5">
+						<NumericUpDown Value="{Binding Path=SelectedProductionUnit.Co2Emissions}"
+							Minimum="0" FormatString="0." ShowButtonSpinner="False" Margin="0"
+							BorderThickness="0" VerticalAlignment="Center">
+							<NumericUpDown.InnerRightContent>
+								<TextBlock Text="kg / MWh" VerticalAlignment="Center"
+									Margin="0,0,23,4" />
+							</NumericUpDown.InnerRightContent>
+						</NumericUpDown>
+					</Border>
+					<Border Grid.Row="10" BorderBrush="#E8E8E8" BorderThickness="2"
+						Margin="-2,-2,-2,0">
+						<TextBox Text="{Binding Path=SelectedProductionUnit.Color}"
+							Watermark="Color" Margin="5" BorderThickness="0"
+							VerticalAlignment="Center" TextChanged="OnTextChanged"
+							TextChanging="OnTextChanged" />
+					</Border>
+				</Grid>
 			</Border>
 		</StackPanel>
 		<UniformGrid Rows="1" Columns="2">
-			<Button Command="{Binding OnDelete}" Theme="{StaticResource CancelButton}" Content="{Binding CancelContent}" HorizontalAlignment="Left" Margin="43 20"/>
-			<Button Command="{Binding OnSave}" IsEnabled="{Binding CanSave}" Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right" Margin="47 20"/>
+			<Button Command="{Binding OnDelete}" Theme="{StaticResource CancelButton}"
+				Content="{Binding CancelContent}" HorizontalAlignment="Left" Margin="43 20" />
+			<Button Command="{Binding OnSave}" IsEnabled="{Binding CanSave}"
+				Theme="{StaticResource ConfirmButton}" Content="Save" HorizontalAlignment="Right"
+				Margin="47 20" />
 		</UniformGrid>
 	</StackPanel>
 </UserControl>

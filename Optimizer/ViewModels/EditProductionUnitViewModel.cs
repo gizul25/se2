@@ -5,6 +5,7 @@ using DialogHostAvalonia;
 using SE2.Data;
 using SE2.Domain;
 using SE2.Models;
+using SE2.Utils;
 
 namespace SE2.ViewModels;
 
@@ -43,6 +44,12 @@ public partial class EditProductionUnitViewModel : ViewModelBase
         {
             DM.AM.Assets.RemoveAt(UnitIndex);
         }
+
+        //maybe it's ugly, but simpler than raising events
+        if (_selectedProductionUnit.IsSelected)
+        {
+            _selectedProductionUnit.IsSelected = false;
+        }
         Redraw?.Invoke(null, new());
         DialogHost.Close("MainDialogHost");
     }
@@ -77,35 +84,44 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             else
             {
                 DM.AM.ScenarioData.AvailableMaintenanceUnits.Remove(originalName);
-                DM.AM.ScenarioData.MaintenanceHoursMin.RemoveAt(b);
-                DM.AM.ScenarioData.MaintenanceHoursMax.RemoveAt(b);
+                try
+                {
+                    DM.AM.ScenarioData.MaintenanceHoursMin.RemoveAt(b);
+                    DM.AM.ScenarioData.MaintenanceHoursMax.RemoveAt(b);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("No maintenance hours defined for the unit");
+                }
             }
 
             DM.AM.Assets[UnitIndex].Name = SelectedProductionUnit.Name;
             DM.AM.Assets[UnitIndex].MaxHeat = SelectedProductionUnit.MaxHeat;
             DM.AM.Assets[UnitIndex].GasConsumption = SelectedProductionUnit.GasConsumption;
             DM.AM.Assets[UnitIndex].OilConsumption = SelectedProductionUnit.OilConsumption;
-            DM.AM.Assets[UnitIndex].MaxElectricity = SelectedProductionUnit.MaxElectricity;
-            DM.AM.Assets[UnitIndex].Color = SelectedProductionUnit.Color;
+            DM.AM.Assets[UnitIndex].MaxElectricity = (SelectedProductionUnit.GasConsumption == 0 && SelectedProductionUnit.OilConsumption == 0 && SelectedProductionUnit.MaxElectricity == 0) ? 2.5f : SelectedProductionUnit.MaxElectricity;
+            DM.AM.Assets[UnitIndex].Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) && SelectedProductionUnit.Color.StartsWith('#') ? SelectedProductionUnit?.Color : "#E1FF00";
             DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
             DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
             DM.AM.Assets[UnitIndex].MinHour = SelectedProductionUnit.MinHour;
             DM.AM.Assets[UnitIndex].MaxHour = SelectedProductionUnit.MaxHour;
+
         }
         else
         {
             DM.AM.Assets.Add(new()
             {
                 Name = SelectedProductionUnit.Name,
-                MaxHeat = SelectedProductionUnit.MaxHeat,
+                MaxHeat = SelectedProductionUnit.MaxHeat == 0 ? 2.0f : SelectedProductionUnit.MaxHeat,
                 GasConsumption = SelectedProductionUnit.GasConsumption,
                 OilConsumption = SelectedProductionUnit.OilConsumption,
-                MaxElectricity = SelectedProductionUnit.MaxElectricity,
-                Color = SelectedProductionUnit.Color,
+                MaxElectricity = (SelectedProductionUnit.GasConsumption == 0 && SelectedProductionUnit.OilConsumption == 0 && SelectedProductionUnit.MaxElectricity == 0) ? 2.5f : SelectedProductionUnit.MaxElectricity,
+                Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) && SelectedProductionUnit.Color.StartsWith('#') ? SelectedProductionUnit.Color : "#E1FF00",
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
                 ShallMaintained = SelectedProductionUnit.ShallMaintained,
+                IsMaintained = SelectedProductionUnit.IsMaintained,
                 MinHour = SelectedProductionUnit.MinHour,
                 MaxHour = SelectedProductionUnit.MaxHour
             });
@@ -129,7 +145,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             return;
         }
 
-        if (originalName == SelectedProductionUnit.Name)
+        if (originalName == SelectedProductionUnit.Name && UnitIndex != -1)
         {
             CanSave = true;
             return;
