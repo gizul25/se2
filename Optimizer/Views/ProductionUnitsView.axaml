@@ -244,7 +244,7 @@
                                 </Border>
                                 <Border BorderBrush="{StaticResource GrayBorderOpaque}"
                                     BorderThickness="2,0,0,0" Margin="0,-8,-2,-8" Padding="5">
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
                                         <Ellipse Fill="{Binding Color}" Height="10" Width="10" />
                                         <TextBlock Margin="5" Classes="PropertyText">
                                             <TextBlock.Text>

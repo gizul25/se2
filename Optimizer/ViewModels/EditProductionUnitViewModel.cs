@@ -100,7 +100,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
             DM.AM.Assets[UnitIndex].GasConsumption = SelectedProductionUnit.GasConsumption;
             DM.AM.Assets[UnitIndex].OilConsumption = SelectedProductionUnit.OilConsumption;
             DM.AM.Assets[UnitIndex].MaxElectricity = (SelectedProductionUnit.GasConsumption == 0 && SelectedProductionUnit.OilConsumption == 0 && SelectedProductionUnit.MaxElectricity == 0) ? 2.5f : SelectedProductionUnit.MaxElectricity;
-            DM.AM.Assets[UnitIndex].Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) ? SelectedProductionUnit.Color : "#E1FF00";
+            DM.AM.Assets[UnitIndex].Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) && SelectedProductionUnit.Color.StartsWith('#') ? SelectedProductionUnit?.Color : "#E1FF00";
             DM.AM.Assets[UnitIndex].Co2Emissions = SelectedProductionUnit.Co2Emissions;
             DM.AM.Assets[UnitIndex].ProductionCosts = SelectedProductionUnit.ProductionCosts;
             DM.AM.Assets[UnitIndex].ShallMaintained = SelectedProductionUnit.ShallMaintained;
@@ -117,7 +117,7 @@ public partial class EditProductionUnitViewModel : ViewModelBase
                 GasConsumption = SelectedProductionUnit.GasConsumption,
                 OilConsumption = SelectedProductionUnit.OilConsumption,
                 MaxElectricity = (SelectedProductionUnit.GasConsumption == 0 && SelectedProductionUnit.OilConsumption == 0 && SelectedProductionUnit.MaxElectricity == 0) ? 2.5f : SelectedProductionUnit.MaxElectricity,
-                Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) ? SelectedProductionUnit.Color : "#E1FF00",
+                Color = SkiaSharp.SKColor.TryParse(SelectedProductionUnit.Color, out SkiaSharp.SKColor color) && SelectedProductionUnit.Color.StartsWith('#') ? SelectedProductionUnit.Color : "#E1FF00",
                 Co2Emissions = SelectedProductionUnit.Co2Emissions,
                 ProductionCosts = SelectedProductionUnit.ProductionCosts,
                 ShallMaintained = SelectedProductionUnit.ShallMaintained,
