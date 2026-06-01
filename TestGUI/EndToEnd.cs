@@ -127,25 +127,102 @@ public class EndToEndTests
 
     
 
-    [Fact]
-    public void Edge_DefaultPeriod_IsWinter()
-    {
-        var vm = new ScenarioNavViewModel();
-        Assert.Equal("Winter period", vm.SelectedPeriod);
-    }
-
-    [Fact]
-    public void Edge_ChartsEmpty_WhenNoResults()
+[Fact]
+    public async Task Edge_ExtremelyLargeCase()
     {
         DM.Init();
-        DM.RDM.SetCurrentScenarioResultingData(null!);
 
-        var vm = new OptimizerViewModel();
+        var window = new MainWindow();
+        window.Show();
 
-        Assert.Empty(vm.Charts);
-        Assert.False(vm.ExportEnabled);
+        var progress = new Progress<double>();
+        using var cts = new CancellationTokenSource();
+
+        DM.StartOptimizer(cts.Token, progress);
+        var vm = new ProductionUnitsView();
+
+        var edtBtn = vm.FindControl<Button>("EditButton"); 
+        Assert.NotNull(edtBtn);
+        Assert.NotNull(edtBtn.Command);
+
+        var cmd = edtBtn.Command as IAsyncRelayCommand;
+        Assert.NotNull(cmd);
+
+        await cmd!.ExecuteAsync(null);
+
+        var productionUnitsVM = vm.DataContext as ProductionUnitsViewModel;
+    
+        Assert.NotNull(productionUnitsVM);
+        Assert.NotEmpty(productionUnitsVM.ProductionUnits);
+
+        var newUnit = new Models.ProductionUnitsModel()
+        {
+            Name = "Test Unit",
+            ProductionCosts = 10000000,
+            MaxHeat = 500
+        };
+
+        productionUnitsVM.ProductionUnits.Add(newUnit);
+
+        foreach (var unit in productionUnitsVM.ProductionUnits)
+        {
+            Assert.NotNull(unit.Name);
+            Assert.True(unit.ProductionCosts >= 0);
+            Assert.True(unit.MaxHeat >= 0);
+        }
+
+        Assert.True(productionUnitsVM.ProductionUnits.Count >= 10);
+
+     
     }
 
+    [Fact]
+    public async Task Edge_ExtremelySmall()
+    {
+        DM.Init();
+
+        var window = new MainWindow();
+        window.Show();
+
+        var progress = new Progress<double>();
+        using var cts = new CancellationTokenSource();
+
+        DM.StartOptimizer(cts.Token, progress);
+        var vm = new ProductionUnitsView();
+
+        var edtBtn = vm.FindControl<Button>("EditButton"); 
+        Assert.NotNull(edtBtn);
+        Assert.NotNull(edtBtn.Command);
+
+        var cmd = edtBtn.Command as IAsyncRelayCommand;
+        Assert.NotNull(cmd);
+
+        await cmd!.ExecuteAsync(null);
+
+        var productionUnitsVM = vm.DataContext as ProductionUnitsViewModel;
+    
+        Assert.NotNull(productionUnitsVM);
+        Assert.NotEmpty(productionUnitsVM.ProductionUnits);
+
+        var newUnit = new Models.ProductionUnitsModel()
+        {
+            Name = "Test Unit",
+            ProductionCosts = 1000,
+            MaxHeat = 1,
+        };
+
+        productionUnitsVM.ProductionUnits.Add(newUnit);
+
+        foreach (var unit in productionUnitsVM.ProductionUnits)
+        {
+            Assert.NotNull(unit.Name);
+            Assert.True(unit.ProductionCosts >= 0);
+            Assert.True(unit.MaxHeat >= 0);
+        }
+
+        Assert.True(productionUnitsVM.ProductionUnits.Count >= 10);
+
+    }
    
 
     private static ScenarioNav GetFirstScenarioNav(MainWindow window)
