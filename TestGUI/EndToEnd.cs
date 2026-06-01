@@ -98,7 +98,7 @@ public class EndToEndTests
     }
 
     
-    [Fact]
+    [AvaloniaFact]
     public async Task Negative_NotEnoughHeat()
     {
         DM.Init();
@@ -128,11 +128,14 @@ public class EndToEndTests
         var optimizerView = new OptimizerView() { DataContext = new OptimizerViewModel() };
         var optimizerBtn = optimizerView.FindControl<Button>("OptimizerBtn");
         Assert.NotNull(optimizerBtn);
-        Assert.False(optimizerBtn.IsEnabled);
+        Assert.NotNull(optimizerBtn!.Command);
+
+        var ex=Record.Exception(() => optimizerBtn.Command!.Execute(null));
+            Assert.NotNull(ex);
     }
 
 
-    [Fact]
+    [AvaloniaFact]
 
     public async Task Negative_MinMaxHours()
     {
@@ -183,7 +186,7 @@ public class EndToEndTests
 
     
 
-    [Fact]
+    [AvaloniaFact]
     public async Task Edge_ExtremelyLargeCase()
     {
         DM.Init();
@@ -232,7 +235,7 @@ public class EndToEndTests
      
     }
 
-    [Fact]
+    [AvaloniaFact]
     public async Task Edge_ExtremelySmall()
     {
         DM.Init();
