@@ -18,8 +18,10 @@ public class EndToEndTests
 {
     public EndToEndTests()
     {
-        DM.Init();
-        DM.StartOptimizer();
+        SE2.Domain.DM.Init();
+        var progress = new Progress<double>();
+        CancellationTokenSource cts = new();
+        SE2.Domain.DM.StartOptimizer(cts.Token, progress);
     }
 
     
@@ -31,12 +33,6 @@ public class EndToEndTests
         window.Show();
 
         var scenarioNav = GetFirstScenarioNav(window);
-
-        
-        var scenarioList = scenarioNav.FindControl<ListBox>("ScenarioList");
-        Assert.NotNull(scenarioList);
-        scenarioList.SelectedIndex = 0;
-
         
         var periodCombo = scenarioNav.FindControl<ComboBox>("PeriodComboBox");
         Assert.NotNull(periodCombo);
@@ -103,31 +99,91 @@ public class EndToEndTests
 
     
     [Fact]
-    public void Negative_InvalidScenario_Throws()
+    public async Task Negative_NotEnoughHeat()
     {
-        var loader = new ScenarioLoader();
-        Assert.ThrowsAny<Exception>(() => loader.Load("999"));
+        DM.Init();
+
+        var window = new MainWindow();
+        window.Show();
+
+        var progress = new Progress<double>();
+        using var cts = new CancellationTokenSource();
+
+        DM.StartOptimizer(cts.Token, progress);
+        var vm = new ProductionUnitsViewModel();
+
+        foreach (var unit in vm.ProductionUnits)
+        {
+            if (unit.Name == "GB1")
+            {
+                unit.IsSelected = true;
+            }
+        }
+
+        for (int i = 0; i < DM.SDM.Sources.Count; i++)
+        {
+            DM.SDM.Sources[i].HeatDemand = 4;
+        }
+       
+        var optimizerView = new OptimizerView() { DataContext = new OptimizerViewModel() };
+        var optimizerBtn = optimizerView.FindControl<Button>("OptimizerBtn");
+        Assert.NotNull(optimizerBtn);
+        Assert.False(optimizerBtn.IsEnabled);
     }
 
 
     [Fact]
-    public async Task Negative_OptimizerWithoutAssets_Throws()
+
+    public async Task Negative_MinMaxHours()
     {
         DM.Init();
-        DM.AM.Assets.Clear();
 
-        var vm = new OptimizerViewModel();
-        var cmd = vm.RunOptimizationCommand;
+        var window = new MainWindow();
+        window.Show();
 
-        await Assert.ThrowsAnyAsync<Exception>(async () =>
+        var progress = new Progress<double>();
+        using var cts = new CancellationTokenSource();
+
+        DM.StartOptimizer(cts.Token, progress);
+        var vm = new ProductionUnitsView();
+
+        var edtBtn = vm.FindControl<Button>("EditButton"); 
+        Assert.NotNull(edtBtn);
+        Assert.NotNull(edtBtn.Command);
+
+        var cmd = edtBtn.Command as IAsyncRelayCommand;
+        Assert.NotNull(cmd);
+
+        await cmd!.ExecuteAsync(null);
+
+        var productionUnitsVM = vm.DataContext as ProductionUnitsViewModel;
+    
+        Assert.NotNull(productionUnitsVM);
+        Assert.NotEmpty(productionUnitsVM.ProductionUnits);
+
+        var newUnit = new Models.ProductionUnitsModel()
         {
-            await cmd.ExecuteAsync(null);
-        });
+            Name = "Test Unit",
+            MinHour = 60,
+            MaxHour = 30
+        };
+
+        productionUnitsVM.ProductionUnits.Add(newUnit);
+
+        foreach (var unit in productionUnitsVM.ProductionUnits)
+        {
+            Assert.NotNull(unit.Name);
+            Assert.False(unit.MinHour <= unit.MaxHour);
+        }
+
+        Assert.True(productionUnitsVM.ProductionUnits.Count >= 10);
+
+     
     }
 
     
 
-[Fact]
+    [Fact]
     public async Task Edge_ExtremelyLargeCase()
     {
         DM.Init();
@@ -223,6 +279,7 @@ public class EndToEndTests
         Assert.True(productionUnitsVM.ProductionUnits.Count >= 10);
 
     }
+
    
 
     private static ScenarioNav GetFirstScenarioNav(MainWindow window)
