@@ -130,8 +130,9 @@ public class EndToEndTests
         Assert.NotNull(optimizerBtn);
         Assert.NotNull(optimizerBtn!.Command);
 
-        var ex=Record.Exception(() => optimizerBtn.Command!.Execute(null));
-            Assert.NotNull(ex);
+        var ex = Record.Exception(() => optimizerBtn.Command!.Execute(null));
+        Assert.Null(ex);
+        Assert.False(optimizerBtn.IsEnabled);
     }
 
 
