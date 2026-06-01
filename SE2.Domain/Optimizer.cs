@@ -54,11 +54,11 @@ public class Optimizer
             }
             if (string.IsNullOrWhiteSpace(a.Name))
             {
-                throw new Exception("Asset name is missing");
+                throw new Exception($"Asset name for {a.Name} is missing");
             }
             if (a.MaxHeat <= 0)
             {
-                throw new Exception("Asset has no heat demand");
+                throw new Exception($"Asset {a.Name} has no heat demand");
             }
 
             if (a.MinHour != 0 || a.MaxHour != 0)
@@ -68,12 +68,12 @@ public class Optimizer
                     throw new Exception($"Maintanance is invalid {a.Name}");
                 }
             }
-            
-            if((a.GasConsumption != 0 && a.MaxElectricity < 0) ||
+
+            if ((a.GasConsumption != 0 && a.MaxElectricity < 0) ||
                              (a.GasConsumption != 0 && a.OilConsumption != 0) ||
                              (a.MaxElectricity < 0 && a.OilConsumption != 0))
             {
-                throw new Exception($"Asset uses multiple types of fuel");
+                throw new Exception($"Asset {a.Name} uses multiple types of fuel");
             }
         }
     }
@@ -107,17 +107,17 @@ public class Optimizer
         {
             if (a == null)
             {
-                throw new Exception("Asset is null");
+                throw new Exception($"Asset {a.Name} is null");
             }
 
             if (string.IsNullOrWhiteSpace(a.Name))
             {
-                throw new Exception("Asset name is missing");
+                throw new Exception($"Asset name {a.Name} is missing");
             }
 
             if (a.MaxHeat <= 0)
             {
-                throw new Exception("Asset has no heat demand");
+                throw new Exception($"Asset {a.Name} has no heat demand");
             }
 
             decimal baseCost = a.ProductionCosts;
