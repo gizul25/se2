@@ -89,7 +89,7 @@
                 <UniformGrid Grid.Row="0" Grid.Column="2" Rows="1" ColumnSpacing="5">
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0"
                         Margin="0,-4,-2,-4" Padding="5">
-                        <TextBlock Classes="Text" Text="Production Costs" />
+                        <TextBlock Classes="Text" Text="Production Expenses" />
                     </Border>
                     <Border BorderBrush="{StaticResource RedBorderOpaque}" BorderThickness="2,0,0,0"
                         Margin="0,-4,-2,-4" Padding="5">
